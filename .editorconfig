@@ -1,0 +1,32 @@
+# .editorconfig
+
+# top-most EditorConfig file
+root = true
+
+# Default settings for all files:
+[*]
+charset = utf-8
+end_of_line = lf
+insert_final_newline = true
+trim_trailing_whitespace = true
+indent_style = space
+indent_size = 4
+
+# File type overrides:
+
+# Use 2 spaces for .json and .yml
+[*.{json,yml}]
+indent_size = 4
+
+# Use 4 spaces for md files
+[*.md]
+trim_trailing_whitespace = false
+indent_size = 4
+
+# TypeScript/JavaScript files
+[*.{ts,tsx,js,jsx}]
+indent_size = 4
+
+# Styles and CSS
+[*.{css,scss,less,sass}]
+indent_size = 4
