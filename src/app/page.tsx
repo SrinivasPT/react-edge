@@ -1,11 +1,11 @@
 'use client';
 
-import { decrement, increment, reset } from '@store/features/counterSlice';
+import { decrement, increment, reset } from '@store/features/counter-slice';
 import { useAppDispatch, useAppSelector } from '@store/hooks';
-import { useGetUsersQuery } from '@store/services/userApi';
+import { useGetUsersQuery } from '@store/service/user-api';
 
 export default function Home() {
-    const count = useAppSelector(state => state.counterReducer.value);
+    const count = useAppSelector(state => state.counter.value);
     const dispatch = useAppDispatch();
 
     const { isLoading, isFetching, data, error } = useGetUsersQuery(null);

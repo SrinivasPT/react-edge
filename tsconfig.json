@@ -22,7 +22,9 @@
         "paths": {
             "@components/*": ["./src/components*"],
             "@lib/*": ["./src/library/*"],
-            "@store/*": ["./src/redux/*"]
+            "@store/*": ["./src/redux/*"],
+            "@util/*": ["./src/util/*"],
+            "@domain/*": ["./src/domain/*"]
         }
     },
     "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
