@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "baseUrl": "./src",
+    "paths": {
+      "@components/*": ["components/*"],
+      "@utils/*": ["utils/*"]
+      // Add more path mappings as needed
+    }
+  },
+  "include": ["**/*.js", "**/*.jsx", "**/*.ts", "**/*.tsx"],
+  "exclude": ["node_modules"]
+}
