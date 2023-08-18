@@ -4,7 +4,10 @@ export interface SearchCriteria {
 
 export interface UIState {
     isLoading: boolean;
+    isEditing: boolean;
     isError: boolean;
+    isSaved: boolean;
+    isSaveInProgress: boolean;
     errorMessage: string | null;
 }
 
@@ -13,8 +16,8 @@ export interface Entity {
     [key: string]: any;
 }
 
-export interface SearchResults<T extends Entity> {
-    results: T[];
+export interface SearchResults {
+    results: [];
     totalCount: number;
 }
 
@@ -23,19 +26,24 @@ export interface Pagination {
     itemsPerPage: number;
 }
 
-export interface SearchState<T extends Entity> {
+export interface SearchState {
     searchCriteria: SearchCriteria;
     uiState: UIState;
     adhocData: { [key: string]: any };
-    searchResults: SearchResults<T>;
+    searchResults: SearchResults;
     pagination: Pagination;
 }
 
-export interface DetailState<T extends Entity> {
+export interface DetailState {
     itemId: string | null;
-    itemDetails: T;
+    itemDetails: any;
     uiState: UIState;
     formChanges: { [key: string]: any };
     validationErrors: { [key: string]: string[] };
     adhocData: { [key: string]: any };
 }
+
+export type DispatchEvent = {
+    type: string;
+    payload?: any;
+};
