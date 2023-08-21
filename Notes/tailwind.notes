@@ -1,0 +1,45 @@
+https://play.tailwindcss.com/
+---------------------------------------------
+
+
+<div class="grid gap-5 p-5 md:grid-cols-2 lg:grid-cols-3">
+  <div class="input-wrapper font-sans">
+    <label for="username1" class="mb-1 block font-bold">Username:</label>
+    <input type="text" id="username1" name="username1" class="w-full rounded-md border px-3 py-2 text-base transition-all duration-200 hover:border-gray-400 hover:shadow-md focus:border-blue-500 focus:shadow-md focus:outline-none" />
+  </div>
+
+  <div class="input-wrapper font-sans">
+    <label for="username2" class="mb-1 block font-bold">Password:</label>
+    <input type="text" id="username2" name="username2" class="w-full rounded-md border px-3 py-2 text-base transition-all duration-200 hover:border-gray-400 hover:shadow-md focus:border-blue-500 focus:shadow-md focus:outline-none" />
+  </div>
+
+  <div class="input-wrapper font-sans">
+    <label for="username3" class="mb-1 block font-bold">Date:</label>
+    <input type="date" id="username3" name="username3" class="w-full rounded-md border px-3 py-2 text-base transition-all duration-200 hover:border-gray-400 hover:shadow-md focus:border-blue-500 focus:shadow-md focus:outline-none" />
+  </div>
+
+  <div class="input-wrapper font-sans">
+    <label for="selection" class="mb-1 block font-bold">Select Option:</label>
+    <select id="selection" name="selection" class="w-full rounded-md border px-3 py-2 text-base focus:border-blue-500 hover:border-gray-400 hover:shadow-md focus:shadow-md transition-all duration-200 focus:outline-none">
+        <option value="option1">Option 1</option>
+        <option value="option2">Option 2</option>
+        <option value="option3">Option 3</option>
+    </select>
+  </div>
+
+  <div class="input-wrapper font-sans flex items-center border rounded-md px-3 py-2">
+    <svg class="h-5 w-5 mr-2" /* @heroicons ui-phone */></svg>
+    <input type="tel" id="phone" name="phone" placeholder="Phone Number" class="w-full focus:outline-none" />
+  </div>
+
+  <div class="input-wrapper font-sans flex items-center border rounded-md px-3 py-2">
+      <span class="mr-2">$</span>
+      <input type="text" id="amount" name="amount" placeholder="Amount" class="w-full focus:outline-none" />
+  </div>
+
+  <div class="input-wrapper font-sans flex items-center border rounded-md px-3 py-2">
+      <svg class="h-5 w-5 mr-2" /* @heroicons ui-numeric-icon-placeholder */></svg>
+      <input type="number" id="numeric" name="numeric" placeholder="Enter a number" class="w-full focus:outline-none" />
+  </div>
+
+</div>

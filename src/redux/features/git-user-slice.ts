@@ -1,53 +1,28 @@
-import { User, UserList } from '@domain/types/git';
+import { GitUserList, GitUser } from '@domain/types';
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 
 type GitUserState = {
-    list: UserList[];
-    detail: User;
+    list: GitUserList[];
+    detail: GitUser;
 };
 
 const initialState: GitUserState = {
-    list: [] as UserList[],
-    detail: {} as User,
+    list: [] as GitUserList[],
+    detail: {} as GitUser,
 } as GitUserState;
 
-// export const fetchUserList = createAsyncThunk('gitUser/fetchUserList', async (_, { dispatch }) => {
-//     const { data, isLoading, error } = useGetGitUsersQuery();
-//     if (isLoading) return;
-//     if (error) throw error;
-//     return data;
-// });
-
-// export const fetchUserById = createAsyncThunk('gitUser/fetchUserById', async (id: string, { dispatch }) => {
-//     try {
-//         const response = await gitUserApi.endpoints.getGitUserById.initiate({ id });
-//         return response;
-//     } catch (error) {
-//         throw error;
-//     }
-// });
-
 export const gitUserSlice = createSlice({
-    name: 'gitUser',
+    name: 'git-user',
     initialState,
     reducers: {
         reset: () => initialState,
-        initializeList: (state, action: PayloadAction<UserList[]>) => {
+        initializeList: (state, action: PayloadAction<GitUserList[]>) => {
             state.list = action.payload;
         },
-        fetchById: (state, action: PayloadAction<User>) => {
+        fetchById: (state, action: PayloadAction<GitUser>) => {
             state.detail = action.payload;
         },
     },
-    // extraReducers: builder => {
-    //     builder
-    //         .addCase(fetchUserList.fulfilled, (state, action) => {
-    //             state.list = action.payload;
-    //         })
-    //         .addCase(fetchUserList.rejected, (state, action) => {
-    //             console.error(action.error);
-    //         });
-    // },
 });
 
 export const { initializeList, fetchById: fetchDetail, reset } = gitUserSlice.actions;

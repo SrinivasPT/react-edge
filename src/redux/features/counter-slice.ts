@@ -29,4 +29,5 @@ export const counter = createSlice({
 });
 
 export const { increment, incrementByAmount, decrement, decrementByAmount, reset } = counter.actions;
+
 export default counter.reducer;

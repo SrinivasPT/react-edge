@@ -1,4 +1,4 @@
-export interface User {
+export interface GitUser {
     id: number;
     name: string;
     login: string;
@@ -11,7 +11,7 @@ export interface User {
     siteAdmin: boolean;
 }
 
-export interface UserList {
+export interface GitUserList {
     id: number;
     login: string;
     avatarUrl: string;
