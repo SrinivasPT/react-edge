@@ -6,7 +6,7 @@ import { set } from 'lodash';
 const initialState: FormState = {
     data: {},
     flags: {
-        isLoading: false,
+        isLoading: true,
         isEditing: false,
         isError: false,
         isSaved: false,
