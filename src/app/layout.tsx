@@ -1,8 +1,10 @@
+'use client';
+
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import { Providers } from '../redux/provider';
 import './globals.css';
-import { useGetAllFormConfigQuery } from '@store/api/form-config-api';
+import Init from './init';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -12,14 +14,12 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
-    const { isLoading, data } = useGetAllFormConfigQuery(null);
-
-    if (isLoading) return <div>Loading...</div>;
-
     return (
         <html lang="en">
             <body className={inter.className}>
-                <Providers>{children}</Providers>
+                <Providers>
+                    <Init>{children}</Init>
+                </Providers>
             </body>
         </html>
     );

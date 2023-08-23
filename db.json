@@ -7029,28 +7029,36 @@
             "title": "User Info",
             "layout": "vertical",
             "dataKey": "user",
-            "controls": [
+            "sections": [
                 {
-                    "id": "firstName",
-                    "label": "First Name",
-                    "type": "text",
-                    "required": true,
-                    "validation": {
-                        "minLength": 2,
-                        "maxLength": 20
-                    },
-                    "placeholder": "Enter your first name"
-                },
-                {
-                    "id": "lastName",
-                    "label": "Last Name",
-                    "type": "text",
-                    "required": true,
-                    "validation": {
-                        "minLength": 2,
-                        "maxLength": 20
-                    },
-                    "placeholder": "Enter your last name"
+                    "id": "basic",
+                    "title": "Basic Info",
+                    "controls": [
+                        {
+                            "id": "firstName",
+                            "label": "First Name",
+                            "type": "INPUT",
+                            "required": true,
+                            "dataKey": "user.firstName",
+                            "validation": {
+                                "minLength": 2,
+                                "maxLength": 20
+                            },
+                            "placeholder": "Enter your first name"
+                        },
+                        {
+                            "id": "lastName",
+                            "label": "Last Name",
+                            "type": "INPUT",
+                            "dataKey": "user.lastName",
+                            "required": true,
+                            "validation": {
+                                "minLength": 2,
+                                "maxLength": 20
+                            },
+                            "placeholder": "Enter your last name"
+                        }
+                    ]
                 }
             ]
         }

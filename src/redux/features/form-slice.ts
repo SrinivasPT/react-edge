@@ -4,10 +4,8 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { set } from 'lodash';
 
 const initialState: FormState = {
-    detail: {},
-    criteria: {},
-    list: [],
-    state: {
+    data: {},
+    flags: {
         isLoading: false,
         isEditing: false,
         isError: false,
@@ -24,13 +22,14 @@ export const form = createSlice({
     initialState,
     reducers: {
         reset: () => initialState,
-        setFormDetail: (state, action: PayloadAction<User>) => {
-            set(state, 'detail', action.payload);
-            set(state, 'isLoading', false);
+        setFormDetail: (state, action: PayloadAction<{ key: string; value: User }>) => {
+            const { key, value } = action.payload;
+            set(state.data, key, value);
+            set(state.flags, 'isLoading', false);
         },
-        onChange: (state, action: PayloadAction<{ dataKey: string; value: string }>) => {
-            const { dataKey, value } = action.payload;
-            set(state, dataKey, value);
+        onChange: (state, action: PayloadAction<{ key: string; value: string }>) => {
+            const { key, value } = action.payload;
+            set(state.data, key, value);
         },
     },
 });

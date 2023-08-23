@@ -1,4 +1,4 @@
-import { GitUserList, GitUser } from '@domain/types';
+import { GitUser, GitUserList } from '@domain/types';
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
 export const gitUserApi = createApi({

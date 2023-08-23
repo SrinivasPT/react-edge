@@ -5,10 +5,10 @@ import { useDispatch, useSelector } from 'react-redux';
 
 export function useFormControl(dataKey: string) {
     const dispatch = useDispatch();
-    const form: FormState = useSelector((store: any) => store.form);
+    const form: FormState = useSelector((store: any) => store.form.data);
 
     const handleFieldChange = (value: any) => {
-        dispatch(onChange({ dataKey, value }));
+        dispatch(onChange({ key: dataKey, value }));
     };
 
     const getValueFromFormData = () => {
@@ -20,3 +20,5 @@ export function useFormControl(dataKey: string) {
         handleChange: handleFieldChange,
     };
 }
+
+export default useFormControl;

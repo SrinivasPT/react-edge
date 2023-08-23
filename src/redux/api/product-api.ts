@@ -15,7 +15,7 @@ type Product = {
 };
 
 export const productApi = createApi({
-    reducerPath: 'productApi',
+    reducerPath: 'product',
     refetchOnFocus: false,
     baseQuery: fetchBaseQuery({ baseUrl: 'http://localhost:3001' }),
     endpoints: builder => ({

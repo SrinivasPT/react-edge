@@ -1,14 +1,15 @@
 'use client';
 
 import { User } from '@domain/types';
-import { useGetUsersQuery } from '@store/api/user-api';
+import { useAllUsersQuery } from '@store/api/user-api';
+
 import { useAppDispatch } from '@store/hooks';
 import _ from 'lodash';
 import Link from 'next/link';
 import { useState } from 'react';
 
 const Page = () => {
-    const { isLoading, isFetching, data, error } = useGetUsersQuery(null);
+    const { isLoading, isFetching, data, error } = useAllUsersQuery(null);
     const dispatch = useAppDispatch();
 
     const [sortConfig, setSortConfig] = useState<{ key: string; direction: string }>({

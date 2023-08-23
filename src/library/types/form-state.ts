@@ -27,11 +27,9 @@ export interface Pagination {
 }
 
 export interface FormState {
-    detail: Entity;
-    criteria: SearchCriteria;
-    list: [];
-    state: UIState;
+    data: { [key: string]: any };
     custom: { [key: string]: any };
+    flags: UIState;
     errors: { [key: string]: string[] };
 }
 

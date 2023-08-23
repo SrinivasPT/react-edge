@@ -1,14 +1,18 @@
-import { Section } from '@lib/types';
+import { useFormConfig } from '@lib/hooks';
 import { ControlBuilder } from '.';
 
 interface SectionBuilderProps {
-    section: Section;
+    formId: string;
+    sectionId: string;
 }
 
-const SectionBuilder: React.FC<SectionBuilderProps> = ({ section }) => {
+const SectionBuilder: React.FC<SectionBuilderProps> = ({ formId, sectionId }) => {
+    const { getSectionConfig } = useFormConfig();
+    const sectionConfig = getSectionConfig(formId, sectionId);
+
     return (
         <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
-            {section?.controls.map((control, index) => (
+            {sectionConfig?.controls.map((control, index) => (
                 <ControlBuilder key={index} control={control} />
             ))}
         </div>

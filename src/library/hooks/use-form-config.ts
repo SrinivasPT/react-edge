@@ -1,12 +1,12 @@
 import { Control, FormConfig, Section } from '@lib/types';
-import { useSelector } from 'react-redux';
+import { useAllFormsQuery } from '@store/api/form-config-api';
 
 export const useFormConfig = () => {
-    // const { data: allFormConfig } = useGetAllFormConfigQuery(null);
-    const allFormConfig: FormConfig[] = useSelector((store: any) => store.formConfig);
+    const { data } = useAllFormsQuery(null);
+    const formConfig = data;
 
     const getFormConfig = (formId: string): FormConfig | undefined => {
-        return allFormConfig?.find(config => config.id === formId);
+        return formConfig?.find(config => config.id === formId);
     };
 
     const getSectionConfig = (formId: string, sectionId: string): Section | undefined => {
@@ -25,3 +25,5 @@ export const useFormConfig = () => {
         getControlConfig,
     };
 };
+
+export default useFormConfig;
