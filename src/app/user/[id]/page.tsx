@@ -14,9 +14,7 @@ const UserDetail = ({ params }: { params: { id: string } }) => {
     return (
         <>
             <h1>User Detail for ID: {params.id}</h1>
-            <div className="w-full">
-                <SectionBuilder formId="user-info-page" sectionId="basic" />
-            </div>
+            <SectionBuilder formId="user-info-page" sectionId="basic" />
             <Link href="/user"> Back </Link>
         </>
     );

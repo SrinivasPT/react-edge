@@ -6,7 +6,7 @@ const TextControl: React.FC<{ control: Control }> = ({ control }) => {
         <div className="p-4 rounded-lg bg-white dark:bg-gray-800 transition-colors duration-200 w-full">
             <label className="text-sm font-medium leading-5 text-gray-700 mb-2">{control.label}</label>
             <div className="relative">
-                <InputControl control={{ ...control, className: 'border p-1 w-full' }} />
+                <InputControl control={{ ...control, className: 'border p-2 w-full' }} />
             </div>
         </div>
     );
