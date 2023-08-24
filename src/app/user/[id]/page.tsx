@@ -12,11 +12,13 @@ const UserDetail = ({ params }: { params: { id: string } }) => {
     if (!isFormReady) return <div>Loading....</div>;
 
     return (
-        <div>
+        <>
             <h1>User Detail for ID: {params.id}</h1>
-            <SectionBuilder formId="user-info-page" sectionId="basic" />
+            <div className="w-full">
+                <SectionBuilder formId="user-info-page" sectionId="basic" />
+            </div>
             <Link href="/user"> Back </Link>
-        </div>
+        </>
     );
 };
 

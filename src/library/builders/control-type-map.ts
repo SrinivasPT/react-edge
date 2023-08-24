@@ -1,7 +1,8 @@
-import InputControl from '@lib/components/atoms/Input/input-control';
+import { InputControl, TextControl } from '@lib/controls';
 
 const ControlTypeMap: any = {
     INPUT: InputControl,
+    TEXT: TextControl,
 };
 
 export default ControlTypeMap;

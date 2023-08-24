@@ -48,6 +48,7 @@ export interface CustomProperties {
 export interface Control {
     id: string;
     type: ControlType;
+    label: string;
     dataType: DataType;
     dataKey: string;
 

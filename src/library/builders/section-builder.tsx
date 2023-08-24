@@ -1,4 +1,5 @@
 import { useFormConfig } from '@lib/hooks';
+import useFormControlFormat from '@lib/hooks/use-form-control-format';
 import { ControlBuilder } from '.';
 
 interface SectionBuilderProps {
@@ -9,11 +10,14 @@ interface SectionBuilderProps {
 const SectionBuilder: React.FC<SectionBuilderProps> = ({ formId, sectionId }) => {
     const { getSectionConfig } = useFormConfig();
     const sectionConfig = getSectionConfig(formId, sectionId);
+    const { getWidthClass } = useFormControlFormat();
 
     return (
-        <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+        <div className="flex flex-wrap w-full p-2 border">
             {sectionConfig?.controls.map((control, index) => (
-                <ControlBuilder key={index} control={control} />
+                <div key={index} className="box-border p-2 md:w-1/3">
+                    <ControlBuilder control={control} />
+                </div>
             ))}
         </div>
     );

@@ -7037,7 +7037,7 @@
                         {
                             "id": "firstName",
                             "label": "First Name",
-                            "type": "INPUT",
+                            "type": "TEXT",
                             "required": true,
                             "dataKey": "user.firstName",
                             "validation": {
@@ -7049,7 +7049,7 @@
                         {
                             "id": "lastName",
                             "label": "Last Name",
-                            "type": "INPUT",
+                            "type": "TEXT",
                             "dataKey": "user.lastName",
                             "required": true,
                             "validation": {
