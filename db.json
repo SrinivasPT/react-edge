@@ -7044,7 +7044,7 @@
                                 "minLength": 2,
                                 "maxLength": 20
                             },
-                            "placeholder": "Enter your first name"
+                            "placeholder": "Enter your First Name"
                         },
                         {
                             "id": "lastName",
@@ -7056,11 +7056,63 @@
                                 "minLength": 2,
                                 "maxLength": 20
                             },
-                            "placeholder": "Enter your last name"
+                            "placeholder": "Enter your Last Name"
+                        },
+                        {
+                            "id": "maidenName",
+                            "label": "Last Name",
+                            "type": "TEXT",
+                            "dataKey": "user.maidenName",
+                            "required": true,
+                            "validation": {
+                                "minLength": 2,
+                                "maxLength": 20
+                            },
+                            "placeholder": "Enter your Maiden Name"
+                        },
+                        {
+                            "id": "age",
+                            "label": "Age",
+                            "type": "TEXT",
+                            "dataKey": "user.age",
+                            "required": true,
+                            "validation": {
+                                "minLength": 2,
+                                "maxLength": 20
+                            },
+                            "placeholder": "Enter your Age"
+                        },
+                        {
+                            "id": "gender",
+                            "label": "Gender",
+                            "type": "TEXT",
+                            "dataKey": "user.gender",
+                            "required": true,
+                            "validation": {
+                                "minLength": 2,
+                                "maxLength": 20
+                            },
+                            "placeholder": "Enter your Gender"
                         }
                     ]
                 }
             ]
         }
-    ]
+    ],
+    "domain": {
+        "COUNTRY": [
+            { "code": "CHINA", "label": "China", "order": 1, "parent": null, "flex": null },
+            { "code": "INDIA", "label": "India", "order": 2, "parent": null, "flex": null },
+            { "code": "USA", "label": "USA", "order": 3, "parent": null, "flex": null }
+        ],
+        "CITY": [
+            { "code": "BEJING", "label": "Bejing", "order": 1, "parent": "CHINA", "flex": null },
+            { "code": "BANGALORE", "label": "Bangalore", "order": 1, "parent": "INDIA", "flex": null },
+            { "code": "CHENNAI", "label": "Chennai", "order": 2, "parent": "INDIA", "flex": null },
+            { "code": "HYDERABAD", "label": "Hyderabad", "order": 3, "parent": "INDIA", "flex": null },
+            { "code": "DALLAS", "label": "Dallas", "order": 1, "parent": null, "flex": null },
+            { "code": "NEW_YOURK", "label": "New York", "order": 2, "parent": null, "flex": null },
+            { "code": "PHOENIX", "label": "Phoenix", "order": 3, "parent": null, "flex": null }
+        ]
+    }
 }

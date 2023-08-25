@@ -1,5 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { setupListeners } from '@reduxjs/toolkit/dist/query';
+import { domainApi } from './api/domain-api';
 import { formConfigApi } from './api/form-config-api';
 import { productApi } from './api/product-api';
 import { userApi } from './api/user-api';
@@ -8,13 +9,14 @@ import { form } from './features/form-slice';
 export const store = configureStore({
     reducer: {
         form: form.reducer,
-        [userApi.reducerPath]: userApi.reducer,
-        [productApi.reducerPath]: productApi.reducer,
+        [domainApi.reducerPath]: domainApi.reducer,
         [formConfigApi.reducerPath]: formConfigApi.reducer,
+        [productApi.reducerPath]: productApi.reducer,
+        [userApi.reducerPath]: userApi.reducer,
     },
     devTools: process.env.NODE_ENV !== 'production',
     middleware: getDefaultMiddleware =>
-        getDefaultMiddleware().concat(userApi.middleware).concat(productApi.middleware).concat(formConfigApi.middleware),
+        getDefaultMiddleware().concat(userApi.middleware).concat(productApi.middleware).concat(formConfigApi.middleware).concat(domainApi.middleware),
 });
 
 setupListeners(store.dispatch);

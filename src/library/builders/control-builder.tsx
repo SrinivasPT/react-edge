@@ -11,7 +11,14 @@ const ControlBuilder: React.FC<ControlBuilderProps> = ({ control }) => {
     logger.info('Rendering the control builder');
     const ControlComponent = ControlTypeMap[control.type];
 
-    return <ControlComponent key={control.id} control={control} />;
+    /**
+     * Have all the control spacing done here rather than teh control itself
+     */
+    return (
+        <div className="w-1/3 pe-4 pb-3">
+            <ControlComponent key={control.id} control={control} />
+        </div>
+    );
 };
 
 export default ControlBuilder;
