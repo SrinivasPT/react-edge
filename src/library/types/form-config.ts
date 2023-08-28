@@ -1,26 +1,4 @@
-export enum ControlType {
-    Text = 'TEXT',
-    Select = 'SELECT',
-    Checkbox = 'CHECKBOX',
-    Radio = 'RADIO',
-    Textarea = 'TEXTAREA',
-    File = 'FILE',
-    Number = 'NUMBER',
-    Date = 'DATE',
-    Time = 'TIME',
-    DateTime = 'DATE_TIME',
-    Email = 'EMAIL',
-    Password = 'PASSWORD',
-    Phone = 'PHONE',
-    RichText = 'RICH_TEXT',
-}
-
-export enum DataType {
-    String = 'STRING',
-    Number = 'NUMBER',
-    Boolean = 'BOOLEAN',
-    Date = 'DATE',
-}
+import { ControlType, DataType } from './enums';
 
 export interface Validation {
     required?: boolean;
@@ -82,3 +60,14 @@ export interface FormConfig {
     title: string;
     sections: Section[];
 }
+
+export interface TreeItem {
+    id: string;
+    label: string;
+    children?: TreeItem[];
+}
+
+export type ContextMenuAction = {
+    label: string;
+    callback: () => void;
+};

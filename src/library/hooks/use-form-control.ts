@@ -11,7 +11,7 @@ export function useFormControl(dataKey: string) {
         dispatch(onChange({ key: dataKey, value }));
     };
 
-    const getValueFromFormData = () => {
+    const getValueFromFormData = (): any => {
         return _.get(formData, dataKey, '');
     };
 

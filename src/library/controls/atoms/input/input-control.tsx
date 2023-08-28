@@ -1,3 +1,5 @@
+'use client';
+
 import { useFormControl } from '@lib/hooks';
 import { Control } from '@lib/types';
 import { logger } from '@lib/utils';

@@ -1,10 +1,13 @@
 'use client';
 
+import { config } from '@fortawesome/fontawesome-svg-core';
+import '@fortawesome/fontawesome-svg-core/styles.css';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import { Providers } from '../redux/provider';
 import './globals.css';
 import Init from './init';
+config.autoAddCss = false;
 
 const inter = Inter({ subsets: ['latin'] });
 
