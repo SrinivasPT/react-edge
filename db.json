@@ -7097,6 +7097,62 @@
                     ]
                 }
             ]
+        },
+        {
+            "id": "form",
+            "title": "Build Page",
+            "layout": "vertical",
+            "sections": [
+                {
+                    "id": "form",
+                    "title": "Page Level",
+                    "controls": [
+                        {
+                            "id": "id",
+                            "label": "Id",
+                            "type": "TEXT",
+                            "required": true,
+                            "dataKey": "form.id",
+                            "validation": {
+                                "minLength": 2,
+                                "maxLength": 20
+                            },
+                            "placeholder": "Enter your Id"
+                        },
+                        {
+                            "id": "title",
+                            "label": "Title",
+                            "type": "TEXT",
+                            "dataKey": "form.title",
+                            "required": true,
+                            "validation": {
+                                "minLength": 2,
+                                "maxLength": 20
+                            },
+                            "placeholder": "Enter your Title"
+                        },
+                        {
+                            "id": "layout",
+                            "label": "Layout",
+                            "type": "TEXT",
+                            "dataKey": "form.layout",
+                            "required": true
+                        },
+                        {
+                            "id": "dataKey",
+                            "label": "Data Key",
+                            "type": "TEXT",
+                            "dataKey": "form.dataKey",
+                            "required": true,
+                            "validation": {
+                                "minLength": 2,
+                                "maxLength": 20
+                            },
+                            "placeholder": "Enter your Data Key"
+                        }
+                    ]
+                }
+            ]
         }
     ],
     "controls": [
@@ -7107,7 +7163,7 @@
             "controlTypeCode": "TEXT",
             "label": "Id",
             "dataTypeCode": "STRING",
-            "dataKey": "page.id",
+            "dataKey": "form.id",
             "width": 4,
             "required": "YES"
         },
@@ -7118,7 +7174,7 @@
             "controlTypeCode": "TEXT",
             "label": "Title",
             "dataTypeCode": "STRING",
-            "dataKey": "page.title",
+            "dataKey": "form.title",
             "width": 4,
             "required": "YES"
         },
@@ -7129,7 +7185,7 @@
             "controlTypeCode": "SELECT",
             "label": "Layout",
             "dataTypeCode": "STRING",
-            "dataKey": "page.layout",
+            "dataKey": "form.layout",
             "width": 4,
             "domainCode": "LAYOUT_CODE",
             "required": "YES"
@@ -7141,7 +7197,7 @@
             "controlTypeCode": "TEXT",
             "label": "Data Key",
             "dataTypeCode": "STRING",
-            "dataKey": "page.dataKey",
+            "dataKey": "form.dataKey",
             "width": 4,
             "required": "YES"
         },
@@ -7424,7 +7480,7 @@
                             "label": "Id",
                             "type": "TEXT",
                             "required": true,
-                            "dataKey": "page.id",
+                            "dataKey": "form.id",
                             "validation": {
                                 "minLength": 2,
                                 "maxLength": 20
@@ -7435,7 +7491,7 @@
                             "id": "title",
                             "label": "Title",
                             "type": "TEXT",
-                            "dataKey": "page.title",
+                            "dataKey": "form.title",
                             "required": true,
                             "validation": {
                                 "minLength": 2,
@@ -7447,14 +7503,14 @@
                             "id": "layout",
                             "label": "Layout",
                             "type": "SELECT",
-                            "dataKey": "page.layout",
+                            "dataKey": "form.layout",
                             "required": true
                         },
                         {
                             "id": "dataKey",
                             "label": "Data Key",
                             "type": "TEXT",
-                            "dataKey": "page.dataKey",
+                            "dataKey": "form.dataKey",
                             "required": true,
                             "validation": {
                                 "minLength": 2,

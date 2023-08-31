@@ -2,16 +2,16 @@ import { Control, FormConfig, Section } from '@lib/types';
 import { useAllFormsQuery } from '@store/api/form-config-api';
 
 export const useFormConfig = () => {
-    const { data } = useAllFormsQuery(null);
-    const formConfig = data;
+    const allFormsQuery = useAllFormsQuery();
 
     const getFormConfig = (formId: string): FormConfig | undefined => {
-        return formConfig?.find(config => config.id === formId);
+        const config = allFormsQuery.data;
+        return config?.find(config => config.id === formId);
     };
 
     const getSectionConfig = (formId: string, sectionId: string): Section | undefined => {
-        const formConfig = getFormConfig(formId);
-        return formConfig?.sections.find(section => section.id === sectionId);
+        const config = getFormConfig(formId);
+        return config?.sections.find(section => section.id === sectionId);
     };
 
     const getControlConfig = (formId: string, sectionId: string, controlId: string): Control | undefined => {

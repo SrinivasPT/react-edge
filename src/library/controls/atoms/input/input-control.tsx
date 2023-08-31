@@ -3,7 +3,6 @@
 import { useFormControl } from '@lib/hooks';
 import { Control } from '@lib/types';
 import { logger } from '@lib/utils';
-import _ from 'lodash';
 import { useEffect, useState } from 'react';
 
 const InputControl: React.FC<{ control: Control }> = ({ control }) => {
@@ -12,14 +11,19 @@ const InputControl: React.FC<{ control: Control }> = ({ control }) => {
     const { value: externalValue, handleChange: updateExternalValue } = useFormControl(control.dataKey);
     const [localValue, setLocalValue] = useState(externalValue);
 
+    // const debouncedUpdateExternalValue = useCallback(
+    //     _.debounce((value: string) => updateExternalValue(value), 100),
+    //     [updateExternalValue]
+    // );
+
     const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setLocalValue(event.target.value);
-        _.debounce(() => updateExternalValue(event.target.value), 300);
+        updateExternalValue(event.target.value);
     };
 
     useEffect(() => {
         setLocalValue(externalValue);
-    }, []);
+    }, [externalValue]);
 
     return <input type="text" value={localValue} onChange={handleInputChange} placeholder={control.placeholder} className={control.className} />;
 };

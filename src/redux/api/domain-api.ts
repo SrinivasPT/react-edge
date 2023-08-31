@@ -6,7 +6,7 @@ export const domainApi = createApi({
     refetchOnFocus: false,
     baseQuery: fetchBaseQuery({ baseUrl: 'http://localhost:3001' }),
     endpoints: builder => ({
-        domain: builder.query<DomainList, null>({ query: () => 'domain' }),
+        domain: builder.query<DomainList, void>({ query: () => 'domain' }),
     }),
 });
 

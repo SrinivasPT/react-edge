@@ -9,8 +9,7 @@ interface SectionBuilderProps {
 }
 
 const SectionBuilder: React.FC<SectionBuilderProps> = ({ formId, sectionId }) => {
-    const { getSectionConfig } = useFormConfig();
-    const sectionConfig = getSectionConfig(formId, sectionId);
+    const sectionConfig = useFormConfig().getSectionConfig(formId, sectionId);
     const { getWidthClass } = useFormControlFormat();
 
     return (

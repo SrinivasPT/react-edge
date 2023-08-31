@@ -6,8 +6,9 @@ export const formConfigApi = createApi({
     refetchOnFocus: false,
     baseQuery: fetchBaseQuery({ baseUrl: 'http://localhost:3001' }),
     endpoints: builder => ({
-        AllForms: builder.query<FormConfig[], null>({ query: () => 'form-config' }),
+        AllForms: builder.query<FormConfig[], void>({ query: () => 'form-config' }),
+        getFormById: builder.query<FormConfig, { id: string }>({ query: ({ id }) => `form-config/${id}` }),
     }),
 });
 
-export const { useAllFormsQuery } = formConfigApi;
+export const { useAllFormsQuery, useGetFormByIdQuery } = formConfigApi;
