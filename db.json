@@ -7151,6 +7151,53 @@
                             "placeholder": "Enter your Data Key"
                         }
                     ]
+                },
+                {
+                    "id": "sections",
+                    "title": "Section",
+                    "controls": [
+                        {
+                            "id": "sections",
+                            "label": "Sections",
+                            "type": "TABLE",
+                            "dataKey": "form.sections",
+                            "controls": [
+                                {
+                                    "id": "id",
+                                    "label": "Id",
+                                    "type": "INPUT",
+                                    "dataKey": "form.section.{index}.dataKey",
+                                    "required": true,
+                                    "validation": {
+                                        "minLength": 2,
+                                        "maxLength": 20
+                                    }
+                                },
+                                {
+                                    "id": "title",
+                                    "label": "Section Title",
+                                    "type": "INPUT",
+                                    "dataKey": "form.section.{index}.title",
+                                    "required": true,
+                                    "validation": {
+                                        "minLength": 2,
+                                        "maxLength": 20
+                                    }
+                                },
+                                {
+                                    "id": "dataKey",
+                                    "label": "Data Key",
+                                    "type": "INPUT",
+                                    "dataKey": "form.section.{index}.dataKey",
+                                    "required": true,
+                                    "validation": {
+                                        "minLength": 2,
+                                        "maxLength": 20
+                                    }
+                                }
+                            ]
+                        }
+                    ]
                 }
             ]
         }

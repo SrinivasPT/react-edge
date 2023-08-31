@@ -15,6 +15,7 @@ const Page = ({ params }: { params: { id: string } }) => {
         <PageLayout>
             <h1>User Detail for ID: {params.id}</h1>
             <SectionBuilder formId="form" sectionId="form" />
+            <SectionBuilder formId="form" sectionId="sections" />
             <button onClick={printState}>PRINT</button>
         </PageLayout>
     );

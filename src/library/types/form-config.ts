@@ -30,6 +30,9 @@ export interface Control {
     dataType: DataType;
     dataKey: string;
 
+    // Complex Controls
+    controls: Control[];
+
     // Permissions
     access?: Access;
 

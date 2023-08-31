@@ -15,9 +15,18 @@ const SectionBuilder: React.FC<SectionBuilderProps> = ({ formId, sectionId }) =>
     return (
         <CardLayout title={sectionConfig?.title}>
             <div className="flex flex-wrap w-full">
-                {sectionConfig?.controls.map((control, index) => (
-                    <ControlBuilder key={index} control={control} />
-                ))}
+                {sectionConfig?.controls.map((control, index) => {
+                    try {
+                        return (
+                            <div className={`${getWidthClass(control.width ?? 'full')}`}>
+                                <ControlBuilder key={index} control={control} />
+                            </div>
+                        );
+                    } catch (error) {
+                        console.error(`Error rendering control with index ${index}:`, error);
+                        return <label key={index}>Error displaying control</label>;
+                    }
+                })}
             </div>
         </CardLayout>
     );
