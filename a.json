@@ -1,0 +1,16 @@
+{
+    "CONTROL_TYPE": [
+        { "code": "CHECK", "label": "Code", "sortOrder": 1 },
+        { "code": "DATE", "label": "Check", "sortOrder": 2 },
+        { "code": "NUMERIC", "label": "Date", "sortOrder": 3 },
+        { "code": "RADIO", "label": "Numeric", "sortOrder": 4 },
+        { "code": "SELECT", "label": "Radio", "sortOrder": 5 },
+        { "code": "TEXT", "label": "Select", "sortOrder": 6 }
+    ],
+    "DATA_TYPE": [
+        { "code": "BOOL", "label": "Text", "sortOrder": 1 },
+        { "code": "DATE", "label": "Bool", "sortOrder": 2 },
+        { "code": "NUMBER", "label": "Date", "sortOrder": 3 },
+        { "code": "STRING", "label": "Number", "sortOrder": 4 }
+    ]
+}

@@ -7099,20 +7099,372 @@
             ]
         }
     ],
+    "controls": [
+        {
+            "entity": "page",
+            "attribute": "id",
+            "id": "id",
+            "controlTypeCode": "TEXT",
+            "label": "Id",
+            "dataTypeCode": "STRING",
+            "dataKey": "page.id",
+            "width": 4,
+            "required": "YES"
+        },
+        {
+            "entity": "page",
+            "attribute": "title",
+            "id": "title",
+            "controlTypeCode": "TEXT",
+            "label": "Title",
+            "dataTypeCode": "STRING",
+            "dataKey": "page.title",
+            "width": 4,
+            "required": "YES"
+        },
+        {
+            "entity": "page",
+            "attribute": "layout",
+            "id": "layout",
+            "controlTypeCode": "SELECT",
+            "label": "Layout",
+            "dataTypeCode": "STRING",
+            "dataKey": "page.layout",
+            "width": 4,
+            "domainCode": "LAYOUT_CODE",
+            "required": "YES"
+        },
+        {
+            "entity": "page",
+            "attribute": "dataKey",
+            "id": "dataKey",
+            "controlTypeCode": "TEXT",
+            "label": "Data Key",
+            "dataTypeCode": "STRING",
+            "dataKey": "page.dataKey",
+            "width": 4,
+            "required": "YES"
+        },
+        {
+            "entity": "section",
+            "attribute": "id",
+            "id": "id",
+            "controlTypeCode": "TEXT",
+            "label": "Id",
+            "dataTypeCode": "STRING",
+            "dataKey": "section.id",
+            "width": 4,
+            "required": "YES"
+        },
+        {
+            "entity": "section",
+            "attribute": "title",
+            "id": "title",
+            "controlTypeCode": "TEXT",
+            "label": "Title",
+            "dataTypeCode": "STRING",
+            "dataKey": "section.title",
+            "width": 4,
+            "required": "YES"
+        },
+        {
+            "entity": "control",
+            "attribute": "id",
+            "id": "id",
+            "controlTypeCode": "TEXT",
+            "label": "Id",
+            "dataTypeCode": "STRING",
+            "dataKey": "control.id",
+            "width": 4,
+            "required": "YES"
+        },
+        {
+            "entity": "control",
+            "attribute": "typeCode",
+            "id": "typeCode",
+            "controlTypeCode": "SELECT",
+            "label": "Type Code",
+            "dataTypeCode": "STRING",
+            "dataKey": "control.typeCode",
+            "width": 4,
+            "domainCode": "CONTROL_TYPE_CODE",
+            "required": "YES"
+        },
+        {
+            "entity": "control",
+            "attribute": "label",
+            "id": "label",
+            "controlTypeCode": "TEXT",
+            "label": "Label",
+            "dataTypeCode": "STRING",
+            "dataKey": "control.label",
+            "width": 4,
+            "required": "YES"
+        },
+        {
+            "entity": "control",
+            "attribute": "dataTypeCode",
+            "id": "dataTypeCode",
+            "controlTypeCode": "SELECT",
+            "label": "Data Type Code",
+            "dataTypeCode": "STRING",
+            "dataKey": "control.dataTypeCode",
+            "width": 4,
+            "domainCode": "DATA_TYPE_CODE",
+            "required": "YES"
+        },
+        {
+            "entity": "control",
+            "attribute": "dataKey",
+            "id": "dataKey",
+            "controlTypeCode": "TEXT",
+            "label": "Data Key",
+            "dataTypeCode": "STRING",
+            "dataKey": "control.dataKey",
+            "width": 4,
+            "required": "YES"
+        },
+        {
+            "entity": "control",
+            "attribute": "accessCode",
+            "id": "accessCode",
+            "controlTypeCode": "SELECT",
+            "label": "Access Code",
+            "dataTypeCode": "STRING",
+            "dataKey": "control.accessCode",
+            "width": 4,
+            "domainCode": "ACCESS_CODE",
+            "required": "YES"
+        },
+        {
+            "entity": "control",
+            "attribute": "placeholder",
+            "id": "placeholder",
+            "controlTypeCode": "TEXT",
+            "label": "Placeholder",
+            "dataTypeCode": "STRING",
+            "dataKey": "control.placeholder",
+            "width": 4,
+            "required": "YES"
+        },
+        {
+            "entity": "control",
+            "attribute": "width",
+            "id": "width",
+            "controlTypeCode": "SELECT",
+            "label": "Width",
+            "dataTypeCode": "STRING",
+            "dataKey": "control.width",
+            "width": 4,
+            "domainCode": "WIDTH_CODE",
+            "required": "YES"
+        },
+        {
+            "entity": "control",
+            "attribute": "className",
+            "id": "className",
+            "controlTypeCode": "TEXT",
+            "label": "Class Name",
+            "dataTypeCode": "STRING",
+            "dataKey": "control.className",
+            "width": 4,
+            "required": "YES"
+        },
+        {
+            "entity": "control",
+            "attribute": "domainCode",
+            "id": "domainCode",
+            "controlTypeCode": "SELECT",
+            "label": "Domain Code",
+            "dataTypeCode": "STRING",
+            "dataKey": "control.domainCode",
+            "width": 4,
+            "domainCode": "DOMAIN_CODE",
+            "required": "YES"
+        },
+        {
+            "entity": "control",
+            "attribute": "parentId",
+            "id": "parentId",
+            "controlTypeCode": "TEXT",
+            "label": "Parent Id",
+            "dataTypeCode": "STRING",
+            "dataKey": "control.parentId",
+            "width": 4,
+            "required": "YES"
+        },
+        {
+            "entity": "control",
+            "attribute": "required",
+            "id": "required",
+            "controlTypeCode": "SELECT",
+            "label": "Required",
+            "dataTypeCode": "STRING",
+            "dataKey": "control.required",
+            "width": 4,
+            "domainCode": "YES_NO_CODE",
+            "required": "YES"
+        },
+        {
+            "entity": "control",
+            "attribute": "requiredExpression",
+            "id": "requiredExpression",
+            "controlTypeCode": "TEXT",
+            "label": "Required Expression",
+            "dataTypeCode": "STRING",
+            "dataKey": "control.requiredExpression",
+            "width": 4,
+            "required": "YES"
+        },
+        {
+            "entity": "control",
+            "attribute": "minLength",
+            "id": "minLength",
+            "controlTypeCode": "TEXT",
+            "label": "Min Length",
+            "dataTypeCode": "NUMBER",
+            "dataKey": "control.minLength",
+            "width": 4,
+            "required": "YES"
+        },
+        {
+            "entity": "control",
+            "attribute": "maxLength",
+            "id": "maxLength",
+            "controlTypeCode": "TEXT",
+            "label": "Max Length",
+            "dataTypeCode": "NUMBER",
+            "dataKey": "control.maxLength",
+            "width": 4,
+            "required": "YES"
+        },
+        {
+            "entity": "control",
+            "attribute": "min",
+            "id": "min",
+            "controlTypeCode": "NUMERIC",
+            "label": "Min",
+            "dataTypeCode": "NUMBER",
+            "dataKey": "control.min",
+            "width": 4,
+            "required": "YES"
+        },
+        {
+            "entity": "control",
+            "attribute": "max",
+            "id": "max",
+            "controlTypeCode": "NUMERIC",
+            "label": "Max",
+            "dataTypeCode": "NUMBER",
+            "dataKey": "control.max",
+            "width": 4,
+            "required": "YES"
+        },
+        {
+            "entity": "control",
+            "attribute": "pattern",
+            "id": "pattern",
+            "controlTypeCode": "TEXT",
+            "label": "Pattern",
+            "dataTypeCode": "STRING",
+            "dataKey": "control.pattern",
+            "width": 4,
+            "required": "YES"
+        },
+        {
+            "entity": "control",
+            "attribute": "minDate",
+            "id": "minDate",
+            "controlTypeCode": "DATE",
+            "label": "Min Date",
+            "dataTypeCode": "DATE",
+            "dataKey": "control.minDate",
+            "width": 4,
+            "required": "YES"
+        },
+        {
+            "entity": "control",
+            "attribute": "maxDate",
+            "id": "maxDate",
+            "controlTypeCode": "DATE",
+            "label": "Max Date",
+            "dataTypeCode": "DATE",
+            "dataKey": "control.maxDate",
+            "width": 4,
+            "required": "YES"
+        }
+    ],
     "domain": {
-        "COUNTRY": [
-            { "code": "CHINA", "label": "China", "order": 1, "parent": null, "flex": null },
-            { "code": "INDIA", "label": "India", "order": 2, "parent": null, "flex": null },
-            { "code": "USA", "label": "USA", "order": 3, "parent": null, "flex": null }
+        "CONTROL_TYPE": [
+            { "code": "CHECK", "label": "Code", "sortOrder": 1 },
+            { "code": "DATE", "label": "Check", "sortOrder": 2 },
+            { "code": "NUMERIC", "label": "Date", "sortOrder": 3 },
+            { "code": "RADIO", "label": "Numeric", "sortOrder": 4 },
+            { "code": "SELECT", "label": "Radio", "sortOrder": 5 },
+            { "code": "TEXT", "label": "Select", "sortOrder": 6 }
         ],
-        "CITY": [
-            { "code": "BEJING", "label": "Bejing", "order": 1, "parent": "CHINA", "flex": null },
-            { "code": "BANGALORE", "label": "Bangalore", "order": 1, "parent": "INDIA", "flex": null },
-            { "code": "CHENNAI", "label": "Chennai", "order": 2, "parent": "INDIA", "flex": null },
-            { "code": "HYDERABAD", "label": "Hyderabad", "order": 3, "parent": "INDIA", "flex": null },
-            { "code": "DALLAS", "label": "Dallas", "order": 1, "parent": null, "flex": null },
-            { "code": "NEW_YOURK", "label": "New York", "order": 2, "parent": null, "flex": null },
-            { "code": "PHOENIX", "label": "Phoenix", "order": 3, "parent": null, "flex": null }
+        "DATA_TYPE": [
+            { "code": "BOOL", "label": "Text", "sortOrder": 1 },
+            { "code": "DATE", "label": "Bool", "sortOrder": 2 },
+            { "code": "NUMBER", "label": "Date", "sortOrder": 3 },
+            { "code": "STRING", "label": "Number", "sortOrder": 4 }
         ]
-    }
+    },
+    "page": [
+        {
+            "title": "Build Page",
+            "layout": "vertical",
+            "section": [
+                {
+                    "id": "page",
+                    "title": "Page Level",
+                    "control": [
+                        {
+                            "id": "id",
+                            "label": "Id",
+                            "type": "TEXT",
+                            "required": true,
+                            "dataKey": "page.id",
+                            "validation": {
+                                "minLength": 2,
+                                "maxLength": 20
+                            },
+                            "placeholder": "Enter your Id"
+                        },
+                        {
+                            "id": "title",
+                            "label": "Title",
+                            "type": "TEXT",
+                            "dataKey": "page.title",
+                            "required": true,
+                            "validation": {
+                                "minLength": 2,
+                                "maxLength": 20
+                            },
+                            "placeholder": "Enter your Title"
+                        },
+                        {
+                            "id": "layout",
+                            "label": "Layout",
+                            "type": "SELECT",
+                            "dataKey": "page.layout",
+                            "required": true
+                        },
+                        {
+                            "id": "dataKey",
+                            "label": "Data Key",
+                            "type": "TEXT",
+                            "dataKey": "page.dataKey",
+                            "required": true,
+                            "validation": {
+                                "minLength": 2,
+                                "maxLength": 20
+                            },
+                            "placeholder": "Enter your Data Key"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
 }
