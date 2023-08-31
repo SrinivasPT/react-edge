@@ -7111,6 +7111,7 @@
                             "id": "id",
                             "label": "Id",
                             "type": "TEXT",
+                            "width": "md",
                             "required": true,
                             "dataKey": "form.id",
                             "validation": {
@@ -7123,6 +7124,7 @@
                             "id": "title",
                             "label": "Title",
                             "type": "TEXT",
+                            "width": "md",
                             "dataKey": "form.title",
                             "required": true,
                             "validation": {
@@ -7134,6 +7136,7 @@
                         {
                             "id": "layout",
                             "label": "Layout",
+                            "width": "sm",
                             "type": "TEXT",
                             "dataKey": "form.layout",
                             "required": true
@@ -7142,6 +7145,7 @@
                             "id": "dataKey",
                             "label": "Data Key",
                             "type": "TEXT",
+                            "width": "sm",
                             "dataKey": "form.dataKey",
                             "required": true,
                             "validation": {

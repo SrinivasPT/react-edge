@@ -1,16 +1,21 @@
-import _ from 'lodash';
-
 const useFormControlFormat = () => {
     const getWidthClass = (width: string) => {
-        const defaultWidths = { default: 'full', sm: 'full', md: '1/3', lg: '1/4' };
-        const getDefaultWidth = (size: string) => _.get(defaultWidths, size, 'full');
+        const baseClasses = {
+            default: 'w-full',
+            sm: 'sm:w-full',
+            md: 'md:w-full',
+            lg: 'lg:w-full',
+        };
 
-        const defaultWidthClass = `w-${getDefaultWidth('default')}`;
-        const smWidthClass = `sm:w-${getDefaultWidth('sm')}`;
-        const mdWidthClass = `md:w-${getDefaultWidth('md')}`;
-        const lgWidthClass = `lg:w-${getDefaultWidth('lg')}`;
+        const widthMappings: any = {
+            sm: { lg: 'lg:w-1/4', md: 'md:w-1/3', sm: 'sm:w-full' },
+            md: { lg: 'lg:w-1/3', md: 'md:w-1/2', sm: 'sm:w-full' },
+            lg: { lg: 'lg:w-1/2', md: 'md:w-full', sm: 'sm:w-full' },
+        };
 
-        return `${defaultWidthClass} ${smWidthClass} ${mdWidthClass} ${lgWidthClass}`;
+        const classes = widthMappings[width] || baseClasses;
+
+        return `${classes.default} ${classes.sm} ${classes.md} ${classes.lg}`;
     };
 
     return { getWidthClass };
