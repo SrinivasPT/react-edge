@@ -7116,6 +7116,7 @@
                         {
                             "id": "title",
                             "label": "Title",
+                            "dataKey": "form.title",
                             "type": "TEXT",
                             "width": "md",
                             "required": true,

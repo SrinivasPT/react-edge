@@ -20,7 +20,7 @@ const SectionBuilder: React.FC<SectionBuilderProps> = ({ formId, sectionId, pare
                     try {
                         return (
                             <div className={`${getWidthClass(control.width ?? 'full')}`}>
-                                <ControlBuilder key={index} control={control} parentKey={parentKey ?? `${formId}.${sectionId}`} />
+                                <ControlBuilder key={index} control={control} parentKey={parentKey ?? `${sectionId}`} />
                             </div>
                         );
                     } catch (error) {

@@ -15,9 +15,11 @@ const Page = ({ params }: { params: { id: string } }) => {
     return (
         <PageLayout>
             <h1>User Detail for ID: {params.id}</h1>
-            <SectionBuilder formId="form" sectionId="form" />
-            <SectionBuilder formId="form" sectionId="sections" />
-            <SmartControl formId="form" configKey="sections[2].controls[0]" parentKey="form.sections[1].controls[0].controls" />
+            <SectionBuilder formId="form" sectionId="form" parentKey="form.sections[0]" />
+            {/* <SectionBuilder formId="form" sectionId="sections" /> */}
+            {/* <SmartControl formId="form" configKey="sections[2].controls[0]" parentKey="form.sections[1].controls[0].controls" /> */}
+            <SmartControl formId="form" configKey="sections[0].controls[0]" parentKey="form.sections[0]" />
+            <SmartControl formId="form" configKey="sections[0].controls[1]" parentKey="form.sections[0]" />
             <button onClick={printState}>PRINT</button>
         </PageLayout>
     );
