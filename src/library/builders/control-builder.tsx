@@ -1,14 +1,10 @@
 import useFormControlFormat from '@lib/hooks/use-form-control-format';
-import { Control } from '@lib/types';
+import { ControlBuilderProps } from '@lib/types';
 import { logger } from '@lib/utils';
 import React from 'react';
 import ControlTypeMap from './control-type-map';
 
-interface ControlBuilderProps {
-    control: Control;
-}
-
-const ControlBuilder: React.FC<ControlBuilderProps> = ({ control }) => {
+const ControlBuilder: React.FC<ControlBuilderProps> = ({ control, parentKey }) => {
     logger.info('Rendering the control builder');
     const ControlComponent = ControlTypeMap[control.type];
     const { getWidthClass } = useFormControlFormat();
@@ -19,7 +15,7 @@ const ControlBuilder: React.FC<ControlBuilderProps> = ({ control }) => {
 
     const renderControl = () => {
         try {
-            return <ControlComponent key={control.id} control={control} />;
+            return <ControlComponent key={control.id} control={control} parentKey={parentKey} />;
         } catch (error) {
             console.error(`Error rendering control with id ${control.id}:`, error);
             return <label>Error displaying control</label>;

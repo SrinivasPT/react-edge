@@ -1,20 +1,15 @@
 'use client';
 
 import { useFormControl } from '@lib/hooks';
-import { Control } from '@lib/types';
+import { ControlBuilderProps } from '@lib/types';
 import { logger } from '@lib/utils';
 import { useEffect, useState } from 'react';
 
-const InputControl: React.FC<{ control: Control }> = ({ control }) => {
+const InputControl: React.FC<ControlBuilderProps> = ({ control, parentKey }) => {
     logger.info(`Rendering InputControl for ${control.id}`);
 
-    const { value: externalValue, handleChange: updateExternalValue } = useFormControl(control.dataKey);
+    const { value: externalValue, handleChange: updateExternalValue } = useFormControl(control, parentKey);
     const [localValue, setLocalValue] = useState(externalValue);
-
-    // const debouncedUpdateExternalValue = useCallback(
-    //     _.debounce((value: string) => updateExternalValue(value), 100),
-    //     [updateExternalValue]
-    // );
 
     const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setLocalValue(event.target.value);

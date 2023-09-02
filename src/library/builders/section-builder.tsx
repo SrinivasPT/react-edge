@@ -6,9 +6,10 @@ import { ControlBuilder } from '.';
 interface SectionBuilderProps {
     formId: string;
     sectionId: string;
+    parentKey?: string;
 }
 
-const SectionBuilder: React.FC<SectionBuilderProps> = ({ formId, sectionId }) => {
+const SectionBuilder: React.FC<SectionBuilderProps> = ({ formId, sectionId, parentKey }) => {
     const sectionConfig = useFormConfig().getSectionConfig(formId, sectionId);
     const { getWidthClass } = useFormControlFormat();
 
@@ -19,7 +20,7 @@ const SectionBuilder: React.FC<SectionBuilderProps> = ({ formId, sectionId }) =>
                     try {
                         return (
                             <div className={`${getWidthClass(control.width ?? 'full')}`}>
-                                <ControlBuilder key={index} control={control} />
+                                <ControlBuilder key={index} control={control} parentKey={parentKey ?? `${formId}.${sectionId}`} />
                             </div>
                         );
                     } catch (error) {

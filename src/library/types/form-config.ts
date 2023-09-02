@@ -74,3 +74,14 @@ export type ContextMenuAction = {
     label: string;
     callback: () => void;
 };
+
+export interface ControlBuilderProps {
+    control: Control;
+    parentKey: string;
+}
+
+export interface SmartControlProps {
+    formId: string;
+    configKey: string;
+    parentKey: string;
+}

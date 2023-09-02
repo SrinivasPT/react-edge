@@ -1,17 +1,19 @@
 import { Control, FormConfig, Section } from '@lib/types';
-import { useAllFormsQuery } from '@store/api/form-config-api';
+import { useAppSelector } from '@store/hooks';
+import _ from 'lodash';
 
 export const useFormConfig = () => {
-    const allFormsQuery = useAllFormsQuery();
+    // const { data: config } = useAllFormsQuery();
+    const config = useAppSelector((state: any) => state.config.queries['AllForms(null)'].data);
 
     const getFormConfig = (formId: string): FormConfig | undefined => {
-        const config = allFormsQuery.data;
-        return config?.find(config => config.id === formId);
+        // const config = allFormsQuery.data;
+        return config?.find((form: any) => form.id === formId);
     };
 
     const getSectionConfig = (formId: string, sectionId: string): Section | undefined => {
-        const config = getFormConfig(formId);
-        return config?.sections.find(section => section.id === sectionId);
+        const formConfig = getFormConfig(formId);
+        return formConfig?.sections.find(section => section.id === sectionId);
     };
 
     const getControlConfig = (formId: string, sectionId: string, controlId: string): Control | undefined => {
@@ -19,10 +21,16 @@ export const useFormConfig = () => {
         return sectionConfig?.controls.find(control => control.id === controlId);
     };
 
+    const getControlConfigByKey = (formId: string, key: string) => {
+        const formConfig = getFormConfig(formId);
+        return _.get(formConfig, key);
+    };
+
     return {
         getFormConfig,
         getSectionConfig,
         getControlConfig,
+        getControlConfigByKey,
     };
 };
 

@@ -1,10 +1,10 @@
 import { useFormControl } from '@lib/hooks';
-import { Control } from '@lib/types';
+import { ControlBuilderProps } from '@lib/types';
 import { logger } from '@lib/utils';
 
-const TableControl: React.FC<{ control: Control }> = ({ control }) => {
+const TableControl: React.FC<ControlBuilderProps> = ({ control, parentKey }) => {
     logger.info(`Rendering InputControl for ${control.id}`);
-    const { value: data } = useFormControl(control.dataKey);
+    const { value: data } = useFormControl(control, parentKey);
 
     return (
         <table className="min-w-full divide-y divide-gray-200">
