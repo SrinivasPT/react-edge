@@ -10,19 +10,19 @@ export function useFormControl(control: Control, parentKey: string) {
     const formData: FormState = useSelector((store: any) => store.form.data);
     const formActions = useSelector((store: any) => store.form.actions);
 
-    const getDataKey = (control: Control, parentKey: string) => {
+    const getDataKey = () => {
         if (isNil(control.dataKey)) return `${parentKey}.${control.id}`;
         if (control.dataKey === 'USE_PARENT') return parentKey;
         return control.dataKey;
     };
 
     const handleFieldChange = (value: any) => {
-        const dataKey = getDataKey(control, parentKey);
+        const dataKey = getDataKey();
         dispatch(onChange({ key: dataKey, value }));
     };
 
     const getValueFromFormData = (): any => {
-        const dataKey = getDataKey(control, parentKey);
+        const dataKey = getDataKey();
         return _.get(formData, dataKey, '');
     };
 
@@ -32,6 +32,7 @@ export function useFormControl(control: Control, parentKey: string) {
 
     return {
         value: getValueFromFormData(),
+        dataKey: getDataKey(),
         handleChange: handleFieldChange,
         getDataKey,
         saveFormAction,
