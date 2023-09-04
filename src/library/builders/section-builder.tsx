@@ -19,8 +19,8 @@ const SectionBuilder: React.FC<SectionBuilderProps> = ({ formId, sectionId, pare
                 {sectionConfig?.controls.map((control, index) => {
                     try {
                         return (
-                            <div className={`${getWidthClass(control.width ?? 'full')}`}>
-                                <ControlBuilder key={index} control={control} parentKey={parentKey ?? `${sectionId}`} />
+                            <div key={index} className={`${getWidthClass(control.width ?? 'full')}`}>
+                                <ControlBuilder control={control} parentKey={parentKey ?? `${sectionId}`} />
                             </div>
                         );
                     } catch (error) {

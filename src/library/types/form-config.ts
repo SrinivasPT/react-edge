@@ -30,6 +30,9 @@ export interface Control {
     dataType: DataType;
     dataKey: string;
 
+    // Button
+    action: string;
+
     // Complex Controls
     controls: Control[];
 

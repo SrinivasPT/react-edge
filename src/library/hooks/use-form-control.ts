@@ -8,6 +8,7 @@ import { useDispatch, useSelector } from 'react-redux';
 export function useFormControl(control: Control, parentKey: string) {
     const dispatch = useDispatch();
     const formData: FormState = useSelector((store: any) => store.form.data);
+    const formActions = useSelector((store: any) => store.form.actions);
 
     const getDataKey = (control: Control, parentKey: string) => {
         if (isNil(control.dataKey)) return `${parentKey}.${control.id}`;
@@ -25,10 +26,15 @@ export function useFormControl(control: Control, parentKey: string) {
         return _.get(formData, dataKey, '');
     };
 
+    const saveFormAction = () => {
+        formActions['saveFormFn']();
+    };
+
     return {
         value: getValueFromFormData(),
         handleChange: handleFieldChange,
         getDataKey,
+        saveFormAction,
     };
 }
 

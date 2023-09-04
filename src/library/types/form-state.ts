@@ -37,3 +37,22 @@ export type DispatchEvent = {
     type: string;
     payload?: any;
 };
+
+export type FormInit = {
+    id: string;
+    entityName: string;
+    initialData: any;
+    isInitialDataLoaded: boolean;
+    mutationFns: MutationFunctions;
+};
+
+export type MutationFunctions = {
+    add: any;
+    update: any;
+    delete: any;
+};
+
+export type InitialActionPayload = {
+    key: string;
+    initialData: any;
+};

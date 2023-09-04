@@ -8,7 +8,14 @@ export const formConfigApi = createApi({
     endpoints: builder => ({
         AllForms: builder.query<FormConfig[], void>({ query: () => 'form-config' }),
         getFormById: builder.query<FormConfig, { id: string }>({ query: ({ id }) => `form-config/${id}` }),
+        addForm: builder.mutation<FormConfig, FormConfig>({ query: newConfig => ({ url: 'form-config', method: 'POST', body: newConfig }) }),
+        updateForm: builder.mutation<FormConfig, { id: string; changes: FormConfig }>({
+            query: ({ id, changes }) => ({ url: `form-config/${id}`, method: 'PUT', body: changes }),
+        }),
+        deleteForm: builder.mutation<{ success: boolean; id: string }, string>({
+            query: id => ({ url: `form-config/${id}`, method: 'DELETE' }),
+        }),
     }),
 });
 
-export const { useAllFormsQuery, useGetFormByIdQuery } = formConfigApi;
+export const { useAllFormsQuery, useGetFormByIdQuery, useAddFormMutation, useUpdateFormMutation, useDeleteFormMutation } = formConfigApi;

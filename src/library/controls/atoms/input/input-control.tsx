@@ -12,7 +12,7 @@ const InputControl: React.FC<ControlBuilderProps> = ({ control, parentKey }) => 
     const [localValue, setLocalValue] = useState(externalValue);
 
     const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setLocalValue(event.target.value);
+        // setLocalValue(event.target.value);
         updateExternalValue(event.target.value);
     };
 
@@ -20,7 +20,7 @@ const InputControl: React.FC<ControlBuilderProps> = ({ control, parentKey }) => 
         setLocalValue(externalValue);
     }, [externalValue]);
 
-    return <input type="text" value={localValue} onChange={handleInputChange} placeholder={control.placeholder} className={control.className} />;
+    return <input type="text" value={externalValue} onChange={handleInputChange} placeholder={control.placeholder} className={control.className} />;
 };
 
 export default InputControl;

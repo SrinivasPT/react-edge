@@ -1,6 +1,5 @@
-import { User } from '@domain/types';
-import { FormState } from '@lib/types/form-state';
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { FormState, InitialActionPayload } from '@lib/types/form-state';
+import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 import { set } from 'lodash';
 
 const initialState: FormState = {
@@ -22,9 +21,9 @@ export const form = createSlice({
     initialState,
     reducers: {
         reset: () => initialState,
-        setFormDetail: (state, action: PayloadAction<{ key: string; value: User }>) => {
-            const { key, value } = action.payload;
-            set(state.data, key, value);
+        setFormDetail: (state, action: PayloadAction<InitialActionPayload>) => {
+            const { key, initialData } = action.payload;
+            set(state, 'data', { ...initialData });
             set(state.flags, 'isLoading', false);
         },
         onChange: (state, action: PayloadAction<{ key: string; value: string }>) => {
