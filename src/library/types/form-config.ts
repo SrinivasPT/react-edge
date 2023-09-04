@@ -44,6 +44,9 @@ export interface Control {
     // Validations
     validations?: Validation;
 
+    // Table
+    isEditable?: boolean;
+
     // Non Mandatory properties
     entityAttribute?: string;
     placeholder?: string;

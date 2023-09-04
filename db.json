@@ -145,6 +145,7 @@
                             "label": "Sections",
                             "dataKey": "USE_PARENT",
                             "type": "TABLE",
+                            "isEditable": true,
                             "controls": [
                                 {
                                     "guid": "f394b6df-36c8-4d1a-a9e3-1776d5783fcf",
@@ -194,6 +195,8 @@
                             "label": "Controls",
                             "dataKey": "USE_PARENT",
                             "type": "TABLE",
+                            "parentDataKey": "sections",
+                            "isEditable": true,
                             "controls": [
                                 {
                                     "guid": "de7b975f-1607-45a3-9886-97b950bb5a5c",

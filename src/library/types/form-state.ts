@@ -30,6 +30,7 @@ export interface TableInternalState {
     selectedRecords: Record<string, boolean>;
     isEditable: boolean;
     selectAllRows?: boolean;
+    parentDataKey?: string;
 }
 
 export interface InternalState {

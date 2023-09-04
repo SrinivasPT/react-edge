@@ -5,17 +5,34 @@ import _ from 'lodash';
 import { useSelector } from 'react-redux';
 
 export function useTable(control: Control, parentKey: string) {
-    const { value, dataKey, dispatch } = useFormControl(control, parentKey);
-    const isTableEditable = useSelector(state => _.get(state, `form.internal.table.${control.guid}.isEditable`, false));
+    const { value: data, dataKey, dispatch } = useFormControl(control, parentKey);
 
-    const handleToggleEditTable = () => {
-        dispatch(toggleTableEditableStatus({ guid: control.guid }));
+    const getInternalStateKey = (dataKeyPath: string) => {
+        // Remove the initial "data." and split by "."
+        const parts = _.split(dataKeyPath.replace('data.', ''), '.');
+
+        // Transform parts like "sections[0]" into "sections-0"
+        const transformedParts = _.map(parts, part => {
+            if (part.includes('[') && part.includes(']')) {
+                const [main, index] = _.split(part, '[');
+                return `${main}-${index.replace(']', '')}`;
+            }
+            return part;
+        });
+
+        return _.join(transformedParts, '-');
     };
 
-    const SelectAllControl = { dataKey: `internal.table.${control.guid}.selectAllRows` } as Control;
-    const getSelectRowControl = (id: string) => ({ dataKey: `internal.table.${control.guid}.selectedRecords.${id}` } as Control);
+    const isTableEditable = useSelector(state => _.get(state, `form.internal.table.${getInternalStateKey(dataKey)}.isEditable`, false));
 
-    return { value, dataKey, dispatch, isTableEditable, handleToggleEditTable, SelectAllControl, getSelectRowControl };
+    const handleToggleEditTable = () => {
+        dispatch(toggleTableEditableStatus({ key: getInternalStateKey(dataKey) }));
+    };
+
+    const SelectAllControl = { dataKey: `internal.table.${getInternalStateKey(dataKey)}.selectAllRows` } as Control;
+    const getSelectRowControl = (id: string) => ({ dataKey: `internal.table.${getInternalStateKey(dataKey)}.selectedRecords.${id}` } as Control);
+
+    return { data, dataKey, dispatch, isTableEditable, handleToggleEditTable, SelectAllControl, getSelectRowControl };
 }
 
 export default useTable;

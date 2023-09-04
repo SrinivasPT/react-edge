@@ -32,18 +32,18 @@ export const form = createSlice({
         },
 
         // Table
-        toggleTableEditableStatus: (state, action: PayloadAction<{ guid: string }>) => {
-            const { guid } = action.payload;
+        toggleTableEditableStatus: (state, action: PayloadAction<{ key: string }>) => {
+            const { key } = action.payload;
 
-            if (!state.internal.table[guid]) {
+            if (!state.internal.table[key]) {
                 // Initialize the table with the given key if it doesn't exist
-                state.internal.table[guid] = {
+                state.internal.table[key] = {
                     selectedRecords: {},
                     isEditable: false, // Default to true if key is being created for the first time
                 };
             } else {
                 // Toggle the editable status if the table key exists
-                state.internal.table[guid].isEditable = !state.internal.table[guid].isEditable;
+                state.internal.table[key].isEditable = !state.internal.table[key].isEditable;
             }
         },
 

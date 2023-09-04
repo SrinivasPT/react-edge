@@ -27,7 +27,8 @@ const Page = ({ params }: { params: { id: string } }) => {
         <PageLayout>
             <h1>User Detail for ID: {params.id}</h1>
             <SectionBuilder formId="form" sectionId="form" parentKey="data.sections[0]" />
-            <SectionBuilder formId="form" sectionId="sections" parentKey="data.sections[0].controls" />
+            <SectionBuilder formId="form" sectionId="sections" parentKey="data.sections" />
+            <SectionBuilder formId="form" sectionId="controls" parentKey="data.sections[0].controls" />
             <SmartControl formId="form" configKey="sections[0].controls[0]" parentKey="data.sections[0]" />
             <SmartControl formId="form" configKey="sections[0].controls[1]" parentKey="data.sections[0]" />
             <button onClick={handleSave}>Save</button>
