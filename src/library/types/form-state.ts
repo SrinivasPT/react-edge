@@ -31,6 +31,7 @@ export interface TableInternalState {
     isEditable: boolean;
     selectAllRows?: boolean;
     parentDataKey?: string;
+    selectedRowId?: any;
 }
 
 export interface InternalState {

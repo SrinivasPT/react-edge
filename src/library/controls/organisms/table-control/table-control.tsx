@@ -7,7 +7,10 @@ import useTable from './use-table';
 const TableControl: React.FC<ControlBuilderProps> = ({ control, parentKey }) => {
     logger.info(`Rendering InputControl for ${control.id}`);
 
-    const { data, dataKey, isTableEditable, handleToggleEditTable, SelectAllControl, getSelectRowControl } = useTable(control, parentKey);
+    const { data, dataKey, isTableEditable, handleToggleEditTable, SelectAllControl, getSelectRowControl, handleSelectRow } = useTable(
+        control,
+        parentKey
+    );
 
     const getCellPadding = () => (isTableEditable ? 'px-1 py-1' : 'px-4 py-3');
 
@@ -43,15 +46,18 @@ const TableControl: React.FC<ControlBuilderProps> = ({ control, parentKey }) => 
                 </thead>
                 <tbody className="bg-white divide-y divide-gray-300">
                     {data.map((row: any, rowIndex: number) => (
-                        <tr key={rowIndex} className={`${isTableEditable ? 'space-y-2' : ''} items-center`}>
+                        <tr
+                            key={rowIndex}
+                            onClick={() => handleSelectRow(row.id)}
+                            className={`cursor-pointer hover:bg-gray-100 ${isTableEditable ? 'space-y-2' : ''} items-center`}
+                        >
                             {control?.isEditable && (
                                 <td className="flex justify-center items-center p-3">
-                                    {/* <input type="checkbox" checked={selectedRows.has(rowIndex)} onChange={() => toggleRowSelection(rowIndex)} /> */}
                                     <CheckControl control={getSelectRowControl(row.guid)} parentKey="" />
                                 </td>
                             )}
                             {control.controls.map((cellControl, colIndex) => (
-                                <td key={colIndex} className={`${getCellPadding()} transition-colors duration-200 hover:bg-gray-50`}>
+                                <td key={colIndex} className={`${getCellPadding()}`}>
                                     {isTableEditable ? (
                                         <div className="w-full">
                                             <ControlBuilder
