@@ -1,3 +1,4 @@
+import { UUID } from 'crypto';
 import { ControlType, DataType } from './enums';
 
 export interface Validation {
@@ -24,6 +25,7 @@ export interface CustomProperties {
 }
 
 export interface Control {
+    guid: UUID;
     id: string;
     type: ControlType;
     label: string;

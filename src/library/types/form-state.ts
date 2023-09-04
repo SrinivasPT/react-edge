@@ -26,8 +26,19 @@ export interface Pagination {
     itemsPerPage: number;
 }
 
+export interface TableInternalState {
+    selectedRecords: Record<string, boolean>;
+    isEditable: boolean;
+    selectAllRows?: boolean;
+}
+
+export interface InternalState {
+    table: Record<string, TableInternalState>;
+}
+
 export interface FormState {
     data: { [key: string]: any };
+    internal: InternalState;
     custom: { [key: string]: any };
     flags: UIState;
     errors: { [key: string]: string[] };

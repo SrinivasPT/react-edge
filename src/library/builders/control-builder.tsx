@@ -25,7 +25,7 @@ const ControlBuilder: React.FC<ControlBuilderProps> = ({ control, parentKey }) =
     /**
      * Have all the control spacing done here rather than the control itself
      */
-    return <div className={`w-full pe-4 pb-3`}>{renderControl()}</div>;
+    return <div className={`w-full pe-3 pb-2`}>{renderControl()}</div>;
 };
 
 export default ControlBuilder;

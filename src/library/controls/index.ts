@@ -1,4 +1,5 @@
 // Basic Controls
+export { default as CheckControl } from './atoms/checkbox/check-control';
 export { default as InputControl } from './atoms/input/input-control';
 export { default as LabelControl } from './atoms/label/label-control';
 
