@@ -1,5 +1,5 @@
 import { useFormControl } from '@lib/hooks';
-import { Control } from '@lib/types';
+import { Control, TableInternalState } from '@lib/types';
 import { selectRow, toggleTableEditableStatus } from '@store/features/form-slice';
 import _ from 'lodash';
 import { useSelector } from 'react-redux';
@@ -23,6 +23,8 @@ export function useTable(control: Control, parentKey: string) {
         return _.join(transformedParts, '-');
     };
 
+    const iState: TableInternalState = useSelector(state => _.get(state, `form.internal.table.${getInternalStateKey(dataKey)}`, {}));
+
     const isTableEditable = useSelector(state => _.get(state, `form.internal.table.${getInternalStateKey(dataKey)}.isEditable`, false));
 
     const handleToggleEditTable = () => {
@@ -35,7 +37,9 @@ export function useTable(control: Control, parentKey: string) {
 
     const handleSelectRow = (rowId: number) => dispatch(selectRow({ key: getInternalStateKey(dataKey), rowId }));
 
-    return { data, dataKey, dispatch, isTableEditable, handleToggleEditTable, SelectAllControl, getSelectRowControl, handleSelectRow };
+    const isRowSelected = (rowId: number) => iState?.selectedRowId === rowId;
+
+    return { data, dataKey, dispatch, isTableEditable, handleToggleEditTable, SelectAllControl, getSelectRowControl, handleSelectRow, isRowSelected };
 }
 
 export default useTable;

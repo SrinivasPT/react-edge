@@ -1,7 +1,6 @@
 'use client';
 
 import { SectionBuilder } from '@lib/builders';
-import SmartControl from '@lib/builders/smart-control';
 import { useFormDetail } from '@lib/hooks';
 import { PageLayout } from '@lib/layout';
 import { Section } from '@lib/types';
@@ -41,8 +40,8 @@ const Page = ({ params }: { params: { id: string } }) => {
             <SectionBuilder formId="form" sectionId="form" parentKey="data.sections[0]" />
             <SectionBuilder formId="form" sectionId="sections" parentKey="data.sections" />
             <SectionBuilder formId="form" sectionId="controls" parentKey={controlsSectionParent} />
-            <SmartControl formId="form" configKey="sections[0].controls[0]" parentKey="data.sections[0]" />
-            <SmartControl formId="form" configKey="sections[0].controls[1]" parentKey="data.sections[0]" />
+            {/* <SmartControl formId="form" configKey="sections[0].controls[0]" parentKey="data.sections[0]" />
+            <SmartControl formId="form" configKey="sections[0].controls[1]" parentKey="data.sections[0]" /> */}
             <button onClick={handleSave}>Save</button>
         </PageLayout>
     );

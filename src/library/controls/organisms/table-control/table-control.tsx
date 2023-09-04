@@ -7,7 +7,7 @@ import useTable from './use-table';
 const TableControl: React.FC<ControlBuilderProps> = ({ control, parentKey }) => {
     logger.info(`Rendering InputControl for ${control.id}`);
 
-    const { data, dataKey, isTableEditable, handleToggleEditTable, SelectAllControl, getSelectRowControl, handleSelectRow } = useTable(
+    const { data, dataKey, isTableEditable, handleToggleEditTable, SelectAllControl, getSelectRowControl, handleSelectRow, isRowSelected } = useTable(
         control,
         parentKey
     );
@@ -49,7 +49,9 @@ const TableControl: React.FC<ControlBuilderProps> = ({ control, parentKey }) => 
                         <tr
                             key={rowIndex}
                             onClick={() => handleSelectRow(row.id)}
-                            className={`cursor-pointer hover:bg-gray-100 ${isTableEditable ? 'space-y-2' : ''} items-center`}
+                            className={`cursor-pointer hover:bg-yellow-50 ${isTableEditable ? 'space-y-2' : ''} items-center ${
+                                isRowSelected(row.id) ? 'bg-yellow-50' : ''
+                            }`}
                         >
                             {control?.isEditable && (
                                 <td className="flex justify-center items-center p-3">
