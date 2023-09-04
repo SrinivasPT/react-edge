@@ -9,7 +9,7 @@ const TableControl: React.FC<ControlBuilderProps> = ({ control, parentKey }) => 
     logger.info(`Rendering InputControl for ${control.id}`);
 
     const [selectedRows, setSelectedRows] = useState<Set<number>>(new Set());
-    const { value: data, dataKey, isTableEditable, handleToggleEditTable, SelectAllControl } = useTable(control, parentKey);
+    const { value: data, dataKey, isTableEditable, handleToggleEditTable, SelectAllControl, getSelectRowControl } = useTable(control, parentKey);
 
     const getCellPadding = () => (isTableEditable ? 'px-1 py-1' : 'px-4 py-3');
 
@@ -61,7 +61,8 @@ const TableControl: React.FC<ControlBuilderProps> = ({ control, parentKey }) => 
                     {data.map((row: any, rowIndex: number) => (
                         <tr key={rowIndex} className={`${isTableEditable ? 'space-y-2' : ''} items-center`}>
                             <td className="flex justify-center items-center p-3">
-                                <input type="checkbox" checked={selectedRows.has(rowIndex)} onChange={() => toggleRowSelection(rowIndex)} />
+                                {/* <input type="checkbox" checked={selectedRows.has(rowIndex)} onChange={() => toggleRowSelection(rowIndex)} /> */}
+                                <CheckControl control={getSelectRowControl(row.guid)} parentKey="" />
                             </td>
                             {control.controls.map((cellControl, colIndex) => (
                                 <td key={colIndex} className={`${getCellPadding()} transition-colors duration-200 hover:bg-gray-50`}>
