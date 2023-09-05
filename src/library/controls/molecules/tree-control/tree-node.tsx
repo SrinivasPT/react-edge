@@ -6,12 +6,13 @@ import ContextMenu from './context-menu';
 
 type TreeNodeProps = {
     item: TreeItem;
-    handleChange: (selectedId: string) => void;
+    level: number;
+    handleChange: (item: any) => void;
     actions: ContextMenuAction[];
 };
 
-const TreeNode: React.FC<TreeNodeProps> = ({ item, handleChange, actions }) => {
-    const [isExpanded, setIsExpanded] = useState(false);
+const TreeNode: React.FC<TreeNodeProps> = ({ item, level, handleChange, actions }) => {
+    const [isExpanded, setIsExpanded] = useState(level === 1);
     const [contextMenuPos, setContextMenuPos] = useState<{ x: number; y: number } | null>(null);
 
     const toggleExpand = () => {
@@ -72,14 +73,14 @@ const TreeNode: React.FC<TreeNodeProps> = ({ item, handleChange, actions }) => {
                 ) : (
                     <span className="mr-2"></span>
                 )}
-                <span onClick={() => handleChange(item.id)}>{item.label}</span>
+                <span onClick={() => handleChange(item)}>{item.label}</span>
             </div>
 
             {isExpanded && item.children && (
                 <ul className="list-item pl-8">
                     {item.children.map(child => (
                         <li key={child.id}>
-                            <TreeNode item={child} handleChange={handleChange} actions={actions} />
+                            <TreeNode item={child} level={level + 1} handleChange={handleChange} actions={actions} />
                         </li>
                     ))}
                 </ul>

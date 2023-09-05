@@ -5,7 +5,7 @@ import React from 'react';
 import ControlTypeMap from './control-type-map';
 
 const ControlBuilder: React.FC<ControlBuilderProps> = ({ control, parentKey }) => {
-    logger.info('Rendering the control builder');
+    logger.debug('Rendering the control builder');
     const ControlComponent = ControlTypeMap[control.type];
     const { getWidthClass } = useFormControlFormat();
 

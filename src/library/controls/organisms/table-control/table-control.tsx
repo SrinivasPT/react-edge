@@ -5,7 +5,7 @@ import { logger } from '@lib/utils';
 import useTable from './use-table';
 
 const TableControl: React.FC<ControlBuilderProps> = ({ control, parentKey }) => {
-    logger.info(`Rendering InputControl for ${control.id}`);
+    logger.debug(`Rendering InputControl for ${control.id}`);
 
     const { data, dataKey, isTableEditable, handleToggleEditTable, SelectAllControl, getSelectRowControl, handleSelectRow, isRowSelected } = useTable(
         control,

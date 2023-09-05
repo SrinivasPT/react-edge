@@ -1,21 +1,27 @@
 import { FormInit, FormState } from '@lib/types';
+import { useAddFormMutation, useDeleteFormMutation, useUpdateFormMutation } from '@store/api/form-config-api';
 import { reset, setFormDetail } from '@store/features/form-slice';
 import { useAppDispatch } from '@store/hooks';
 import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 
-const useFormDetail = ({ entityName, id, initialData, isInitialDataLoaded, mutationFns }: FormInit) => {
-    const dispatch = useAppDispatch();
+const useFormDetail = ({ entityName, id, initialData, isInitialDataLoaded }: FormInit) => {
+    const [addForm] = useAddFormMutation();
+    const [updateForm] = useUpdateFormMutation();
+    const [deleteForm] = useDeleteFormMutation();
+    const mutationFns = { add: addForm, update: updateForm, delete: deleteForm };
+
     const formData: FormState = useSelector((store: any) => store.form.data);
     const [isFormReady, setIsFormReady] = useState(false);
+    const dispatch = useAppDispatch();
 
     const handleSave = async (event: any) => {
         event.preventDefault();
         const mode = id ? 'update' : 'add';
-        const payload = id ? { id, changes: formData } : { formData };
+        const payload: any = id ? { id, changes: formData } : { formData };
 
         try {
-            const response = await mutationFns[mode](payload);
+            const response: any = await mutationFns[mode](payload);
             console.log('Operation successful:', response.data);
         } catch (error) {
             console.error('Operation failed:', error);
@@ -26,7 +32,7 @@ const useFormDetail = ({ entityName, id, initialData, isInitialDataLoaded, mutat
         event.preventDefault();
 
         try {
-            const response = await mutationFns['delete'](id);
+            const response: any = await mutationFns['delete'](id);
             console.log('Operation successful:', response.data);
         } catch (error) {
             console.error('Operation failed:', error);

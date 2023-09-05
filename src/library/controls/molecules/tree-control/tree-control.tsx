@@ -1,17 +1,16 @@
 'use client';
 
-import { useFormControl } from '@lib/hooks';
 import { ContextMenuAction, Control, TreeItem } from '@lib/types';
 import { useState } from 'react';
 import TreeNode from './tree-node';
 
 const TreeControl: React.FC<{ control: Control; actions: ContextMenuAction[] }> = ({ control, actions }) => {
-    const { value, handleChange: updateExternalValue } = useFormControl(control.dataKey);
+    // const { value, handleChange: updateExternalValue } = useFormControl(control.dataKey, '');
     const [selectedId, setSelectedId] = useState<string | null>();
 
-    const handleTreeChange = (id: string) => {
-        console.log(`TreeControl: handleTreeChange: id: ${id}`);
-        setSelectedId(id);
+    const handleTreeChange = (item: any) => {
+        console.log(`TreeControl: handleTreeChange: id: ${JSON.stringify(item)}`);
+        setSelectedId(item.id);
     };
 
     const data: TreeItem = {
@@ -34,7 +33,7 @@ const TreeControl: React.FC<{ control: Control; actions: ContextMenuAction[] }> 
     return (
         <div className="bg-white p-4">
             <ul className="list-item pl-5">
-                <TreeNode key={data.id} item={data} handleChange={handleTreeChange} actions={actions} />
+                <TreeNode key={data.id} item={data} level={1} handleChange={handleTreeChange} actions={actions} />
             </ul>
         </div>
     );

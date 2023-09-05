@@ -3,7 +3,7 @@ import pino from 'pino';
 const isDevelopment = process.env.NODE_ENV !== 'production';
 
 const logger = pino({
-    level: isDevelopment ? 'debug' : 'warn', // Log everything in development, only warnings/errors in production
+    level: isDevelopment ? 'info' : 'warn', // Log everything in development, only warnings/errors in production
     prettyPrint: isDevelopment, // Pretty print in development for readability
 });
 

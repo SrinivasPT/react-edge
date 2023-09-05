@@ -56,7 +56,6 @@ export type FormInit = {
     entityName: string;
     initialData: any;
     isInitialDataLoaded: boolean;
-    mutationFns: MutationFunctions;
 };
 
 export type MutationFunctions = {

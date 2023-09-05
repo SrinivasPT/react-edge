@@ -3,7 +3,7 @@ import { ControlBuilderProps } from '@lib/types';
 import { logger } from '@lib/utils';
 
 const CheckControl: React.FC<ControlBuilderProps> = ({ control, parentKey }) => {
-    logger.info(`Rendering InputControl for ${control.id}`);
+    logger.debug(`Rendering InputControl for ${control.id}`);
 
     const { value, handleChange } = useFormControl(control, parentKey);
 
