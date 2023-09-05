@@ -1,24 +1,24 @@
 'use client';
 
 import { SectionBuilder } from '@lib/builders';
-import { ModalPopup } from '@lib/common/modal';
-import { TreeControl } from '@lib/controls';
 import { useFormDetail } from '@lib/hooks';
-import { CardLayout, PageLayout } from '@lib/layout';
-import { ContextMenuAction, Control, ControlType, DataType, Section } from '@lib/types';
+import { PageLayout } from '@lib/layout';
+import { Section } from '@lib/types';
 import { useGetFormByIdQuery } from '@store/api/form-config-api';
 import { useAppSelector } from '@store/hooks';
 import { useEffect, useState } from 'react';
-import AddControls from './add-controls';
+import AddControlsModal from '../../components/add-controls-modal';
+import FormTreeControl from '../../components/form-tree-control';
 
 const Page = ({ params }: { params: { formId: string } }) => {
+    // General
+    const { isSuccess: isInitialDataLoaded, data: initialData } = useGetFormByIdQuery({ id: params.formId });
+    const { isFormReady, handleSave, handleDelete } = useFormDetail({ id: params.formId, entityName: 'form', initialData, isInitialDataLoaded });
+    const formState = useAppSelector(state => state.form);
+
+    // Page Specific
     const [controlsSectionParent, setControlsSectionParent] = useState('data.sections[0].controls');
     const [showAddControls, setShowAddControls] = useState(false);
-    const { isSuccess: isInitialDataLoaded, data: initialData } = useGetFormByIdQuery({ id: params.formId });
-
-    const { isFormReady, handleSave, handleDelete } = useFormDetail({ id: params.formId, entityName: 'form', initialData, isInitialDataLoaded });
-
-    const formState = useAppSelector(state => state.form);
 
     useEffect(() => {
         const index = formState.data?.sections?.findIndex((section: Section) => section.id === formState.internal.table.sections.selectedRowId);
@@ -27,15 +27,7 @@ const Page = ({ params }: { params: { formId: string } }) => {
 
     if (!isFormReady) return <div>Loading....</div>;
 
-    const handleAddControls = () => {};
-
     const addControlsToSection = () => {};
-
-    const treeControl = { id: '', type: ControlType.TREE, label: '', dataType: DataType.OBJECT, dataKey: '' } as Control;
-    const actions: ContextMenuAction[] = [
-        { label: 'Add Item', callback: () => console.log('Adding Item...') },
-        { label: 'Remove Item', callback: () => console.log('Deleting Item...') },
-    ];
 
     return (
         <PageLayout>
@@ -44,9 +36,7 @@ const Page = ({ params }: { params: { formId: string } }) => {
             <div className="flex">
                 {/* Left Side - Tree Control */}
                 <div className="flex-none w-1/4 p-4">
-                    <CardLayout title="Page Structure">
-                        <TreeControl control={treeControl} actions={actions} />
-                    </CardLayout>
+                    <FormTreeControl />
                 </div>
 
                 {/* Right Side - Rest of the Sections/Controls */}
@@ -64,27 +54,9 @@ const Page = ({ params }: { params: { formId: string } }) => {
                     <button onClick={() => setShowAddControls(true)}>Add Controls</button>
                 </div>
             </div>
-
-            {addControlsModal()}
+            <AddControlsModal isOpen={showAddControls} onClose={() => setShowAddControls(false)} onAdd={addControlsToSection} />
         </PageLayout>
     );
-
-    function addControlsModal() {
-        return (
-            <ModalPopup
-                title="Add Controls"
-                isOpen={showAddControls}
-                footerButtons={
-                    <>
-                        <button onClick={addControlsToSection}>Add Controls</button>
-                        <button onClick={() => setShowAddControls(false)}>Close</button>
-                    </>
-                }
-            >
-                <AddControls />
-            </ModalPopup>
-        );
-    }
 };
 
 export default Page;

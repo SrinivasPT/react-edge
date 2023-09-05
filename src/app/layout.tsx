@@ -7,6 +7,7 @@ import { Inter } from 'next/font/google';
 import { Providers } from '../redux/provider';
 import './globals.css';
 import Init from './init';
+import { Suspense } from 'react';
 config.autoAddCss = false;
 
 const inter = Inter({ subsets: ['latin'] });
@@ -21,7 +22,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <html lang="en">
             <body className={inter.className}>
                 <Providers>
-                    <Init>{children}</Init>
+                    <Suspense fallback={<div>Loading...</div>}>
+                        <Init>{children}</Init>
+                    </Suspense>
                 </Providers>
             </body>
         </html>

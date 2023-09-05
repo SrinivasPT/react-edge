@@ -33,7 +33,7 @@ const TreeControl: React.FC<{ control: Control; actions: ContextMenuAction[] }> 
     return (
         <div className="bg-white p-4">
             <ul className="list-item pl-5">
-                <TreeNode key={data.id} item={data} level={1} handleChange={handleTreeChange} actions={actions} />
+                <TreeNode key={data.id} item={data} level={1} handleChange={handleTreeChange} />
             </ul>
         </div>
     );
