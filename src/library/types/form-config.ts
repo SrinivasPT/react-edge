@@ -75,6 +75,8 @@ export interface FormConfig {
 export interface TreeItem {
     id: string;
     label: string;
+    level: string;
+    parentId: string | null;
     children?: TreeItem[];
 }
 

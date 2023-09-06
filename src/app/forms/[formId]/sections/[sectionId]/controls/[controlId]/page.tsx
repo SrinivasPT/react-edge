@@ -27,7 +27,7 @@ const Page = ({ params }: { params: { formId: string; sectionId: string; control
             <div className="flex">
                 {/* Left Side - Tree Control */}
                 <div className="flex-none w-1/4 p-4">
-                    <FormTreeControl />
+                    <FormTreeControl formId={params.formId} />
                 </div>
 
                 {/* Right Side - Rest of the Sections/Controls */}

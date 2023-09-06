@@ -23,13 +23,13 @@ const Page = ({ params }: { params: { formId: string; sectionId: string } }) => 
             <div className="flex">
                 {/* Left Side - Tree Control */}
                 <div className="flex-none w-1/4 p-4">
-                    <FormTreeControl />
+                    <FormTreeControl formId={params.formId} />
                 </div>
 
                 {/* Right Side - Rest of the Sections/Controls */}
                 <div className="flex-grow p-4">
                     <SectionBuilder formId="form" sectionId="section-header-free-form" parentKey={`data.sections[${sectionIndex}]`} />
-                    <SectionBuilder formId="form" sectionId="section-controls-list-tabular" parentKey={`data.sections[${sectionIndex}].controls`} />
+                    <SectionBuilder formId="form" sectionId="section-control-list-tabular" parentKey={`data.sections[${sectionIndex}].controls`} />
                     <button onClick={handleSave}>Save</button>
                 </div>
             </div>

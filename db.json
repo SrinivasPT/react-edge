@@ -35,7 +35,7 @@
                         },
                         {
                             "id": "maidenName",
-                            "label": "Last Name",
+                            "label": "Maiden Name",
                             "type": "TEXT",
                             "width": "md",
                             "required": true,
@@ -68,6 +68,56 @@
                                 "maxLength": 20
                             },
                             "placeholder": "Enter your Gender"
+                        }
+                    ]
+                },
+                {
+                    "id": "identities",
+                    "title": "Identities",
+                    "controls": [
+                        {
+                            "id": "number",
+                            "label": "Identity #",
+                            "type": "TEXT",
+                            "width": "md",
+                            "required": true,
+                            "validation": {
+                                "minLength": 2,
+                                "maxLength": 20
+                            }
+                        },
+                        {
+                            "id": "type",
+                            "label": "Identity Type",
+                            "type": "TEXT",
+                            "width": "md",
+                            "required": true,
+                            "validation": {
+                                "minLength": 2,
+                                "maxLength": 20
+                            }
+                        },
+                        {
+                            "id": "validTo",
+                            "label": "Valid Up To",
+                            "type": "TEXT",
+                            "width": "md",
+                            "required": true,
+                            "validation": {
+                                "minLength": 2,
+                                "maxLength": 20
+                            }
+                        },
+                        {
+                            "id": "remarks",
+                            "label": "Remarks",
+                            "type": "TEXT",
+                            "width": "md",
+                            "required": true,
+                            "validation": {
+                                "minLength": 2,
+                                "maxLength": 20
+                            }
                         }
                     ]
                 }

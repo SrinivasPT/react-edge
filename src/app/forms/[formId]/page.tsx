@@ -36,14 +36,14 @@ const Page = ({ params }: { params: { formId: string } }) => {
             <div className="flex">
                 {/* Left Side - Tree Control */}
                 <div className="flex-none w-1/4 p-4">
-                    <FormTreeControl />
+                    <FormTreeControl formId={params.formId} />
                 </div>
 
                 {/* Right Side - Rest of the Sections/Controls */}
                 <div className="flex-grow p-4">
                     <SectionBuilder formId="form" sectionId="page-header-free-form" parentKey="data" />
                     <SectionBuilder formId="form" sectionId="section-list-tabular" parentKey="data.sections" />
-                    <SectionBuilder formId="form" sectionId="section-controls-list-tabular" parentKey={controlsSectionParent} />
+                    <SectionBuilder formId="form" sectionId="section-control-list-tabular" parentKey={controlsSectionParent} />
                     <button onClick={handleSave}>Save</button>
                     <button onClick={() => setShowAddControls(true)}>Add Controls</button>
                 </div>
