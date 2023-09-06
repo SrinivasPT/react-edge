@@ -2,13 +2,11 @@
 
 import { SectionBuilder } from '@lib/builders';
 import { useFormDetail } from '@lib/hooks';
-import { PageLayout } from '@lib/layout';
 import { Section } from '@lib/types';
 import { useGetFormByIdQuery } from '@store/api/form-config-api';
 import { useAppSelector } from '@store/hooks';
 import { useEffect, useState } from 'react';
 import AddControlsModal from '../../components/add-controls-modal';
-import FormTreeControl from '../../components/form-tree-control';
 
 const Page = ({ params }: { params: { formId: string } }) => {
     // General
@@ -30,26 +28,17 @@ const Page = ({ params }: { params: { formId: string } }) => {
     const addControlsToSection = () => {};
 
     return (
-        <PageLayout>
+        <>
             <h1>User Detail for ID: {params.formId}</h1>
-
-            <div className="flex">
-                {/* Left Side - Tree Control */}
-                <div className="flex-none w-1/4 p-4">
-                    <FormTreeControl formId={params.formId} />
-                </div>
-
-                {/* Right Side - Rest of the Sections/Controls */}
-                <div className="flex-grow p-4">
-                    <SectionBuilder formId="form" sectionId="page-header-free-form" parentKey="data" />
-                    <SectionBuilder formId="form" sectionId="section-list-tabular" parentKey="data.sections" />
-                    <SectionBuilder formId="form" sectionId="section-control-list-tabular" parentKey={controlsSectionParent} />
-                    <button onClick={handleSave}>Save</button>
-                    <button onClick={() => setShowAddControls(true)}>Add Controls</button>
-                </div>
-            </div>
+            {/* <FormBuilderLayout formId={params.formId}> */}
+            <SectionBuilder formId="form" sectionId="page-header-free-form" parentKey="data" />
+            <SectionBuilder formId="form" sectionId="section-list-tabular" parentKey="data.sections" />
+            <SectionBuilder formId="form" sectionId="section-control-list-tabular" parentKey={controlsSectionParent} />
+            <button onClick={handleSave}>Save</button>
+            <button onClick={() => setShowAddControls(true)}>Add Controls</button>
+            {/* </FormBuilderLayout> */}
             <AddControlsModal isOpen={showAddControls} onClose={() => setShowAddControls(false)} onAdd={addControlsToSection} />
-        </PageLayout>
+        </>
     );
 };
 

@@ -3,11 +3,18 @@ import { useFormConfig } from '@lib/hooks';
 import { CardLayout } from '@lib/layout';
 import { Control, Section, TreeItem } from '@lib/types';
 import { useRouter } from 'next/navigation';
+import { useEffect, useState } from 'react';
 
 const FormTreeControl = (params: any) => {
     const formConfig = useFormConfig().getFormConfig(params.formId);
     const router = useRouter();
-    const data = transformJson(formConfig) as TreeItem;
+    // const data = transformJson(formConfig) as TreeItem;
+    // const data = useMemo(() => transformJson(formConfig), [formConfig]);
+    const [data, setData] = useState(transformJson(formConfig));
+
+    useEffect(() => {
+        setData(transformJson(formConfig));
+    }, []);
 
     const handleChange = (action: string, item: TreeItem) => {
         console.log(`User performed action ${action} and the item is ${JSON.stringify(item)}`);
@@ -63,7 +70,7 @@ const FormTreeControl = (params: any) => {
         <CardLayout title="Page Structure">
             <div className="bg-white p-4">
                 <ul className="list-item pl-5">
-                    <TreeNode key={data.id} item={data} level={1} handleChange={handleChange} />
+                    <TreeNode key={data?.id} item={data as TreeItem} level={1} handleChange={handleChange} />
                 </ul>
             </div>
         </CardLayout>
