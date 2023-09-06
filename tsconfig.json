@@ -20,7 +20,7 @@
             }
         ],
         "paths": {
-            "@components/*": ["./src/components*"],
+            "@components/*": ["./src/app/components/*"],
             "@lib/*": ["./src/library/*"],
             "@store/*": ["./src/redux/*"],
             "@util/*": ["./src/util/*"],

@@ -41,15 +41,9 @@ const Page = ({ params }: { params: { formId: string } }) => {
 
                 {/* Right Side - Rest of the Sections/Controls */}
                 <div className="flex-grow p-4">
-                    <SectionBuilder formId="form" sectionId="form" parentKey="data.sections[0]" />
-                    <SectionBuilder formId="form" sectionId="sections" parentKey="data.sections" />
-                    <SectionBuilder formId="form" sectionId="controls" parentKey={controlsSectionParent} />
-
-                    {/* Uncomment if needed
-                    <SmartControl formId="form" configKey="sections[0].controls[0]" parentKey="data.sections[0]" />
-                    <SmartControl formId="form" configKey="sections[0].controls[1]" parentKey="data.sections[0]" />
-                    */}
-
+                    <SectionBuilder formId="form" sectionId="page-header-free-form" parentKey="data" />
+                    <SectionBuilder formId="form" sectionId="section-list-tabular" parentKey="data.sections" />
+                    <SectionBuilder formId="form" sectionId="section-controls-list-tabular" parentKey={controlsSectionParent} />
                     <button onClick={handleSave}>Save</button>
                     <button onClick={() => setShowAddControls(true)}>Add Controls</button>
                 </div>

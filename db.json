@@ -10,11 +10,11 @@
                     "title": "Basic Info",
                     "controls": [
                         {
-                            "guid": "049b2f08-4d25-42f7-bf58-86fcb4ac099c",
                             "id": "firstName",
                             "label": "First Name",
                             "type": "TEXT",
                             "required": true,
+                            "width": "md",
                             "validation": {
                                 "minLength": 2,
                                 "maxLength": 20
@@ -22,11 +22,11 @@
                             "placeholder": "Enter your First Name"
                         },
                         {
-                            "guid": "3f98fc84-5c37-4737-a3ce-e6b7effb906a",
                             "id": "lastName",
                             "label": "Last Name",
                             "type": "TEXT",
                             "required": true,
+                            "width": "md",
                             "validation": {
                                 "minLength": 2,
                                 "maxLength": 20
@@ -34,10 +34,10 @@
                             "placeholder": "Enter your Last Name"
                         },
                         {
-                            "guid": "b4667786-d9b1-4ff1-a642-29c3f17d53a3",
                             "id": "maidenName",
                             "label": "Last Name",
                             "type": "TEXT",
+                            "width": "md",
                             "required": true,
                             "validation": {
                                 "minLength": 2,
@@ -46,10 +46,10 @@
                             "placeholder": "Enter your Maiden Name"
                         },
                         {
-                            "guid": "c7350bbc-f5b9-4c69-a54d-37bd133c6dc6",
                             "id": "age",
                             "label": "Age",
                             "type": "TEXT",
+                            "width": "md",
                             "required": true,
                             "validation": {
                                 "minLength": 2,
@@ -58,10 +58,10 @@
                             "placeholder": "Enter your Age"
                         },
                         {
-                            "guid": "3d0f422a-ed19-41a9-a4c7-4774c03aed50",
                             "id": "gender",
                             "label": "Gender",
                             "type": "TEXT",
+                            "width": "md",
                             "required": true,
                             "validation": {
                                 "minLength": 2,
@@ -74,18 +74,15 @@
             ]
         },
         {
-            "guid": "a0fa2b2f-94dd-4aa7-9dd1-47bec728f940",
             "id": "form",
             "title": "Build Page",
             "layout": "vertical",
             "sections": [
                 {
-                    "guid": "0f4fa352-2b80-478c-bcc6-22cb7e218c52",
-                    "id": "form",
-                    "title": "Page Level",
+                    "id": "page-header-free-form",
+                    "title": "Page Header",
                     "controls": [
                         {
-                            "guid": "5636074f-eb09-4fc0-9425-4dcf7e67360f",
                             "id": "id",
                             "label": "Id",
                             "type": "TEXT",
@@ -98,10 +95,39 @@
                             "placeholder": "Enter your Id"
                         },
                         {
-                            "guid": "dc038b04-dfdf-4288-a6b0-09b778ded16a",
                             "id": "title",
                             "label": "Title",
-                            "dataKey": "form.title",
+                            "type": "TEXT",
+                            "width": "md",
+                            "required": true,
+                            "validation": {
+                                "minLength": 2,
+                                "maxLength": 20
+                            },
+                            "placeholder": "Enter your Title"
+                        }
+                    ]
+                },
+                {
+                    "id": "section-header-free-form",
+                    "title": "Section Header",
+                    "controls": [
+                        {
+                            "id": "id",
+                            "label": "Id",
+                            "type": "TEXT",
+                            "width": "md",
+                            "required": true,
+                            "validation": {
+                                "minLength": 2,
+                                "maxLength": 20
+                            },
+                            "placeholder": "Enter your Id"
+                        },
+                        {
+                            "id": "title",
+                            "label": "Title",
+                            "dataKey": "title",
                             "type": "TEXT",
                             "width": "md",
                             "required": true,
@@ -112,7 +138,6 @@
                             "placeholder": "Enter your Title"
                         },
                         {
-                            "guid": "09ff00a4-de0d-4f48-af15-6c5933a77030",
                             "id": "layout",
                             "label": "Layout",
                             "width": "sm",
@@ -120,7 +145,6 @@
                             "required": true
                         },
                         {
-                            "guid": "ba930585-1cd2-4b0b-8e05-56db54342d99",
                             "id": "dataKey",
                             "label": "Data Key",
                             "type": "TEXT",
@@ -135,12 +159,10 @@
                     ]
                 },
                 {
-                    "guid": "475db477-23d5-46bb-89d8-a12190077446",
-                    "id": "sections",
-                    "title": "Section",
+                    "id": "section-list-tabular",
+                    "title": "Section List",
                     "controls": [
                         {
-                            "guid": "145844ff-64f8-4ca5-9fd9-b7c53b865a34",
                             "id": "sections",
                             "label": "Sections",
                             "dataKey": "USE_PARENT",
@@ -148,7 +170,6 @@
                             "isEditable": true,
                             "controls": [
                                 {
-                                    "guid": "f394b6df-36c8-4d1a-a9e3-1776d5783fcf",
                                     "id": "id",
                                     "label": "Id",
                                     "type": "INPUT",
@@ -159,7 +180,6 @@
                                     }
                                 },
                                 {
-                                    "guid": "12382905-8e5c-4dcc-a20a-4e053d2daaed",
                                     "id": "title",
                                     "label": "Section Title",
                                     "type": "INPUT",
@@ -170,7 +190,6 @@
                                     }
                                 },
                                 {
-                                    "guid": "201263b8-0ab7-407e-a84f-bdcd431f8d3c",
                                     "id": "dataKey",
                                     "label": "Data Key",
                                     "type": "INPUT",
@@ -185,12 +204,10 @@
                     ]
                 },
                 {
-                    "guid": "7f8a74ab-9119-467d-be2f-750700672344",
-                    "id": "controls",
-                    "title": "Controls",
+                    "id": "section-control-list-tabular",
+                    "title": "Controls List",
                     "controls": [
                         {
-                            "guid": "7ffb6bd3-952a-4f63-9736-bf2ec7ddca05",
                             "id": "controls",
                             "label": "Controls",
                             "dataKey": "USE_PARENT",
@@ -199,7 +216,6 @@
                             "isEditable": true,
                             "controls": [
                                 {
-                                    "guid": "de7b975f-1607-45a3-9886-97b950bb5a5c",
                                     "id": "id",
                                     "label": "Id",
                                     "type": "INPUT",
@@ -210,7 +226,124 @@
                                     }
                                 },
                                 {
-                                    "guid": "41abe20e-035f-433e-b2c6-7f388e5ea2fa",
+                                    "id": "label",
+                                    "label": "Label",
+                                    "type": "INPUT",
+                                    "required": true,
+                                    "validation": {
+                                        "minLength": 2,
+                                        "maxLength": 20
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": "control-free-form",
+                    "title": "Controls List",
+                    "controls": [
+                        {
+                            "id": "id",
+                            "label": "Id",
+                            "type": "TEXT",
+                            "width": "md",
+                            "required": true,
+                            "validation": {
+                                "minLength": 2,
+                                "maxLength": 20
+                            }
+                        },
+                        {
+                            "id": "label",
+                            "label": "Label",
+                            "type": "TEXT",
+                            "width": "md",
+                            "required": true,
+                            "validation": {
+                                "minLength": 2,
+                                "maxLength": 20
+                            }
+                        },
+                        {
+                            "id": "type",
+                            "label": "Type",
+                            "type": "TEXT",
+                            "width": "md",
+                            "required": true,
+                            "validation": {
+                                "minLength": 2,
+                                "maxLength": 20
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "sections",
+            "title": "Build Page",
+            "layout": "vertical",
+            "sections": [
+                {
+                    "id": "sections",
+                    "title": "Section",
+                    "controls": [
+                        {
+                            "id": "id",
+                            "label": "Id",
+                            "type": "INPUT",
+                            "required": true,
+                            "validation": {
+                                "minLength": 2,
+                                "maxLength": 20
+                            }
+                        },
+                        {
+                            "id": "title",
+                            "label": "Section Title",
+                            "type": "INPUT",
+                            "required": true,
+                            "validation": {
+                                "minLength": 2,
+                                "maxLength": 20
+                            }
+                        },
+                        {
+                            "id": "dataKey",
+                            "label": "Data Key",
+                            "type": "INPUT",
+                            "required": true,
+                            "validation": {
+                                "minLength": 2,
+                                "maxLength": 20
+                            }
+                        }
+                    ]
+                },
+                {
+                    "id": "controls",
+                    "title": "Controls",
+                    "controls": [
+                        {
+                            "id": "controls",
+                            "label": "Controls",
+                            "dataKey": "USE_PARENT",
+                            "type": "TABLE",
+                            "parentDataKey": "sections",
+                            "isEditable": true,
+                            "controls": [
+                                {
+                                    "id": "id",
+                                    "label": "Id",
+                                    "type": "INPUT",
+                                    "required": true,
+                                    "validation": {
+                                        "minLength": 2,
+                                        "maxLength": 20
+                                    }
+                                },
+                                {
                                     "id": "label",
                                     "label": "Label",
                                     "type": "INPUT",
@@ -551,5 +684,23 @@
                 "sortOrder": 4
             }
         ]
-    }
+    },
+    "user": [
+        {
+            "id": 1000,
+            "firstName": "John",
+            "lastName": "Doe",
+            "age": 40,
+            "email": "john.doe@gmail.com",
+            "birthDate": "1/1/1980"
+        },
+        {
+            "id": 1001,
+            "firstName": "Jane",
+            "lastName": "Doe",
+            "age": 38,
+            "email": "jane.doe@gmail.com",
+            "birthDate": "1/1/1983"
+        }
+    ]
 }

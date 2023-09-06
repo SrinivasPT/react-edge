@@ -8,7 +8,7 @@ import Link from 'next/link';
 
 const UserDetail = ({ params }: { params: { id: string } }) => {
     const { isSuccess, data } = useSelectedUserQuery({ id: params.id });
-    const { isFormReady } = useFormDetail({ entity: 'user', id: params.id, data, isSuccess });
+    const { isFormReady } = useFormDetail({ entityName: 'user', id: params.id, initialData: data, isInitialDataLoaded: isSuccess });
 
     if (!isFormReady) return <div>Loading....</div>;
 
