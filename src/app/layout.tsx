@@ -4,10 +4,12 @@ import { config } from '@fortawesome/fontawesome-svg-core';
 import '@fortawesome/fontawesome-svg-core/styles.css';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
+import { Suspense } from 'react';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { Providers } from '../redux/provider';
 import './globals.css';
 import Init from './init';
-import { Suspense } from 'react';
 config.autoAddCss = false;
 
 const inter = Inter({ subsets: ['latin'] });
@@ -24,6 +26,18 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 <Providers>
                     <Suspense fallback={<div>Loading...</div>}>
                         <Init>{children}</Init>
+                        <ToastContainer
+                            position="bottom-center"
+                            autoClose={1000}
+                            hideProgressBar={false}
+                            newestOnTop={false}
+                            closeOnClick
+                            rtl={false}
+                            pauseOnFocusLoss
+                            draggable
+                            pauseOnHover
+                            theme="light"
+                        />
                     </Suspense>
                 </Providers>
             </body>

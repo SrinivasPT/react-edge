@@ -1,756 +1,756 @@
 {
-    "form-config": [
+  "form-config": [
+    {
+      "id": "user-info-page",
+      "title": "User Info",
+      "layout": "vertical",
+      "sections": [
         {
-            "id": "user-info-page",
-            "title": "User Info",
-            "layout": "vertical",
-            "sections": [
-                {
-                    "id": "basic",
-                    "title": "Basic Info",
-                    "controls": [
-                        {
-                            "id": "firstName",
-                            "label": "First Name",
-                            "type": "TEXT",
-                            "required": true,
-                            "width": "md",
-                            "validation": {
-                                "minLength": 2,
-                                "maxLength": 20
-                            },
-                            "placeholder": "Enter your First Name"
-                        },
-                        {
-                            "id": "lastName",
-                            "label": "Last Name",
-                            "type": "TEXT",
-                            "required": true,
-                            "width": "md",
-                            "validation": {
-                                "minLength": 2,
-                                "maxLength": 20
-                            },
-                            "placeholder": "Enter your Last Name"
-                        },
-                        {
-                            "id": "maidenName",
-                            "label": "Maiden Name",
-                            "type": "TEXT",
-                            "width": "md",
-                            "required": true,
-                            "validation": {
-                                "minLength": 2,
-                                "maxLength": 20
-                            },
-                            "placeholder": "Enter your Maiden Name"
-                        },
-                        {
-                            "id": "age",
-                            "label": "Age",
-                            "type": "TEXT",
-                            "width": "md",
-                            "required": true,
-                            "validation": {
-                                "minLength": 2,
-                                "maxLength": 20
-                            },
-                            "placeholder": "Enter your Age"
-                        },
-                        {
-                            "id": "gender",
-                            "label": "Gender",
-                            "type": "TEXT",
-                            "width": "md",
-                            "required": true,
-                            "validation": {
-                                "minLength": 2,
-                                "maxLength": 20
-                            },
-                            "placeholder": "Enter your Gender"
-                        }
-                    ]
-                },
-                {
-                    "id": "identities",
-                    "title": "Identities",
-                    "controls": [
-                        {
-                            "id": "number",
-                            "label": "Identity #",
-                            "type": "TEXT",
-                            "width": "md",
-                            "required": true,
-                            "validation": {
-                                "minLength": 2,
-                                "maxLength": 20
-                            }
-                        },
-                        {
-                            "id": "type",
-                            "label": "Identity Type",
-                            "type": "TEXT",
-                            "width": "md",
-                            "required": true,
-                            "validation": {
-                                "minLength": 2,
-                                "maxLength": 20
-                            }
-                        },
-                        {
-                            "id": "validTo",
-                            "label": "Valid Up To",
-                            "type": "TEXT",
-                            "width": "md",
-                            "required": true,
-                            "validation": {
-                                "minLength": 2,
-                                "maxLength": 20
-                            }
-                        },
-                        {
-                            "id": "remarks",
-                            "label": "Remarks",
-                            "type": "TEXT",
-                            "width": "md",
-                            "required": true,
-                            "validation": {
-                                "minLength": 2,
-                                "maxLength": 20
-                            }
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "id": "form",
-            "title": "Build Page",
-            "layout": "vertical",
-            "sections": [
-                {
-                    "id": "page-header-free-form",
-                    "title": "Page Header",
-                    "controls": [
-                        {
-                            "id": "id",
-                            "label": "Id",
-                            "type": "TEXT",
-                            "width": "md",
-                            "required": true,
-                            "validation": {
-                                "minLength": 2,
-                                "maxLength": 20
-                            },
-                            "placeholder": "Enter your Id"
-                        },
-                        {
-                            "id": "title",
-                            "label": "Title",
-                            "type": "TEXT",
-                            "width": "md",
-                            "required": true,
-                            "validation": {
-                                "minLength": 2,
-                                "maxLength": 20
-                            },
-                            "placeholder": "Enter your Title"
-                        }
-                    ]
-                },
-                {
-                    "id": "section-header-free-form",
-                    "title": "Section Header",
-                    "controls": [
-                        {
-                            "id": "id",
-                            "label": "Id",
-                            "type": "TEXT",
-                            "width": "md",
-                            "required": true,
-                            "validation": {
-                                "minLength": 2,
-                                "maxLength": 20
-                            },
-                            "placeholder": "Enter your Id"
-                        },
-                        {
-                            "id": "title",
-                            "label": "Title",
-                            "dataKey": "title",
-                            "type": "TEXT",
-                            "width": "md",
-                            "required": true,
-                            "validation": {
-                                "minLength": 2,
-                                "maxLength": 20
-                            },
-                            "placeholder": "Enter your Title"
-                        },
-                        {
-                            "id": "layout",
-                            "label": "Layout",
-                            "width": "sm",
-                            "type": "TEXT",
-                            "required": true
-                        },
-                        {
-                            "id": "dataKey",
-                            "label": "Data Key",
-                            "type": "TEXT",
-                            "width": "sm",
-                            "required": true,
-                            "validation": {
-                                "minLength": 2,
-                                "maxLength": 20
-                            },
-                            "placeholder": "Enter your Data Key"
-                        }
-                    ]
-                },
-                {
-                    "id": "section-list-tabular",
-                    "title": "Section List",
-                    "controls": [
-                        {
-                            "id": "sections",
-                            "label": "Sections",
-                            "dataKey": "USE_PARENT",
-                            "type": "TABLE",
-                            "isEditable": true,
-                            "controls": [
-                                {
-                                    "id": "id",
-                                    "label": "Id",
-                                    "type": "INPUT",
-                                    "required": true,
-                                    "validation": {
-                                        "minLength": 2,
-                                        "maxLength": 20
-                                    }
-                                },
-                                {
-                                    "id": "title",
-                                    "label": "Section Title",
-                                    "type": "INPUT",
-                                    "required": true,
-                                    "validation": {
-                                        "minLength": 2,
-                                        "maxLength": 20
-                                    }
-                                },
-                                {
-                                    "id": "dataKey",
-                                    "label": "Data Key",
-                                    "type": "INPUT",
-                                    "required": true,
-                                    "validation": {
-                                        "minLength": 2,
-                                        "maxLength": 20
-                                    }
-                                }
-                            ]
-                        }
-                    ]
-                },
-                {
-                    "id": "section-control-list-tabular",
-                    "title": "Controls List",
-                    "controls": [
-                        {
-                            "id": "controls",
-                            "label": "Controls",
-                            "dataKey": "USE_PARENT",
-                            "type": "TABLE",
-                            "parentDataKey": "sections",
-                            "isEditable": true,
-                            "controls": [
-                                {
-                                    "id": "id",
-                                    "label": "Id",
-                                    "type": "INPUT",
-                                    "required": true,
-                                    "validation": {
-                                        "minLength": 2,
-                                        "maxLength": 20
-                                    }
-                                },
-                                {
-                                    "id": "label",
-                                    "label": "Label",
-                                    "type": "INPUT",
-                                    "required": true,
-                                    "validation": {
-                                        "minLength": 2,
-                                        "maxLength": 20
-                                    }
-                                }
-                            ]
-                        }
-                    ]
-                },
-                {
-                    "id": "control-free-form",
-                    "title": "Controls List",
-                    "controls": [
-                        {
-                            "id": "id",
-                            "label": "Id",
-                            "type": "TEXT",
-                            "width": "md",
-                            "required": true,
-                            "validation": {
-                                "minLength": 2,
-                                "maxLength": 20
-                            }
-                        },
-                        {
-                            "id": "label",
-                            "label": "Label",
-                            "type": "TEXT",
-                            "width": "md",
-                            "required": true,
-                            "validation": {
-                                "minLength": 2,
-                                "maxLength": 20
-                            }
-                        },
-                        {
-                            "id": "type",
-                            "label": "Type",
-                            "type": "TEXT",
-                            "width": "md",
-                            "required": true,
-                            "validation": {
-                                "minLength": 2,
-                                "maxLength": 20
-                            }
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "id": "sections",
-            "title": "Build Page",
-            "layout": "vertical",
-            "sections": [
-                {
-                    "id": "sections",
-                    "title": "Section",
-                    "controls": [
-                        {
-                            "id": "id",
-                            "label": "Id",
-                            "type": "INPUT",
-                            "required": true,
-                            "validation": {
-                                "minLength": 2,
-                                "maxLength": 20
-                            }
-                        },
-                        {
-                            "id": "title",
-                            "label": "Section Title",
-                            "type": "INPUT",
-                            "required": true,
-                            "validation": {
-                                "minLength": 2,
-                                "maxLength": 20
-                            }
-                        },
-                        {
-                            "id": "dataKey",
-                            "label": "Data Key",
-                            "type": "INPUT",
-                            "required": true,
-                            "validation": {
-                                "minLength": 2,
-                                "maxLength": 20
-                            }
-                        }
-                    ]
-                },
-                {
-                    "id": "controls",
-                    "title": "Controls",
-                    "controls": [
-                        {
-                            "id": "controls",
-                            "label": "Controls",
-                            "dataKey": "USE_PARENT",
-                            "type": "TABLE",
-                            "parentDataKey": "sections",
-                            "isEditable": true,
-                            "controls": [
-                                {
-                                    "id": "id",
-                                    "label": "Id",
-                                    "type": "INPUT",
-                                    "required": true,
-                                    "validation": {
-                                        "minLength": 2,
-                                        "maxLength": 20
-                                    }
-                                },
-                                {
-                                    "id": "label",
-                                    "label": "Label",
-                                    "type": "INPUT",
-                                    "required": true,
-                                    "validation": {
-                                        "minLength": 2,
-                                        "maxLength": 20
-                                    }
-                                }
-                            ]
-                        }
-                    ]
-                }
-            ]
-        }
-    ],
-    "controls": [
-        {
-            "entity": "page",
-            "attribute": "id",
-            "id": "id",
-            "controlTypeCode": "TEXT",
-            "label": "Id",
-            "dataTypeCode": "STRING",
-            "width": 4,
-            "required": "YES"
-        },
-        {
-            "entity": "page",
-            "attribute": "title",
-            "id": "title",
-            "controlTypeCode": "TEXT",
-            "label": "Title",
-            "dataTypeCode": "STRING",
-            "width": 4,
-            "required": "YES"
-        },
-        {
-            "entity": "page",
-            "attribute": "layout",
-            "id": "layout",
-            "controlTypeCode": "SELECT",
-            "label": "Layout",
-            "dataTypeCode": "STRING",
-            "width": 4,
-            "domainCode": "LAYOUT_CODE",
-            "required": "YES"
-        },
-        {
-            "entity": "page",
-            "attribute": "dataKey",
-            "id": "dataKey",
-            "controlTypeCode": "TEXT",
-            "label": "Data Key",
-            "dataTypeCode": "STRING",
-            "width": 4,
-            "required": "YES"
-        },
-        {
-            "entity": "section",
-            "attribute": "id",
-            "id": "id",
-            "controlTypeCode": "TEXT",
-            "label": "Id",
-            "dataTypeCode": "STRING",
-            "width": 4,
-            "required": "YES"
-        },
-        {
-            "entity": "section",
-            "attribute": "title",
-            "id": "title",
-            "controlTypeCode": "TEXT",
-            "label": "Title",
-            "dataTypeCode": "STRING",
-            "width": 4,
-            "required": "YES"
-        },
-        {
-            "entity": "control",
-            "attribute": "id",
-            "id": "id",
-            "controlTypeCode": "TEXT",
-            "label": "Id",
-            "dataTypeCode": "STRING",
-            "width": 4,
-            "required": "YES"
-        },
-        {
-            "entity": "control",
-            "attribute": "typeCode",
-            "id": "typeCode",
-            "controlTypeCode": "SELECT",
-            "label": "Type Code",
-            "dataTypeCode": "STRING",
-            "width": 4,
-            "domainCode": "CONTROL_TYPE_CODE",
-            "required": "YES"
-        },
-        {
-            "entity": "control",
-            "attribute": "label",
-            "id": "label",
-            "controlTypeCode": "TEXT",
-            "label": "Label",
-            "dataTypeCode": "STRING",
-            "width": 4,
-            "required": "YES"
-        },
-        {
-            "entity": "control",
-            "attribute": "dataTypeCode",
-            "id": "dataTypeCode",
-            "controlTypeCode": "SELECT",
-            "label": "Data Type Code",
-            "dataTypeCode": "STRING",
-            "width": 4,
-            "domainCode": "DATA_TYPE_CODE",
-            "required": "YES"
-        },
-        {
-            "entity": "control",
-            "attribute": "dataKey",
-            "id": "dataKey",
-            "controlTypeCode": "TEXT",
-            "label": "Data Key",
-            "dataTypeCode": "STRING",
-            "width": 4,
-            "required": "YES"
-        },
-        {
-            "entity": "control",
-            "attribute": "accessCode",
-            "id": "accessCode",
-            "controlTypeCode": "SELECT",
-            "label": "Access Code",
-            "dataTypeCode": "STRING",
-            "width": 4,
-            "domainCode": "ACCESS_CODE",
-            "required": "YES"
-        },
-        {
-            "entity": "control",
-            "attribute": "placeholder",
-            "id": "placeholder",
-            "controlTypeCode": "TEXT",
-            "label": "Placeholder",
-            "dataTypeCode": "STRING",
-            "width": 4,
-            "required": "YES"
-        },
-        {
-            "entity": "control",
-            "attribute": "width",
-            "id": "width",
-            "controlTypeCode": "SELECT",
-            "label": "Width",
-            "dataTypeCode": "STRING",
-            "width": 4,
-            "domainCode": "WIDTH_CODE",
-            "required": "YES"
-        },
-        {
-            "entity": "control",
-            "attribute": "className",
-            "id": "className",
-            "controlTypeCode": "TEXT",
-            "label": "Class Name",
-            "dataTypeCode": "STRING",
-            "width": 4,
-            "required": "YES"
-        },
-        {
-            "entity": "control",
-            "attribute": "domainCode",
-            "id": "domainCode",
-            "controlTypeCode": "SELECT",
-            "label": "Domain Code",
-            "dataTypeCode": "STRING",
-            "width": 4,
-            "domainCode": "DOMAIN_CODE",
-            "required": "YES"
-        },
-        {
-            "entity": "control",
-            "attribute": "parentId",
-            "id": "parentId",
-            "controlTypeCode": "TEXT",
-            "label": "Parent Id",
-            "dataTypeCode": "STRING",
-            "width": 4,
-            "required": "YES"
-        },
-        {
-            "entity": "control",
-            "attribute": "required",
-            "id": "required",
-            "controlTypeCode": "SELECT",
-            "label": "Required",
-            "dataTypeCode": "STRING",
-            "width": 4,
-            "domainCode": "YES_NO_CODE",
-            "required": "YES"
-        },
-        {
-            "entity": "control",
-            "attribute": "requiredExpression",
-            "id": "requiredExpression",
-            "controlTypeCode": "TEXT",
-            "label": "Required Expression",
-            "dataTypeCode": "STRING",
-            "width": 4,
-            "required": "YES"
-        },
-        {
-            "entity": "control",
-            "attribute": "minLength",
-            "id": "minLength",
-            "controlTypeCode": "TEXT",
-            "label": "Min Length",
-            "dataTypeCode": "NUMBER",
-            "width": 4,
-            "required": "YES"
-        },
-        {
-            "entity": "control",
-            "attribute": "maxLength",
-            "id": "maxLength",
-            "controlTypeCode": "TEXT",
-            "label": "Max Length",
-            "dataTypeCode": "NUMBER",
-            "width": 4,
-            "required": "YES"
-        },
-        {
-            "entity": "control",
-            "attribute": "min",
-            "id": "min",
-            "controlTypeCode": "NUMERIC",
-            "label": "Min",
-            "dataTypeCode": "NUMBER",
-            "width": 4,
-            "required": "YES"
-        },
-        {
-            "entity": "control",
-            "attribute": "max",
-            "id": "max",
-            "controlTypeCode": "NUMERIC",
-            "label": "Max",
-            "dataTypeCode": "NUMBER",
-            "width": 4,
-            "required": "YES"
-        },
-        {
-            "entity": "control",
-            "attribute": "pattern",
-            "id": "pattern",
-            "controlTypeCode": "TEXT",
-            "label": "Pattern",
-            "dataTypeCode": "STRING",
-            "width": 4,
-            "required": "YES"
-        },
-        {
-            "entity": "control",
-            "attribute": "minDate",
-            "id": "minDate",
-            "controlTypeCode": "DATE",
-            "label": "Min Date",
-            "dataTypeCode": "DATE",
-            "width": 4,
-            "required": "YES"
-        },
-        {
-            "entity": "control",
-            "attribute": "maxDate",
-            "id": "maxDate",
-            "controlTypeCode": "DATE",
-            "label": "Max Date",
-            "dataTypeCode": "DATE",
-            "width": 4,
-            "required": "YES"
-        }
-    ],
-    "domain": {
-        "CONTROL_TYPE": [
+          "id": "basic",
+          "title": "Basic Info",
+          "controls": [
             {
-                "code": "CHECK",
-                "label": "Code",
-                "sortOrder": 1
+              "id": "firstName",
+              "label": "First Name",
+              "type": "TEXT",
+              "required": true,
+              "width": "md",
+              "validation": {
+                "minLength": 2,
+                "maxLength": 20
+              },
+              "placeholder": "Enter your First Name"
             },
             {
-                "code": "DATE",
-                "label": "Check",
-                "sortOrder": 2
+              "id": "lastName",
+              "label": "Last Name",
+              "type": "TEXT",
+              "required": true,
+              "width": "md",
+              "validation": {
+                "minLength": 2,
+                "maxLength": 20
+              },
+              "placeholder": "Enter your Last Name"
             },
             {
-                "code": "NUMERIC",
-                "label": "Date",
-                "sortOrder": 3
+              "id": "maidenName",
+              "label": "Maiden Name",
+              "type": "TEXT",
+              "width": "md",
+              "required": true,
+              "validation": {
+                "minLength": 2,
+                "maxLength": 20
+              },
+              "placeholder": "Enter your Maiden Name"
             },
             {
-                "code": "RADIO",
-                "label": "Numeric",
-                "sortOrder": 4
+              "id": "age",
+              "label": "Age",
+              "type": "TEXT",
+              "width": "md",
+              "required": true,
+              "validation": {
+                "minLength": 2,
+                "maxLength": 20
+              },
+              "placeholder": "Enter your Age"
             },
             {
-                "code": "SELECT",
-                "label": "Radio",
-                "sortOrder": 5
-            },
-            {
-                "code": "TEXT",
-                "label": "Select",
-                "sortOrder": 6
+              "id": "gender",
+              "label": "Gender",
+              "type": "TEXT",
+              "width": "md",
+              "required": true,
+              "validation": {
+                "minLength": 2,
+                "maxLength": 20
+              },
+              "placeholder": "Enter your Gender"
             }
-        ],
-        "DATA_TYPE": [
+          ]
+        },
+        {
+          "id": "identities",
+          "title": "Identities",
+          "controls": [
             {
-                "code": "BOOL",
-                "label": "Text",
-                "sortOrder": 1
+              "id": "number",
+              "label": "Identity #",
+              "type": "TEXT",
+              "width": "md",
+              "required": true,
+              "validation": {
+                "minLength": 2,
+                "maxLength": 20
+              }
             },
             {
-                "code": "DATE",
-                "label": "Bool",
-                "sortOrder": 2
+              "id": "type",
+              "label": "Identity Type",
+              "type": "TEXT",
+              "width": "md",
+              "required": true,
+              "validation": {
+                "minLength": 2,
+                "maxLength": 20
+              }
             },
             {
-                "code": "NUMBER",
-                "label": "Date",
-                "sortOrder": 3
+              "id": "validTo",
+              "label": "Valid Up To",
+              "type": "TEXT",
+              "width": "md",
+              "required": true,
+              "validation": {
+                "minLength": 2,
+                "maxLength": 20
+              }
             },
             {
-                "code": "STRING",
-                "label": "Number",
-                "sortOrder": 4
+              "id": "remarks",
+              "label": "Remarks",
+              "type": "TEXT",
+              "width": "md",
+              "required": true,
+              "validation": {
+                "minLength": 2,
+                "maxLength": 20
+              }
             }
-        ]
+          ]
+        }
+      ]
     },
-    "user": [
+    {
+      "id": "form",
+      "title": "Build Page",
+      "layout": "vertical",
+      "sections": [
         {
-            "id": 1000,
-            "firstName": "John",
-            "lastName": "Doe",
-            "age": 40,
-            "email": "john.doe@gmail.com",
-            "birthDate": "1/1/1980"
+          "id": "page-header-free-form",
+          "title": "Page Header",
+          "controls": [
+            {
+              "id": "id",
+              "label": "Id",
+              "type": "TEXT",
+              "width": "md",
+              "required": true,
+              "validation": {
+                "minLength": 2,
+                "maxLength": 20
+              },
+              "placeholder": "Enter your Id"
+            },
+            {
+              "id": "title",
+              "label": "Title",
+              "type": "TEXT",
+              "width": "md",
+              "required": true,
+              "validation": {
+                "minLength": 2,
+                "maxLength": 20
+              },
+              "placeholder": "Enter your Title"
+            }
+          ]
         },
         {
-            "id": 1001,
-            "firstName": "Jane",
-            "lastName": "Doe",
-            "age": 38,
-            "email": "jane.doe@gmail.com",
-            "birthDate": "1/1/1983"
+          "id": "section-header-free-form",
+          "title": "Section Header",
+          "controls": [
+            {
+              "id": "id",
+              "label": "Id",
+              "type": "TEXT",
+              "width": "md",
+              "required": true,
+              "validation": {
+                "minLength": 2,
+                "maxLength": 20
+              },
+              "placeholder": "Enter your Id"
+            },
+            {
+              "id": "title",
+              "label": "Title",
+              "dataKey": "title",
+              "type": "TEXT",
+              "width": "md",
+              "required": true,
+              "validation": {
+                "minLength": 2,
+                "maxLength": 20
+              },
+              "placeholder": "Enter your Title"
+            },
+            {
+              "id": "layout",
+              "label": "Layout",
+              "width": "sm",
+              "type": "TEXT",
+              "required": true
+            },
+            {
+              "id": "dataKey",
+              "label": "Data Key",
+              "type": "TEXT",
+              "width": "sm",
+              "required": true,
+              "validation": {
+                "minLength": 2,
+                "maxLength": 20
+              },
+              "placeholder": "Enter your Data Key"
+            }
+          ]
+        },
+        {
+          "id": "section-list-tabular",
+          "title": "Section List",
+          "controls": [
+            {
+              "id": "sections",
+              "label": "Sections",
+              "dataKey": "USE_PARENT",
+              "type": "TABLE",
+              "isEditable": true,
+              "controls": [
+                {
+                  "id": "id",
+                  "label": "Id",
+                  "type": "INPUT",
+                  "required": true,
+                  "validation": {
+                    "minLength": 2,
+                    "maxLength": 20
+                  }
+                },
+                {
+                  "id": "title",
+                  "label": "Section Title",
+                  "type": "INPUT",
+                  "required": true,
+                  "validation": {
+                    "minLength": 2,
+                    "maxLength": 20
+                  }
+                },
+                {
+                  "id": "dataKey",
+                  "label": "Data Key",
+                  "type": "INPUT",
+                  "required": true,
+                  "validation": {
+                    "minLength": 2,
+                    "maxLength": 20
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "section-control-list-tabular",
+          "title": "Controls List",
+          "controls": [
+            {
+              "id": "controls",
+              "label": "Controls",
+              "dataKey": "USE_PARENT",
+              "type": "TABLE",
+              "parentDataKey": "sections",
+              "isEditable": true,
+              "controls": [
+                {
+                  "id": "id",
+                  "label": "Id",
+                  "type": "INPUT",
+                  "required": true,
+                  "validation": {
+                    "minLength": 2,
+                    "maxLength": 20
+                  }
+                },
+                {
+                  "id": "label",
+                  "label": "Label",
+                  "type": "INPUT",
+                  "required": true,
+                  "validation": {
+                    "minLength": 2,
+                    "maxLength": 20
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "control-free-form",
+          "title": "Controls List",
+          "controls": [
+            {
+              "id": "id",
+              "label": "Id",
+              "type": "TEXT",
+              "width": "md",
+              "required": true,
+              "validation": {
+                "minLength": 2,
+                "maxLength": 20
+              }
+            },
+            {
+              "id": "label",
+              "label": "Label",
+              "type": "TEXT",
+              "width": "md",
+              "required": true,
+              "validation": {
+                "minLength": 2,
+                "maxLength": 20
+              }
+            },
+            {
+              "id": "type",
+              "label": "Type",
+              "type": "TEXT",
+              "width": "md",
+              "required": true,
+              "validation": {
+                "minLength": 2,
+                "maxLength": 20
+              }
+            }
+          ]
         }
+      ]
+    },
+    {
+      "id": "sections",
+      "title": "Build Page",
+      "layout": "vertical",
+      "sections": [
+        {
+          "id": "sections",
+          "title": "Section",
+          "controls": [
+            {
+              "id": "id",
+              "label": "Id",
+              "type": "INPUT",
+              "required": true,
+              "validation": {
+                "minLength": 2,
+                "maxLength": 20
+              }
+            },
+            {
+              "id": "title",
+              "label": "Section Title",
+              "type": "INPUT",
+              "required": true,
+              "validation": {
+                "minLength": 2,
+                "maxLength": 20
+              }
+            },
+            {
+              "id": "dataKey",
+              "label": "Data Key",
+              "type": "INPUT",
+              "required": true,
+              "validation": {
+                "minLength": 2,
+                "maxLength": 20
+              }
+            }
+          ]
+        },
+        {
+          "id": "controls",
+          "title": "Controls",
+          "controls": [
+            {
+              "id": "controls",
+              "label": "Controls",
+              "dataKey": "USE_PARENT",
+              "type": "TABLE",
+              "parentDataKey": "sections",
+              "isEditable": true,
+              "controls": [
+                {
+                  "id": "id",
+                  "label": "Id",
+                  "type": "INPUT",
+                  "required": true,
+                  "validation": {
+                    "minLength": 2,
+                    "maxLength": 20
+                  }
+                },
+                {
+                  "id": "label",
+                  "label": "Label",
+                  "type": "INPUT",
+                  "required": true,
+                  "validation": {
+                    "minLength": 2,
+                    "maxLength": 20
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "controls": [
+    {
+      "entity": "page",
+      "attribute": "id",
+      "id": "id",
+      "controlTypeCode": "TEXT",
+      "label": "Id",
+      "dataTypeCode": "STRING",
+      "width": 4,
+      "required": "YES"
+    },
+    {
+      "entity": "page",
+      "attribute": "title",
+      "id": "title",
+      "controlTypeCode": "TEXT",
+      "label": "Title",
+      "dataTypeCode": "STRING",
+      "width": 4,
+      "required": "YES"
+    },
+    {
+      "entity": "page",
+      "attribute": "layout",
+      "id": "layout",
+      "controlTypeCode": "SELECT",
+      "label": "Layout",
+      "dataTypeCode": "STRING",
+      "width": 4,
+      "domainCode": "LAYOUT_CODE",
+      "required": "YES"
+    },
+    {
+      "entity": "page",
+      "attribute": "dataKey",
+      "id": "dataKey",
+      "controlTypeCode": "TEXT",
+      "label": "Data Key",
+      "dataTypeCode": "STRING",
+      "width": 4,
+      "required": "YES"
+    },
+    {
+      "entity": "section",
+      "attribute": "id",
+      "id": "id",
+      "controlTypeCode": "TEXT",
+      "label": "Id",
+      "dataTypeCode": "STRING",
+      "width": 4,
+      "required": "YES"
+    },
+    {
+      "entity": "section",
+      "attribute": "title",
+      "id": "title",
+      "controlTypeCode": "TEXT",
+      "label": "Title",
+      "dataTypeCode": "STRING",
+      "width": 4,
+      "required": "YES"
+    },
+    {
+      "entity": "control",
+      "attribute": "id",
+      "id": "id",
+      "controlTypeCode": "TEXT",
+      "label": "Id",
+      "dataTypeCode": "STRING",
+      "width": 4,
+      "required": "YES"
+    },
+    {
+      "entity": "control",
+      "attribute": "typeCode",
+      "id": "typeCode",
+      "controlTypeCode": "SELECT",
+      "label": "Type Code",
+      "dataTypeCode": "STRING",
+      "width": 4,
+      "domainCode": "CONTROL_TYPE_CODE",
+      "required": "YES"
+    },
+    {
+      "entity": "control",
+      "attribute": "label",
+      "id": "label",
+      "controlTypeCode": "TEXT",
+      "label": "Label",
+      "dataTypeCode": "STRING",
+      "width": 4,
+      "required": "YES"
+    },
+    {
+      "entity": "control",
+      "attribute": "dataTypeCode",
+      "id": "dataTypeCode",
+      "controlTypeCode": "SELECT",
+      "label": "Data Type Code",
+      "dataTypeCode": "STRING",
+      "width": 4,
+      "domainCode": "DATA_TYPE_CODE",
+      "required": "YES"
+    },
+    {
+      "entity": "control",
+      "attribute": "dataKey",
+      "id": "dataKey",
+      "controlTypeCode": "TEXT",
+      "label": "Data Key",
+      "dataTypeCode": "STRING",
+      "width": 4,
+      "required": "YES"
+    },
+    {
+      "entity": "control",
+      "attribute": "accessCode",
+      "id": "accessCode",
+      "controlTypeCode": "SELECT",
+      "label": "Access Code",
+      "dataTypeCode": "STRING",
+      "width": 4,
+      "domainCode": "ACCESS_CODE",
+      "required": "YES"
+    },
+    {
+      "entity": "control",
+      "attribute": "placeholder",
+      "id": "placeholder",
+      "controlTypeCode": "TEXT",
+      "label": "Placeholder",
+      "dataTypeCode": "STRING",
+      "width": 4,
+      "required": "YES"
+    },
+    {
+      "entity": "control",
+      "attribute": "width",
+      "id": "width",
+      "controlTypeCode": "SELECT",
+      "label": "Width",
+      "dataTypeCode": "STRING",
+      "width": 4,
+      "domainCode": "WIDTH_CODE",
+      "required": "YES"
+    },
+    {
+      "entity": "control",
+      "attribute": "className",
+      "id": "className",
+      "controlTypeCode": "TEXT",
+      "label": "Class Name",
+      "dataTypeCode": "STRING",
+      "width": 4,
+      "required": "YES"
+    },
+    {
+      "entity": "control",
+      "attribute": "domainCode",
+      "id": "domainCode",
+      "controlTypeCode": "SELECT",
+      "label": "Domain Code",
+      "dataTypeCode": "STRING",
+      "width": 4,
+      "domainCode": "DOMAIN_CODE",
+      "required": "YES"
+    },
+    {
+      "entity": "control",
+      "attribute": "parentId",
+      "id": "parentId",
+      "controlTypeCode": "TEXT",
+      "label": "Parent Id",
+      "dataTypeCode": "STRING",
+      "width": 4,
+      "required": "YES"
+    },
+    {
+      "entity": "control",
+      "attribute": "required",
+      "id": "required",
+      "controlTypeCode": "SELECT",
+      "label": "Required",
+      "dataTypeCode": "STRING",
+      "width": 4,
+      "domainCode": "YES_NO_CODE",
+      "required": "YES"
+    },
+    {
+      "entity": "control",
+      "attribute": "requiredExpression",
+      "id": "requiredExpression",
+      "controlTypeCode": "TEXT",
+      "label": "Required Expression",
+      "dataTypeCode": "STRING",
+      "width": 4,
+      "required": "YES"
+    },
+    {
+      "entity": "control",
+      "attribute": "minLength",
+      "id": "minLength",
+      "controlTypeCode": "TEXT",
+      "label": "Min Length",
+      "dataTypeCode": "NUMBER",
+      "width": 4,
+      "required": "YES"
+    },
+    {
+      "entity": "control",
+      "attribute": "maxLength",
+      "id": "maxLength",
+      "controlTypeCode": "TEXT",
+      "label": "Max Length",
+      "dataTypeCode": "NUMBER",
+      "width": 4,
+      "required": "YES"
+    },
+    {
+      "entity": "control",
+      "attribute": "min",
+      "id": "min",
+      "controlTypeCode": "NUMERIC",
+      "label": "Min",
+      "dataTypeCode": "NUMBER",
+      "width": 4,
+      "required": "YES"
+    },
+    {
+      "entity": "control",
+      "attribute": "max",
+      "id": "max",
+      "controlTypeCode": "NUMERIC",
+      "label": "Max",
+      "dataTypeCode": "NUMBER",
+      "width": 4,
+      "required": "YES"
+    },
+    {
+      "entity": "control",
+      "attribute": "pattern",
+      "id": "pattern",
+      "controlTypeCode": "TEXT",
+      "label": "Pattern",
+      "dataTypeCode": "STRING",
+      "width": 4,
+      "required": "YES"
+    },
+    {
+      "entity": "control",
+      "attribute": "minDate",
+      "id": "minDate",
+      "controlTypeCode": "DATE",
+      "label": "Min Date",
+      "dataTypeCode": "DATE",
+      "width": 4,
+      "required": "YES"
+    },
+    {
+      "entity": "control",
+      "attribute": "maxDate",
+      "id": "maxDate",
+      "controlTypeCode": "DATE",
+      "label": "Max Date",
+      "dataTypeCode": "DATE",
+      "width": 4,
+      "required": "YES"
+    }
+  ],
+  "domain": {
+    "CONTROL_TYPE": [
+      {
+        "code": "CHECK",
+        "label": "Code",
+        "sortOrder": 1
+      },
+      {
+        "code": "DATE",
+        "label": "Check",
+        "sortOrder": 2
+      },
+      {
+        "code": "NUMERIC",
+        "label": "Date",
+        "sortOrder": 3
+      },
+      {
+        "code": "RADIO",
+        "label": "Numeric",
+        "sortOrder": 4
+      },
+      {
+        "code": "SELECT",
+        "label": "Radio",
+        "sortOrder": 5
+      },
+      {
+        "code": "TEXT",
+        "label": "Select",
+        "sortOrder": 6
+      }
+    ],
+    "DATA_TYPE": [
+      {
+        "code": "BOOL",
+        "label": "Text",
+        "sortOrder": 1
+      },
+      {
+        "code": "DATE",
+        "label": "Bool",
+        "sortOrder": 2
+      },
+      {
+        "code": "NUMBER",
+        "label": "Date",
+        "sortOrder": 3
+      },
+      {
+        "code": "STRING",
+        "label": "Number",
+        "sortOrder": 4
+      }
     ]
+  },
+  "user": [
+    {
+      "id": 1000,
+      "firstName": "John",
+      "lastName": "Doe",
+      "age": 40,
+      "email": "john.doe@gmail.com",
+      "birthDate": "1/1/1980"
+    },
+    {
+      "id": 1001,
+      "firstName": "Jane",
+      "lastName": "Doe",
+      "age": 38,
+      "email": "jane.doe@gmail.com",
+      "birthDate": "1/1/1983"
+    }
+  ]
 }
