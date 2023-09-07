@@ -22,13 +22,13 @@ const FormTreeControl = (params: any) => {
         if (action === 'SELECT') {
             switch (item.level) {
                 case 'PAGE':
-                    router.push(`/forms/${params.formId}`);
+                    router.push(`/form-builder/${params.formId}`);
                     break;
                 case 'CONTROL':
-                    router.push(`/forms/${params.formId}/sections/${item.parentId}/controls/${item.id}`);
+                    router.push(`/form-builder/${params.formId}/sections/${item.parentId}/controls/${item.id}`);
                     break;
                 case 'SECTION':
-                    router.push(`/forms/${params.formId}/sections/${item.id}`);
+                    router.push(`/form-builder/${params.formId}/sections/${item.id}`);
                     break;
             }
         }
@@ -68,8 +68,8 @@ const FormTreeControl = (params: any) => {
 
     return (
         <CardLayout title="Page Structure">
-            <div className="bg-white p-4">
-                <ul className="list-item pl-5">
+            <div className="bg-white">
+                <ul className="list-item pl-1">
                     <TreeNode key={data?.id} item={data as TreeItem} level={1} handleChange={handleChange} />
                 </ul>
             </div>

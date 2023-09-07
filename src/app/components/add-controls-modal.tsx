@@ -1,5 +1,5 @@
 import { ModalPopup } from '@lib/common/modal';
-import AddControls from '../forms/[formId]/add-controls';
+import AddControls from '../form-builder/[formId]/add-controls';
 
 export interface AddControlsModal {
     isOpen: boolean;

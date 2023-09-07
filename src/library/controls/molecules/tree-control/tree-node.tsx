@@ -8,7 +8,6 @@ type TreeNodeProps = {
     item: TreeItem;
     level: number;
     handleChange: (action: string, item: any) => void;
-    // actions: ContextMenuAction[];
 };
 
 const TreeNode: React.FC<TreeNodeProps> = ({ item, level, handleChange }) => {
@@ -22,8 +21,6 @@ const TreeNode: React.FC<TreeNodeProps> = ({ item, level, handleChange }) => {
     const handleRightClick = (event: React.MouseEvent, currentItem: TreeItem) => {
         event.preventDefault();
         setContextMenuPos({ x: event.clientX, y: event.clientY });
-
-        // Use the 'currentItem' here or set it to a state if needed.
     };
 
     const handleCloseContextMenu = () => {
@@ -31,24 +28,18 @@ const TreeNode: React.FC<TreeNodeProps> = ({ item, level, handleChange }) => {
     };
 
     const handleAddNode = (currentItem: TreeItem) => {
-        // Logic to add a child node to this currentItem.
-        // console.log('Add node here', currentItem);
         handleChange('ADD', currentItem);
         handleCloseContextMenu();
     };
 
     const handleDeleteNode = (currentItem: TreeItem) => {
-        // Logic to delete this node.
-        // console.log('Delete this node', currentItem);
         handleChange('DELETE', currentItem);
         handleCloseContextMenu();
     };
 
     const handleRenameNode = (currentItem: TreeItem) => {
-        // Logic to rename this node.
         const newName = prompt('Enter new name:', currentItem.label);
         if (newName) {
-            // console.log(`Rename this node to: ${newName}`);
             handleChange('RENAME', currentItem);
         }
         handleCloseContextMenu();
@@ -76,9 +67,9 @@ const TreeNode: React.FC<TreeNodeProps> = ({ item, level, handleChange }) => {
 
     return (
         <div className="my-1">
-            <div className="flex items-center cursor-pointer" onClick={toggleExpand} onContextMenu={e => handleRightClick(e, item)}>
+            <div className="flex items-center cursor-pointer" onContextMenu={e => handleRightClick(e, item)}>
                 {item.children && item.children.length > 0 ? (
-                    <span className={`mr-2 ${isExpanded ? 'text-blue-500' : 'text-gray-400'}`}>
+                    <span onClick={toggleExpand} className={`mr-2 ${isExpanded ? 'text-blue-500' : 'text-gray-400'}`}>
                         <FontAwesomeIcon icon={isExpanded ? faCircleMinus : faCirclePlus} />
                     </span>
                 ) : (
