@@ -8,7 +8,7 @@ import { PageLayout } from '@lib/layout';
 import { useGetFormByIdQuery } from '@store/api/form-config-api';
 import { useParams } from 'next/navigation';
 
-const Layout = ({ formId, children }: { formId: string; children: React.ReactNode }) => {
+const Layout = ({ children }: { children: React.ReactNode }) => {
     const params = useParams();
 
     const { isSuccess: isInitialDataLoaded, data: initialData } = useGetFormByIdQuery({ id: params.formId as string });
@@ -25,19 +25,19 @@ const Layout = ({ formId, children }: { formId: string; children: React.ReactNod
      * All the handlers will be coming from the hook - in this case useFromDetails. Keep this code only for UI
      */
     const buttons: IButtonPallet[] = [
-        { id: 'save', label: 'Save', onClickHandler: handleSave },
-        { id: 'delete', label: 'Reset', onClickHandler: handleDelete },
+        { id: 'save', label: 'Save', handler: handleSave },
+        { id: 'delete', label: 'Reset', handler: handleDelete },
     ];
 
     return (
         <PageLayout>
+            <ButtonPallet title="Test Page Handle Me" buttons={buttons} />
             <div className="flex">
                 <div className="flex-none w-1/4 p-4">
                     <FormTreeControl formId={params.formId} />
                 </div>
                 <div className="flex-grow p-4">{children}</div>
             </div>
-            <ButtonPallet buttons={buttons} />
         </PageLayout>
     );
 };
