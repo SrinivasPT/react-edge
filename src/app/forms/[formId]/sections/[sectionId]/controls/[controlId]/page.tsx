@@ -1,14 +1,10 @@
 'use client';
 
 import { SectionBuilder } from '@lib/builders';
-import { useFormDetail } from '@lib/hooks';
 import { Control, Section } from '@lib/types';
-import { useGetFormByIdQuery } from '@store/api/form-config-api';
 import { useAppSelector } from '@store/hooks';
 
 const Page = ({ params }: { params: { formId: string; sectionId: string; controlId: string } }) => {
-    const { isSuccess: isInitialDataLoaded, data: initialData } = useGetFormByIdQuery({ id: params.formId });
-    const { isFormReady, handleSave, handleDelete } = useFormDetail({ id: params.formId, entityName: 'form', initialData, isInitialDataLoaded });
     const formState = useAppSelector(state => state.form);
 
     const sectionIndex = formState.data?.sections?.findIndex((section: Section) => section.id === params.sectionId);
@@ -16,13 +12,9 @@ const Page = ({ params }: { params: { formId: string; sectionId: string; control
         ?.find((section: Section) => section.id === params.sectionId)
         ?.controls?.findIndex((control: Control) => control.id === params.controlId);
 
-    if (!isFormReady) return <div>Loading....</div>;
-
     return (
         <>
-            <h1>User Detail for ID: {params.formId}</h1>
             <SectionBuilder formId="form" sectionId="control-free-form" parentKey={`data.sections[${sectionIndex}].controls[${controlIndex}]`} />
-            <button onClick={handleSave}>Save</button>
         </>
     );
 };
