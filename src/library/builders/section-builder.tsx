@@ -1,6 +1,6 @@
 import { useFormConfig } from '@lib/hooks';
 import useFormControlFormat from '@lib/hooks/use-form-control-format';
-import { CardLayout } from '@lib/layout';
+import { LayoutBuilder } from '@lib/layout';
 import { ControlBuilder } from '.';
 
 interface SectionBuilderProps {
@@ -14,12 +14,12 @@ const SectionBuilder: React.FC<SectionBuilderProps> = ({ formId, sectionId, pare
     const { getWidthClass } = useFormControlFormat();
 
     return (
-        <CardLayout title={sectionConfig?.title}>
+        <LayoutBuilder layoutTypeCode={sectionConfig?.layoutTypeCode as string} title={sectionConfig?.title as string}>
             <div className="flex flex-wrap w-full">
                 {sectionConfig?.controls.map((control, index) => {
                     try {
                         return (
-                            <div key={index} className={`${getWidthClass(control.width ?? 'full')}`}>
+                            <div key={index} className={`${getWidthClass(control.masterId)}`}>
                                 <ControlBuilder control={control} parentKey={parentKey ?? `${sectionId}`} />
                             </div>
                         );
@@ -29,7 +29,7 @@ const SectionBuilder: React.FC<SectionBuilderProps> = ({ formId, sectionId, pare
                     }
                 })}
             </div>
-        </CardLayout>
+        </LayoutBuilder>
     );
 };
 

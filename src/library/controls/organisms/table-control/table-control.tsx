@@ -45,7 +45,7 @@ const TableControl: React.FC<ControlBuilderProps> = ({ control, parentKey }) => 
                     </tr>
                 </thead>
                 <tbody className="bg-white divide-y divide-gray-300">
-                    {data.map((row: any, rowIndex: number) => (
+                    {data?.map((row: any, rowIndex: number) => (
                         <tr
                             key={rowIndex}
                             onClick={() => handleSelectRow(row.id)}

@@ -1,5 +1,10 @@
+import { useAppSelector } from '@store/hooks';
+
 const useFormControlFormat = () => {
-    const getWidthClass = (width: string) => {
+    const controlMaster = useAppSelector((state: any) => state.controlMaster.queries['AllControls(null)']?.data);
+
+    const getWidthClass = (masterId: string) => {
+        const width = controlMaster?.find((control: any) => control.masterId === masterId)?.width ?? 'default';
         const baseClasses = {
             default: 'w-full',
             sm: 'sm:w-full',

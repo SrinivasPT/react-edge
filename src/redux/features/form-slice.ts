@@ -3,6 +3,7 @@ import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 import _ from 'lodash';
 
 const initialState: FormState = {
+    searchCriteria: {},
     data: {},
     flags: {
         isLoading: true,
@@ -29,6 +30,10 @@ export const form = createSlice({
             const { initialData } = action.payload;
             _.set(state, 'data', initialData);
             _.set(state.flags, 'isLoading', false);
+        },
+
+        setFilteredData: (state, action: PayloadAction<any>) => {
+            state.data = action.payload;
         },
 
         // Table
@@ -70,6 +75,6 @@ export const form = createSlice({
     },
 });
 
-export const { onChange, setFormDetail, reset, toggleTableEditableStatus, selectRow } = form.actions;
+export const { onChange, setFormDetail, reset, toggleTableEditableStatus, selectRow, setFilteredData } = form.actions;
 
 export default form.reducer;

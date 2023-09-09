@@ -8,8 +8,8 @@ const ControlBuilder: React.FC<ControlBuilderProps> = ({ control, parentKey }) =
     logger.debug('Rendering the control builder');
 
     const { getFullControlConfig } = useFormConfig();
-    const ControlComponent = ControlTypeMap[control.controlTypeCode];
     const controlConfig = getFullControlConfig(control);
+    const ControlComponent = ControlTypeMap[controlConfig.controlTypeCode];
 
     if (!ControlComponent) {
         return <div>Error: Unknown control type {control.controlTypeCode}</div>;
@@ -17,7 +17,7 @@ const ControlBuilder: React.FC<ControlBuilderProps> = ({ control, parentKey }) =
 
     const renderControl = () => {
         try {
-            return <ControlComponent key={control.id} control={controlConfig} parentKey={parentKey} />;
+            return <ControlComponent key={controlConfig.id} control={controlConfig} parentKey={parentKey} />;
         } catch (error) {
             console.error(`Error rendering control with id ${control.id}:`, error);
             return <label>Error displaying control</label>;

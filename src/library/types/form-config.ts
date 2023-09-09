@@ -70,7 +70,7 @@ export interface Control {
 export interface Section {
     id: string;
     title: string;
-    layout: string;
+    layoutTypeCode: string;
     dataKey?: string;
     access: Access;
     controls: Control[];

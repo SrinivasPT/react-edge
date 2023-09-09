@@ -7,6 +7,19 @@ export const controlMasterApi = createApi({
     baseQuery: fetchBaseQuery({ baseUrl: 'http://localhost:3001' }),
     endpoints: builder => ({
         AllControls: builder.query<Control[], null>({ query: () => 'control-master' }),
+        getFilteredControls: builder.query<Control[], any>({
+            query: params => {
+                let queryStr = 'control-master';
+
+                const queryParams = [];
+                if (params.masterId) queryParams.push(`masterId=${params.masterId}`);
+                if (params.id) queryParams.push(`id=${params.id}`);
+                if (params.label) queryParams.push(`id=${params.label}`);
+
+                if (queryParams.length) queryStr += `?${queryParams.join('&')}`;
+                return queryStr;
+            },
+        }),
         getControlById: builder.query<Control, { id: string }>({ query: ({ id }) => `control-master/${id}` }),
         addControl: builder.mutation<Control, Control>({
             query: newControl => ({ url: 'control-master', method: 'POST', body: newControl }),
@@ -20,4 +33,4 @@ export const controlMasterApi = createApi({
     }),
 });
 
-export const { useAllControlsQuery } = controlMasterApi;
+export const { useAllControlsQuery, useGetFilteredControlsQuery } = controlMasterApi;

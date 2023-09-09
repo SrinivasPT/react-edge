@@ -39,6 +39,7 @@ export interface InternalState {
 }
 
 export interface FormState {
+    searchCriteria: SearchCriteria;
     data: { [key: string]: any };
     internal: InternalState;
     custom: { [key: string]: any };
