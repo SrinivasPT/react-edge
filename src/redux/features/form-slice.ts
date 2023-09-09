@@ -26,8 +26,8 @@ export const form = createSlice({
         reset: () => initialState,
         // Initialization
         setFormDetail: (state, action: PayloadAction<InitialActionPayload>) => {
-            const { key, initialData } = action.payload;
-            _.set(state, 'data', { ...initialData });
+            const { initialData } = action.payload;
+            _.set(state, 'data', initialData);
             _.set(state.flags, 'isLoading', false);
         },
 

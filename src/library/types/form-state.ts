@@ -65,6 +65,5 @@ export type MutationFunctions = {
 };
 
 export type InitialActionPayload = {
-    key: string;
     initialData: any;
 };

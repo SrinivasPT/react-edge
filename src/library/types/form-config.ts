@@ -1,4 +1,3 @@
-import { UUID } from 'crypto';
 import { ControlType, DataType } from './enums';
 
 export interface Validation {
@@ -24,16 +23,25 @@ export interface CustomProperties {
     [key: string]: any;
 }
 
-export interface Control {
-    guid: UUID;
+export interface SectionControl {
     id: string;
-    type: ControlType;
     label: string;
-    dataType: DataType;
-    dataKey: string;
+    typeCode?: string;
+    dataKey?: string;
+    masterId: string;
+    controls?: SectionControl[];
+}
 
+export interface Control {
+    id: string;
+    masterId: string;
+
+    label: string;
+    controlTypeCode: ControlType;
+    dataTypeCode: DataType;
+    dataKey: string;
     // Button
-    action: string;
+    buttons: string;
 
     // Complex Controls
     controls: Control[];
@@ -50,7 +58,7 @@ export interface Control {
     // Non Mandatory properties
     entityAttribute?: string;
     placeholder?: string;
-    width?: string;
+    width: string;
     className?: string;
     domainCode?: string;
     parentId?: string;
@@ -63,12 +71,17 @@ export interface Section {
     id: string;
     title: string;
     layout: string;
+    dataKey?: string;
+    access: Access;
     controls: Control[];
 }
 
 export interface FormConfig {
     id: string;
     title: string;
+    version: number;
+    buttons: string;
+    dataKey?: string;
     sections: Section[];
 }
 

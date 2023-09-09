@@ -1,10 +1,10 @@
 'use client';
 
+import AddControlsModal from '@components/add-controls-modal';
 import { SectionBuilder } from '@lib/builders';
 import { Section } from '@lib/types';
 import { useAppSelector } from '@store/hooks';
 import { useEffect, useState } from 'react';
-import AddControlsModal from '../../components/add-controls-modal';
 
 const Page = ({ params }: { params: { formId: string } }) => {
     const formState = useAppSelector(state => state.form);
