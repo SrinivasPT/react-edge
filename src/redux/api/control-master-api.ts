@@ -33,4 +33,4 @@ export const controlMasterApi = createApi({
     }),
 });
 
-export const { useAllControlsQuery, useGetFilteredControlsQuery } = controlMasterApi;
+export const { useAllControlsQuery, useGetFilteredControlsQuery, useGetControlByIdQuery } = controlMasterApi;

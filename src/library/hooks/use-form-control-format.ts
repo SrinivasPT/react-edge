@@ -13,9 +13,9 @@ const useFormControlFormat = () => {
         };
 
         const widthMappings: any = {
-            sm: { lg: 'lg:w-1/4', md: 'md:w-1/3', sm: 'sm:w-full' },
-            md: { lg: 'lg:w-1/3', md: 'md:w-1/2', sm: 'sm:w-full' },
-            lg: { lg: 'lg:w-1/2', md: 'md:w-full', sm: 'sm:w-full' },
+            SM: { lg: 'lg:w-1/4', md: 'md:w-1/3', sm: 'sm:w-full' },
+            MD: { lg: 'lg:w-1/3', md: 'md:w-1/2', sm: 'sm:w-full' },
+            LG: { lg: 'lg:w-1/2', md: 'md:w-full', sm: 'sm:w-full' },
         };
 
         const classes = widthMappings[width] || baseClasses;

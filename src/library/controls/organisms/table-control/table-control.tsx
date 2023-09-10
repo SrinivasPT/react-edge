@@ -2,6 +2,7 @@ import { ControlBuilder } from '@lib/builders';
 import { CheckControl } from '@lib/controls';
 import { ControlBuilderProps } from '@lib/types';
 import { logger } from '@lib/utils';
+import RowAction from './row-action';
 import useTable from './use-table';
 
 const TableControl: React.FC<ControlBuilderProps> = ({ control, parentKey }) => {
@@ -32,6 +33,7 @@ const TableControl: React.FC<ControlBuilderProps> = ({ control, parentKey }) => 
             <table className="min-w-full divide-y divide-gray-200">
                 <thead className="bg-gray-100">
                     <tr>
+                        {control?.actions && <th className="pr-2">Actions</th>}
                         {control?.isEditable && (
                             <th className="pr-2">
                                 <CheckControl control={SelectAllControl} parentKey="" />
@@ -53,6 +55,11 @@ const TableControl: React.FC<ControlBuilderProps> = ({ control, parentKey }) => 
                                 isRowSelected(row.id) ? 'bg-yellow-50' : ''
                             }`}
                         >
+                            {control?.actions && (
+                                <td className="flex justify-center items-center p-3">
+                                    <RowAction control={control} row={row} />
+                                </td>
+                            )}
                             {control?.isEditable && (
                                 <td className="flex justify-center items-center p-3">
                                     <CheckControl control={getSelectRowControl(row.guid)} parentKey="" />

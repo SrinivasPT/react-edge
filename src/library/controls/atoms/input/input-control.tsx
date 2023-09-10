@@ -1,10 +1,10 @@
 'use client';
 
 import { useFormControl } from '@lib/hooks';
-import { ControlBuilderProps } from '@lib/types';
+import { InputControlProps } from '@lib/types';
 import { logger } from '@lib/utils';
 
-const InputControl: React.FC<ControlBuilderProps> = ({ control, parentKey }) => {
+const InputControl: React.FC<InputControlProps> = ({ control, type, parentKey }) => {
     logger.debug(`Rendering InputControl for ${control.id}`);
 
     const { value, handleChange } = useFormControl(control, parentKey);
@@ -13,7 +13,7 @@ const InputControl: React.FC<ControlBuilderProps> = ({ control, parentKey }) => 
         <input
             type="text"
             value={value}
-            className={control.className}
+            className="border p-2 w-full" //{control.className}
             onChange={event => handleChange(event?.target.value)}
             placeholder={control.placeholder}
         />

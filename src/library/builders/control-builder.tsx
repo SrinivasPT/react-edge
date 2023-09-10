@@ -12,7 +12,7 @@ const ControlBuilder: React.FC<ControlBuilderProps> = ({ control, parentKey }) =
     const ControlComponent = ControlTypeMap[controlConfig.controlTypeCode];
 
     if (!ControlComponent) {
-        return <div>Error: Unknown control type {control.controlTypeCode}</div>;
+        return <div>Error: Unknown control type for {control.masterId}</div>;
     }
 
     const renderControl = () => {

@@ -41,6 +41,7 @@ export interface InternalState {
 export interface FormState {
     searchCriteria: SearchCriteria;
     data: { [key: string]: any };
+    actions: { [key: string]: (...args: any[]) => void };
     internal: InternalState;
     custom: { [key: string]: any };
     flags: UIState;
@@ -57,6 +58,7 @@ export type FormInit = {
     entityName: string;
     initialData: any;
     isInitialDataLoaded: boolean;
+    actions?: { [key: string]: () => void };
 };
 
 export type MutationFunctions = {

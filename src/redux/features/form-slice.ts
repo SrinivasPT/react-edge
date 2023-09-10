@@ -5,17 +5,8 @@ import _ from 'lodash';
 const initialState: FormState = {
     searchCriteria: {},
     data: {},
-    flags: {
-        isLoading: true,
-        isEditing: false,
-        isError: false,
-        isSaved: false,
-        isSaveInProgress: false,
-        errorMessage: null,
-    },
-    internal: {
-        table: {},
-    },
+    flags: { isLoading: true, isEditing: false, isError: false, isSaved: false, isSaveInProgress: false, errorMessage: null },
+    internal: { table: {} },
     custom: {},
     errors: {},
 } as FormState;
@@ -66,6 +57,8 @@ export const form = createSlice({
                 state.internal.table[key].selectedRowId = rowId;
             }
         },
+
+        rowAction: (state, action: PayloadAction<{ key: string; rowId: any; action: string }>) => {},
 
         // Control
         onChange: (state, action: PayloadAction<{ key: string; value: string }>) => {

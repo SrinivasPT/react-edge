@@ -1,0 +1,26 @@
+const InputTypeMap: any = {
+    TEXT: 'text',
+    NUMBER: 'number',
+    TELEPHONE: 'tel',
+    DATE: 'date',
+    DATE_TIME_LOCAL: 'datetime-local',
+    EMAIL: 'email',
+    PASSWORD: 'password',
+    SEARCH: 'search',
+    URL: 'url',
+    TIME: 'time',
+    RANGE: 'range',
+    COLOR: 'color',
+    CHECKBOX: 'checkbox',
+    RADIO: 'radio',
+    FILE: 'file',
+    HIDDEN: 'hidden',
+    IMAGE: 'image',
+    MONTH: 'month',
+    WEEK: 'week',
+    BUTTON: 'button',
+    SUBMIT: 'submit',
+    RESET: 'reset',
+};
+
+export default InputTypeMap;

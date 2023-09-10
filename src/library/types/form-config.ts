@@ -40,20 +40,29 @@ export interface Control {
     controlTypeCode: ControlType;
     dataTypeCode: DataType;
     dataKey: string;
+
+    // Text Are
+    rows?: number;
+
     // Button
-    buttons: string;
+    buttons?: string;
 
     // Complex Controls
-    controls: Control[];
+    controls?: Control[];
 
     // Permissions
-    access?: Access;
+    visible?: boolean;
+    visibleExpression: string;
+    readonly?: boolean;
+    readonlyExpression: string;
 
     // Validations
     validations?: Validation;
 
     // Table
     isEditable?: boolean;
+    actions: string;
+    entityUrl?: string;
 
     // Non Mandatory properties
     entityAttribute?: string;
@@ -100,6 +109,12 @@ export type ContextMenuAction = {
 
 export interface ControlBuilderProps {
     control: Control;
+    parentKey: string;
+}
+
+export interface InputControlProps {
+    control: Control;
+    type: string;
     parentKey: string;
 }
 

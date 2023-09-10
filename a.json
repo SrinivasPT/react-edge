@@ -1,12 +1,12 @@
 [
-    { "id": "id", "masterId": "page.id", "label": "Id", "controlTypeCode": "TEXT", "dataTypeCode": "STRING", "width": 4, "isRequired": "YES" },
+    { "id": "id", "masterId": "page.id", "label": "Id", "controlTypeCode": "TEXT", "dataTypeCode": "STRING", "width": "SM", "isRequired": "YES" },
     {
         "id": "title",
         "masterId": "page.title",
         "label": "Title",
         "controlTypeCode": "TEXT",
         "dataTypeCode": "STRING",
-        "width": 4,
+        "width": "SM",
         "isRequired": "YES",
         "minLength": 50
     },
@@ -16,7 +16,7 @@
         "label": "Layout",
         "controlTypeCode": "SELECT",
         "dataTypeCode": "STRING",
-        "width": 4,
+        "width": "SM",
         "domainCode": "LAYOUT_CODE",
         "isRequired": "YES",
         "maxLength": 50
@@ -27,7 +27,7 @@
         "label": "Data Key",
         "controlTypeCode": "TEXT",
         "dataTypeCode": "STRING",
-        "width": 4,
+        "width": "SM",
         "isRequired": "YES"
     },
     {
@@ -36,17 +36,17 @@
         "label": "Version",
         "controlTypeCode": "TEXT",
         "dataTypeCode": "STRING",
-        "width": 4,
+        "width": "SM",
         "isRequired": "YES"
     },
-    { "id": "id", "masterId": "section.id", "label": "Id", "controlTypeCode": "TEXT", "dataTypeCode": "STRING", "width": 4, "isRequired": "YES" },
+    { "id": "id", "masterId": "section.id", "label": "Id", "controlTypeCode": "TEXT", "dataTypeCode": "STRING", "width": "SM", "isRequired": "YES" },
     {
         "id": "title",
         "masterId": "section.title",
         "label": "Title",
         "controlTypeCode": "TEXT",
         "dataTypeCode": "STRING",
-        "width": 4,
+        "width": "SM",
         "isRequired": "YES"
     },
     {
@@ -55,7 +55,7 @@
         "label": "Id",
         "controlTypeCode": "TEXT",
         "dataTypeCode": "STRING",
-        "width": 4,
+        "width": "SM",
         "isRequired": "YES"
     },
     {
@@ -64,7 +64,7 @@
         "label": "Label",
         "controlTypeCode": "TEXT",
         "dataTypeCode": "STRING",
-        "width": 4,
+        "width": "SM",
         "isRequired": "YES"
     },
     {
@@ -73,7 +73,7 @@
         "label": "Control Type Code",
         "controlTypeCode": "SELECT",
         "dataTypeCode": "STRING",
-        "width": 4,
+        "width": "SM",
         "domainCode": "CONTROL_TYPE_CODE",
         "isRequired": "YES",
         "maxLength": 50
@@ -84,7 +84,7 @@
         "label": "Data Type Code",
         "controlTypeCode": "SELECT",
         "dataTypeCode": "STRING",
-        "width": 4,
+        "width": "SM",
         "domainCode": "DATA_TYPE_CODE",
         "isRequired": "YES",
         "maxLength": 50
@@ -95,7 +95,7 @@
         "label": "Data Key",
         "controlTypeCode": "TEXT",
         "dataTypeCode": "STRING",
-        "width": 4,
+        "width": "SM",
         "isRequired": "YES"
     },
     {
@@ -104,7 +104,7 @@
         "label": "Placeholder",
         "controlTypeCode": "TEXT",
         "dataTypeCode": "STRING",
-        "width": 4,
+        "width": "SM",
         "isRequired": "YES"
     },
     {
@@ -113,7 +113,7 @@
         "label": "Width",
         "controlTypeCode": "SELECT",
         "dataTypeCode": "STRING",
-        "width": 4,
+        "width": "SM",
         "domainCode": "WIDTH_CODE",
         "isRequired": "YES",
         "maxLength": 50
@@ -124,7 +124,7 @@
         "label": "Class Name",
         "controlTypeCode": "TEXT",
         "dataTypeCode": "STRING",
-        "width": 4,
+        "width": "SM",
         "isRequired": "YES"
     },
     {
@@ -133,7 +133,7 @@
         "label": "Domain Code",
         "controlTypeCode": "SELECT",
         "dataTypeCode": "STRING",
-        "width": 4,
+        "width": "SM",
         "domainCode": "DOMAIN_CODE",
         "isRequired": "YES",
         "maxLength": 50
@@ -144,7 +144,53 @@
         "label": "Parent Id",
         "controlTypeCode": "TEXT",
         "dataTypeCode": "STRING",
-        "width": 4,
+        "width": "SM",
+        "isRequired": "YES"
+    },
+    {
+        "id": "buttons",
+        "masterId": "controlMaster.buttons",
+        "label": "Buttons",
+        "controlTypeCode": "TEXT",
+        "dataTypeCode": "STRING",
+        "width": "SM",
+        "isRequired": "YES"
+    },
+    {
+        "id": "visible",
+        "masterId": "controlMaster.visible",
+        "label": "Visible",
+        "controlTypeCode": "SELECT",
+        "dataTypeCode": "STRING",
+        "width": "SM",
+        "domainCode": "YES_NO_CODE",
+        "isRequired": "YES"
+    },
+    {
+        "id": "visibleExpression",
+        "masterId": "controlMaster.visibleExpression",
+        "label": "Visible Expression",
+        "controlTypeCode": "TEXT",
+        "dataTypeCode": "STRING",
+        "width": "SM",
+        "isRequired": "YES"
+    },
+    {
+        "id": "readonly",
+        "masterId": "controlMaster.readonly",
+        "label": "Readonly",
+        "controlTypeCode": "TEXT",
+        "dataTypeCode": "STRING",
+        "width": "SM",
+        "isRequired": "YES"
+    },
+    {
+        "id": "readonlyExpression",
+        "masterId": "controlMaster.readonlyExpression",
+        "label": "Readonly Expression",
+        "controlTypeCode": "TEXT",
+        "dataTypeCode": "STRING",
+        "width": "SM",
         "isRequired": "YES"
     },
     {
@@ -153,7 +199,7 @@
         "label": "Is Required",
         "controlTypeCode": "SELECT",
         "dataTypeCode": "STRING",
-        "width": 4,
+        "width": "SM",
         "domainCode": "YES_NO_CODE",
         "isRequired": "YES",
         "maxLength": 50
@@ -164,7 +210,7 @@
         "label": "Required Expression",
         "controlTypeCode": "TEXTAREA",
         "dataTypeCode": "STRING",
-        "width": 4,
+        "width": "SM",
         "isRequired": "YES"
     },
     {
@@ -173,7 +219,8 @@
         "label": "Is Hidden",
         "controlTypeCode": "TEXT",
         "dataTypeCode": "BOOL",
-        "width": 4,
+        "width": "SM",
+        "domainCode": "YES_NO_CODE",
         "isRequired": "YES"
     },
     {
@@ -182,7 +229,7 @@
         "label": "Hidden Expression",
         "controlTypeCode": "TEXTAREA",
         "dataTypeCode": "STRING",
-        "width": 4,
+        "width": "SM",
         "isRequired": "YES"
     },
     {
@@ -191,7 +238,7 @@
         "label": "Min Length",
         "controlTypeCode": "TEXT",
         "dataTypeCode": "NUMBER",
-        "width": 4,
+        "width": "SM",
         "isRequired": "YES"
     },
     {
@@ -200,7 +247,7 @@
         "label": "Max Length",
         "controlTypeCode": "TEXT",
         "dataTypeCode": "NUMBER",
-        "width": 4,
+        "width": "SM",
         "isRequired": "YES"
     },
     {
@@ -209,7 +256,7 @@
         "label": "Min",
         "controlTypeCode": "NUMERIC",
         "dataTypeCode": "NUMBER",
-        "width": 4,
+        "width": "SM",
         "isRequired": "YES"
     },
     {
@@ -218,7 +265,7 @@
         "label": "Max",
         "controlTypeCode": "NUMERIC",
         "dataTypeCode": "NUMBER",
-        "width": 4,
+        "width": "SM",
         "isRequired": "YES"
     },
     {
@@ -227,7 +274,7 @@
         "label": "Pattern",
         "controlTypeCode": "TEXT",
         "dataTypeCode": "STRING",
-        "width": 4,
+        "width": "SM",
         "isRequired": "YES"
     },
     {
@@ -236,7 +283,7 @@
         "label": "Min Date",
         "controlTypeCode": "DATE",
         "dataTypeCode": "DATE",
-        "width": 4,
+        "width": "SM",
         "isRequired": "YES"
     },
     {
@@ -245,7 +292,7 @@
         "label": "Max Date",
         "controlTypeCode": "DATE",
         "dataTypeCode": "DATE",
-        "width": 4,
+        "width": "SM",
         "isRequired": "YES"
     }
 ]

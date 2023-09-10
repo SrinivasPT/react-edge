@@ -3,7 +3,7 @@ import { toast } from 'react-toastify';
 export interface IButtonPallet {
     id: string;
     label: string;
-    handler: (event: any) => Promise<void>;
+    handler: (event: any) => Promise<void> | any;
 }
 
 const ButtonPallet: React.FC<{ title: string; buttons: IButtonPallet[] }> = ({ title, buttons }) => {

@@ -433,6 +433,8 @@
                             "id": "controlMaster",
                             "controlTypeCode": "TABLE",
                             "dataKey": "data",
+                            "actions": "EDIT,DELETE",
+                            "entityUrl": "admin/control-master",
                             "controls": [
                                 { "masterId": "controlMaster.masterId" },
                                 { "masterId": "controlMaster.id" },
@@ -466,7 +468,7 @@
                         { "masterId": "controlMaster.visibleExpression" },
                         { "masterId": "controlMaster.readonly" },
                         { "masterId": "controlMaster.readonlyExpression" },
-                        { "masterId": "controlMaster.required" },
+                        { "masterId": "controlMaster.isRequired" },
                         { "masterId": "controlMaster.requiredExpression" },
                         { "masterId": "controlMaster.minLength" },
                         { "masterId": "controlMaster.maxLength" },
@@ -481,14 +483,14 @@
         }
     ],
     "control-master": [
-        { "id": "id", "masterId": "page.id", "label": "Id", "controlTypeCode": "TEXT", "dataTypeCode": "STRING", "width": "md", "isRequired": "YES" },
+        { "id": "id", "masterId": "page.id", "label": "Id", "controlTypeCode": "TEXT", "dataTypeCode": "STRING", "width": "SM", "isRequired": "YES" },
         {
             "id": "title",
             "masterId": "page.title",
             "label": "Title",
             "controlTypeCode": "TEXT",
             "dataTypeCode": "STRING",
-            "width": "md",
+            "width": "SM",
             "isRequired": "YES",
             "minLength": 50
         },
@@ -498,7 +500,7 @@
             "label": "Layout",
             "controlTypeCode": "SELECT",
             "dataTypeCode": "STRING",
-            "width": "md",
+            "width": "SM",
             "domainCode": "LAYOUT_CODE",
             "isRequired": "YES",
             "maxLength": 50
@@ -509,7 +511,7 @@
             "label": "Data Key",
             "controlTypeCode": "TEXT",
             "dataTypeCode": "STRING",
-            "width": "md",
+            "width": "SM",
             "isRequired": "YES"
         },
         {
@@ -518,7 +520,7 @@
             "label": "Version",
             "controlTypeCode": "TEXT",
             "dataTypeCode": "STRING",
-            "width": "md",
+            "width": "SM",
             "isRequired": "YES"
         },
         {
@@ -527,7 +529,7 @@
             "label": "Id",
             "controlTypeCode": "TEXT",
             "dataTypeCode": "STRING",
-            "width": "md",
+            "width": "SM",
             "isRequired": "YES"
         },
         {
@@ -536,7 +538,7 @@
             "label": "Title",
             "controlTypeCode": "TEXT",
             "dataTypeCode": "STRING",
-            "width": "md",
+            "width": "SM",
             "isRequired": "YES"
         },
         {
@@ -545,16 +547,7 @@
             "label": "Id",
             "controlTypeCode": "TEXT",
             "dataTypeCode": "STRING",
-            "width": "md",
-            "isRequired": "YES"
-        },
-        {
-            "id": "masterId",
-            "masterId": "controlMaster.masterId",
-            "label": "Master ID",
-            "controlTypeCode": "TEXT",
-            "dataTypeCode": "STRING",
-            "width": "md",
+            "width": "SM",
             "isRequired": "YES"
         },
         {
@@ -563,7 +556,7 @@
             "label": "Label",
             "controlTypeCode": "TEXT",
             "dataTypeCode": "STRING",
-            "width": "md",
+            "width": "SM",
             "isRequired": "YES"
         },
         {
@@ -572,7 +565,7 @@
             "label": "Control Type Code",
             "controlTypeCode": "SELECT",
             "dataTypeCode": "STRING",
-            "width": "md",
+            "width": "SM",
             "domainCode": "CONTROL_TYPE_CODE",
             "isRequired": "YES",
             "maxLength": 50
@@ -583,7 +576,7 @@
             "label": "Data Type Code",
             "controlTypeCode": "SELECT",
             "dataTypeCode": "STRING",
-            "width": "md",
+            "width": "SM",
             "domainCode": "DATA_TYPE_CODE",
             "isRequired": "YES",
             "maxLength": 50
@@ -594,7 +587,7 @@
             "label": "Data Key",
             "controlTypeCode": "TEXT",
             "dataTypeCode": "STRING",
-            "width": "md",
+            "width": "SM",
             "isRequired": "YES"
         },
         {
@@ -603,7 +596,7 @@
             "label": "Placeholder",
             "controlTypeCode": "TEXT",
             "dataTypeCode": "STRING",
-            "width": "md",
+            "width": "SM",
             "isRequired": "YES"
         },
         {
@@ -612,7 +605,7 @@
             "label": "Width",
             "controlTypeCode": "SELECT",
             "dataTypeCode": "STRING",
-            "width": "md",
+            "width": "SM",
             "domainCode": "WIDTH_CODE",
             "isRequired": "YES",
             "maxLength": 50
@@ -623,7 +616,7 @@
             "label": "Class Name",
             "controlTypeCode": "TEXT",
             "dataTypeCode": "STRING",
-            "width": "md",
+            "width": "SM",
             "isRequired": "YES"
         },
         {
@@ -632,7 +625,7 @@
             "label": "Domain Code",
             "controlTypeCode": "SELECT",
             "dataTypeCode": "STRING",
-            "width": "md",
+            "width": "SM",
             "domainCode": "DOMAIN_CODE",
             "isRequired": "YES",
             "maxLength": 50
@@ -643,16 +636,62 @@
             "label": "Parent Id",
             "controlTypeCode": "TEXT",
             "dataTypeCode": "STRING",
-            "width": "md",
+            "width": "SM",
             "isRequired": "YES"
         },
         {
-            "id": "required",
+            "id": "buttons",
+            "masterId": "controlMaster.buttons",
+            "label": "Buttons",
+            "controlTypeCode": "TEXT",
+            "dataTypeCode": "STRING",
+            "width": "SM",
+            "isRequired": "YES"
+        },
+        {
+            "id": "visible",
+            "masterId": "controlMaster.visible",
+            "label": "Visible",
+            "controlTypeCode": "SELECT",
+            "dataTypeCode": "STRING",
+            "width": "SM",
+            "domainCode": "YES_NO_CODE",
+            "isRequired": "YES"
+        },
+        {
+            "id": "visibleExpression",
+            "masterId": "controlMaster.visibleExpression",
+            "label": "Visible Expression",
+            "controlTypeCode": "TEXT",
+            "dataTypeCode": "STRING",
+            "width": "SM",
+            "isRequired": "YES"
+        },
+        {
+            "id": "readonly",
+            "masterId": "controlMaster.readonly",
+            "label": "Readonly",
+            "controlTypeCode": "TEXT",
+            "dataTypeCode": "STRING",
+            "width": "SM",
+            "isRequired": "YES"
+        },
+        {
+            "id": "readonlyExpression",
+            "masterId": "controlMaster.readonlyExpression",
+            "label": "Readonly Expression",
+            "controlTypeCode": "TEXT",
+            "dataTypeCode": "STRING",
+            "width": "SM",
+            "isRequired": "YES"
+        },
+        {
+            "id": "isRequired",
             "masterId": "controlMaster.isRequired",
             "label": "Is Required",
             "controlTypeCode": "SELECT",
             "dataTypeCode": "STRING",
-            "width": "md",
+            "width": "SM",
             "domainCode": "YES_NO_CODE",
             "isRequired": "YES",
             "maxLength": 50
@@ -663,7 +702,7 @@
             "label": "Required Expression",
             "controlTypeCode": "TEXTAREA",
             "dataTypeCode": "STRING",
-            "width": "md",
+            "width": "SM",
             "isRequired": "YES"
         },
         {
@@ -672,7 +711,8 @@
             "label": "Is Hidden",
             "controlTypeCode": "TEXT",
             "dataTypeCode": "BOOL",
-            "width": "md",
+            "width": "SM",
+            "domainCode": "YES_NO_CODE",
             "isRequired": "YES"
         },
         {
@@ -681,7 +721,7 @@
             "label": "Hidden Expression",
             "controlTypeCode": "TEXTAREA",
             "dataTypeCode": "STRING",
-            "width": "md",
+            "width": "SM",
             "isRequired": "YES"
         },
         {
@@ -690,7 +730,7 @@
             "label": "Min Length",
             "controlTypeCode": "TEXT",
             "dataTypeCode": "NUMBER",
-            "width": "md",
+            "width": "SM",
             "isRequired": "YES"
         },
         {
@@ -699,25 +739,25 @@
             "label": "Max Length",
             "controlTypeCode": "TEXT",
             "dataTypeCode": "NUMBER",
-            "width": "md",
+            "width": "SM",
             "isRequired": "YES"
         },
         {
             "id": "min",
             "masterId": "controlMaster.min",
             "label": "Min",
-            "controlTypeCode": "NUMERIC",
+            "controlTypeCode": "NUMBER",
             "dataTypeCode": "NUMBER",
-            "width": "md",
+            "width": "SM",
             "isRequired": "YES"
         },
         {
             "id": "max",
             "masterId": "controlMaster.max",
             "label": "Max",
-            "controlTypeCode": "NUMERIC",
+            "controlTypeCode": "NUMBER",
             "dataTypeCode": "NUMBER",
-            "width": "md",
+            "width": "SM",
             "isRequired": "YES"
         },
         {
@@ -726,7 +766,7 @@
             "label": "Pattern",
             "controlTypeCode": "TEXT",
             "dataTypeCode": "STRING",
-            "width": "md",
+            "width": "SM",
             "isRequired": "YES"
         },
         {
@@ -735,7 +775,7 @@
             "label": "Min Date",
             "controlTypeCode": "DATE",
             "dataTypeCode": "DATE",
-            "width": "md",
+            "width": "SM",
             "isRequired": "YES"
         },
         {
@@ -744,82 +784,42 @@
             "label": "Max Date",
             "controlTypeCode": "DATE",
             "dataTypeCode": "DATE",
-            "width": "md",
+            "width": "SM",
             "isRequired": "YES"
         }
     ],
     "domain": {
-        "CONTROL_TYPE": [
-            {
-                "code": "CHECK",
-                "label": "Code",
-                "sortOrder": 1
-            },
-            {
-                "code": "DATE",
-                "label": "Check",
-                "sortOrder": 2
-            },
-            {
-                "code": "NUMERIC",
-                "label": "Date",
-                "sortOrder": 3
-            },
-            {
-                "code": "RADIO",
-                "label": "Numeric",
-                "sortOrder": 4
-            },
-            {
-                "code": "SELECT",
-                "label": "Radio",
-                "sortOrder": 5
-            },
-            {
-                "code": "TEXT",
-                "label": "Select",
-                "sortOrder": 6
-            }
+        "CONTROL_TYPE_CODE": [
+            { "code": "CHECK", "label": "Check", "sortOrder": 1 },
+            { "code": "DATE", "label": "Date", "sortOrder": 2 },
+            { "code": "NUMBER", "label": "Number", "sortOrder": 3 },
+            { "code": "RADIO", "label": "Radio", "sortOrder": 4 },
+            { "code": "SELECT", "label": "Select", "sortOrder": 5 },
+            { "code": "TEXT", "label": "Text", "sortOrder": 6 },
+            { "code": "PASSWORD", "label": "Password", "sortOrder": 6 },
+            { "code": "TELEPHONE", "label": "Telephone", "sortOrder": 6 },
+            { "code": "URL", "label": "Url", "sortOrder": 6 },
+            { "code": "TEXTAREA", "label": "Textarea", "sortOrder": 6 }
         ],
-        "DATA_TYPE": [
-            {
-                "code": "BOOL",
-                "label": "Text",
-                "sortOrder": 1
-            },
-            {
-                "code": "DATE",
-                "label": "Bool",
-                "sortOrder": 2
-            },
-            {
-                "code": "NUMBER",
-                "label": "Date",
-                "sortOrder": 3
-            },
-            {
-                "code": "STRING",
-                "label": "Number",
-                "sortOrder": 4
-            }
+        "DATA_TYPE_CODE": [
+            { "code": "BOOL", "label": "Text", "sortOrder": 1 },
+            { "code": "DATE", "label": "Bool", "sortOrder": 2 },
+            { "code": "NUMBER", "label": "Date", "sortOrder": 3 },
+            { "code": "STRING", "label": "Number", "sortOrder": 4 }
+        ],
+        "WIDTH_CODE": [
+            { "code": "SM", "label": "Small (1/4)", "sortOrder": 1 },
+            { "code": "MD", "label": "Medium (1/3)", "sortOrder": 2 },
+            { "code": "LG", "label": "Large (1/2)", "sortOrder": 3 },
+            { "code": "full", "label": "Full (1)", "sortOrder": 4 }
+        ],
+        "YES_NO_CODE": [
+            { "code": "YES", "label": "Yes", "sortOrder": 1 },
+            { "code": "NO", "label": "No", "sortOrder": 2 }
         ]
     },
     "user": [
-        {
-            "id": 1000,
-            "firstName": "John",
-            "lastName": "Doe",
-            "age": 40,
-            "email": "john.doe@gmail.com",
-            "birthDate": "1/1/1980"
-        },
-        {
-            "id": 1001,
-            "firstName": "Jane",
-            "lastName": "Doe",
-            "age": 38,
-            "email": "jane.doe@gmail.com",
-            "birthDate": "1/1/1983"
-        }
+        { "id": 1000, "firstName": "John", "lastName": "Doe", "age": 40, "email": "john.doe@gmail.com", "birthDate": "1/1/1980" },
+        { "id": 1001, "firstName": "Jane", "lastName": "Doe", "age": 38, "email": "jane.doe@gmail.com", "birthDate": "1/1/1983" }
     ]
 }

@@ -11,6 +11,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 const Page = ({ params }: { params: { formId: string } }) => {
     const { isSuccess: isInitialDataLoaded, data: initialData } = useAllControlsQuery(null);
+    // const actions = { ADD: () => console.log('Add action'), EDIT: () => console.log('Edit action'), DELETE: () => console.log('Delete action') };
     const { isFormReady } = useFormDetail({ id: params.formId as string, entityName: 'controls', initialData, isInitialDataLoaded });
     const searchCriteria = useSelector((store: any) => store.form?.searchCriteria);
     const { data: filteredData } = useGetFilteredControlsQuery(searchCriteria);

@@ -46,7 +46,7 @@ const useFormDetail = ({ entityName, id, initialData, isInitialDataLoaded }: For
 
     useEffect(() => {
         if (isInitialDataLoaded) {
-            dispatch(setFormDetail({ key: entityName, initialData }));
+            dispatch(setFormDetail({ initialData }));
             setIsFormReady(true);
         }
     }, [isInitialDataLoaded]);
