@@ -25,7 +25,7 @@ const Page = ({ params }: { params: { formId: string } }) => {
     if (!isFormReady) return <div>Loading....</div>;
 
     return (
-        <PageLayout>
+        <PageLayout title="Control Master">
             <SectionBuilder formId="control-master" sectionId="search-criteria" parentKey={`searchCriteria`} />
             <SectionBuilder formId="control-master" sectionId="list" parentKey={`data`} />
         </PageLayout>

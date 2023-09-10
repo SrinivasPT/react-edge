@@ -1,4 +1,4 @@
-import { faCircleMinus, faCirclePlus } from '@fortawesome/free-solid-svg-icons';
+import { faPenToSquare, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Control } from '@lib/types';
 import { useAppSelector } from '@store/hooks';
@@ -34,7 +34,7 @@ const RowAction: React.FC<IRowActionProps> = ({ control, row }) => {
                             <Link href={`/${control.entityUrl}/${row.id}`} key={index}>
                                 <FontAwesomeIcon
                                     className="cursor-pointer text-blue-500 hover:text-blue-700 w-5 h-5"
-                                    icon={faCirclePlus}
+                                    icon={faPenToSquare}
                                     title="Edit Action"
                                 />
                             </Link>
@@ -44,7 +44,7 @@ const RowAction: React.FC<IRowActionProps> = ({ control, row }) => {
                             <FontAwesomeIcon
                                 key={index}
                                 className="cursor-pointer text-red-500 hover:text-red-700 w-5 h-5"
-                                icon={faCircleMinus}
+                                icon={faTrash}
                                 title="Delete Action"
                                 onClick={() => handleRowAction(RowActions.DELETE)}
                             />

@@ -1,10 +1,16 @@
+import { Control } from '@lib/types';
+import { isNil } from '@lib/utils/functions/general-functions';
 import { useAppSelector } from '@store/hooks';
 
 const useFormControlFormat = () => {
     const controlMaster = useAppSelector((state: any) => state.controlMaster.queries['AllControls(null)']?.data);
 
-    const getWidthClass = (masterId: string) => {
-        const width = controlMaster?.find((control: any) => control.masterId === masterId)?.width ?? 'default';
+    const getWidthClass = (control: Control) => {
+        // If control has width property, use it instead of master width
+        const width = !isNil(control?.width)
+            ? control?.width
+            : controlMaster?.find((masterControl: any) => masterControl.masterId === control.masterId)?.width ?? 'default';
+
         const baseClasses = {
             default: 'w-full',
             sm: 'sm:w-full',

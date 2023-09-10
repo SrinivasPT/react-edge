@@ -6,10 +6,9 @@ import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 
 const FormTreeControl = (params: any) => {
+    const { getFullControlConfig } = useFormConfig();
     const formConfig = useFormConfig().getFormConfig(params.formId);
     const router = useRouter();
-    // const data = transformJson(formConfig) as TreeItem;
-    // const data = useMemo(() => transformJson(formConfig), [formConfig]);
     const [data, setData] = useState(transformJson(formConfig));
 
     useEffect(() => {
@@ -22,13 +21,13 @@ const FormTreeControl = (params: any) => {
         if (action === 'SELECT') {
             switch (item.level) {
                 case 'PAGE':
-                    router.push(`/form-builder/${params.formId}`);
+                    router.push(`/admin/form-builder/${params.formId}`);
                     break;
                 case 'CONTROL':
-                    router.push(`/form-builder/${params.formId}/sections/${item.parentId}/controls/${item.id}`);
+                    router.push(`/admin/form-builder/${params.formId}/sections/${item.parentId}/controls/${item.id}`);
                     break;
                 case 'SECTION':
-                    router.push(`/form-builder/${params.formId}/sections/${item.id}`);
+                    router.push(`/admin/form-builder/${params.formId}/sections/${item.id}`);
                     break;
             }
         }
@@ -49,7 +48,7 @@ const FormTreeControl = (params: any) => {
                 id: input.id,
                 label: input.title,
                 level: 'SECTION',
-                children: input.controls.map((control: Control) => transformJson(control, input.id)),
+                children: input.controls.map((control: Control) => transformJson(getFullControlConfig(control), input.id)),
             };
         }
 

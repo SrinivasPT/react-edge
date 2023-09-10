@@ -1,6 +1,5 @@
 'use client';
 
-import AddControlsModal from '@components/add-controls-modal';
 import { SectionBuilder } from '@lib/builders';
 import { Section } from '@lib/types';
 import { useAppSelector } from '@store/hooks';
@@ -24,7 +23,7 @@ const Page = ({ params }: { params: { formId: string } }) => {
             <SectionBuilder formId="form" sectionId="section-list-tabular" parentKey="data.sections" />
             <SectionBuilder formId="form" sectionId="section-control-list-tabular" parentKey={controlsSectionParent} />
             <button onClick={() => setShowAddControls(true)}>Add Controls</button>
-            <AddControlsModal isOpen={showAddControls} onClose={() => setShowAddControls(false)} onAdd={addControlsToSection} />
+            {/* <AddControlsModal isOpen={showAddControls} onClose={() => setShowAddControls(false)} onAdd={addControlsToSection} /> */}
         </>
     );
 };

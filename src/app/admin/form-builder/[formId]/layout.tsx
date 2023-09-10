@@ -1,7 +1,6 @@
 'use client';
 
 import FormTreeControl from '@components/form-tree-control';
-import { ButtonPallet } from '@lib/controls';
 import { IButtonPallet } from '@lib/controls/organisms/button-pallet/button-pallet';
 import { useFormDetail } from '@lib/hooks';
 import { PageLayout } from '@lib/layout';
@@ -25,13 +24,13 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
      * All the handlers will be coming from the hook - in this case useFromDetails. Keep this code only for UI
      */
     const buttons: IButtonPallet[] = [
-        { id: 'save', label: 'Save', handler: handleSave },
-        { id: 'delete', label: 'Reset', handler: handleDelete },
+        { code: 'save', label: 'Save', handler: handleSave },
+        { code: 'delete', label: 'Reset', handler: handleDelete },
     ];
 
     return (
-        <PageLayout>
-            <ButtonPallet title="Test Page Handle Me" buttons={buttons} />
+        <PageLayout title="Page Structure" buttons={buttons}>
+            {/* <ButtonPallet title="Test Page Handle Me" buttons={buttons} /> */}
             <div className="flex">
                 <div className="flex-none w-1/4 p-4">
                     <FormTreeControl formId={params.formId} />

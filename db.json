@@ -132,80 +132,21 @@
                     "id": "page-header-free-form",
                     "title": "Page Header",
                     "controls": [
-                        {
-                            "id": "id",
-                            "label": "Id",
-                            "type": "TEXT",
-                            "width": "md",
-                            "required": true,
-                            "validation": {
-                                "minLength": 2,
-                                "maxLength": 20
-                            },
-                            "placeholder": "Enter your Id"
-                        },
-                        {
-                            "id": "title",
-                            "label": "Title",
-                            "type": "TEXT",
-                            "width": "md",
-                            "required": true,
-                            "validation": {
-                                "minLength": 2,
-                                "maxLength": 20
-                            },
-                            "placeholder": "Enter your Title"
-                        }
+                        { "masterId": "page.id", "width": "MD" },
+                        { "masterId": "page.title", "width": "MD" },
+                        { "masterId": "page.layout", "width": "MD" },
+                        { "masterId": "page.dataKey", "width": "MD" },
+                        { "masterId": "page.version", "width": "MD" }
                     ]
                 },
                 {
                     "id": "section-header-free-form",
                     "title": "Section Header",
                     "controls": [
-                        {
-                            "id": "id",
-                            "label": "Id",
-                            "type": "TEXT",
-                            "width": "md",
-                            "required": true,
-                            "validation": {
-                                "minLength": 2,
-                                "maxLength": 20
-                            },
-                            "placeholder": "Enter your Id"
-                        },
-                        {
-                            "id": "title",
-                            "label": "Title",
-                            "dataKey": "title",
-                            "type": "TEXT",
-                            "width": "md",
-                            "required": true,
-                            "validation": {
-                                "minLength": 2,
-                                "maxLength": 20
-                            },
-                            "placeholder": "Enter your Title"
-                        },
-                        {
-                            "id": "layout",
-                            "label": "Layout",
-                            "width": "sm",
-                            "type": "TEXT",
-                            "required": true
-                        },
-                        {
-                            "id": "dataKey",
-                            "label": "Data Key",
-                            "type": "TEXT",
-                            "width": "sm",
-                            "required": true,
-                            "validation": {
-                                "minLength": 2,
-                                "maxLength": 20
-                            },
-                            "placeholder": "Enter your Data Key"
-                        }
+                        { "masterId": "section.id" },
+                        { "masterId": "section.title" },
+                        { "masterId": "section.dataKey" },
+                        { "masterId": "section.layout" }
                     ]
                 },
                 {
@@ -216,39 +157,13 @@
                             "id": "sections",
                             "label": "Sections",
                             "dataKey": "USE_PARENT",
-                            "type": "TABLE",
-                            "isEditable": true,
+                            "controlTypeCode": "TABLE",
+                            "isEditable": false,
                             "controls": [
-                                {
-                                    "id": "id",
-                                    "label": "Id",
-                                    "type": "INPUT",
-                                    "required": true,
-                                    "validation": {
-                                        "minLength": 2,
-                                        "maxLength": 20
-                                    }
-                                },
-                                {
-                                    "id": "title",
-                                    "label": "Section Title",
-                                    "type": "INPUT",
-                                    "required": true,
-                                    "validation": {
-                                        "minLength": 2,
-                                        "maxLength": 20
-                                    }
-                                },
-                                {
-                                    "id": "dataKey",
-                                    "label": "Data Key",
-                                    "type": "INPUT",
-                                    "required": true,
-                                    "validation": {
-                                        "minLength": 2,
-                                        "maxLength": 20
-                                    }
-                                }
+                                { "masterId": "section.id" },
+                                { "masterId": "section.title" },
+                                { "masterId": "section.dataKey" },
+                                { "masterId": "section.layout" }
                             ]
                         }
                     ]
@@ -259,73 +174,29 @@
                     "controls": [
                         {
                             "id": "controls",
-                            "label": "Controls",
                             "dataKey": "USE_PARENT",
-                            "type": "TABLE",
+                            "controlTypeCode": "TABLE",
                             "parentDataKey": "sections",
-                            "isEditable": true,
+                            "isEditable": false,
                             "controls": [
-                                {
-                                    "id": "id",
-                                    "label": "Id",
-                                    "type": "INPUT",
-                                    "required": true,
-                                    "validation": {
-                                        "minLength": 2,
-                                        "maxLength": 20
-                                    }
-                                },
-                                {
-                                    "id": "label",
-                                    "label": "Label",
-                                    "type": "INPUT",
-                                    "required": true,
-                                    "validation": {
-                                        "minLength": 2,
-                                        "maxLength": 20
-                                    }
-                                }
+                                { "masterId": "controlMaster.masterId" },
+                                { "masterId": "controlMaster.label" },
+                                { "masterId": "controlMaster.dataKey" },
+                                { "masterId": "controlMaster.width" },
+                                { "masterId": "controlMaster.readonly" }
                             ]
                         }
                     ]
                 },
                 {
                     "id": "control-free-form",
-                    "title": "Controls List",
+                    "title": "Section Control Details",
                     "controls": [
-                        {
-                            "id": "id",
-                            "label": "Id",
-                            "type": "TEXT",
-                            "width": "md",
-                            "required": true,
-                            "validation": {
-                                "minLength": 2,
-                                "maxLength": 20
-                            }
-                        },
-                        {
-                            "id": "label",
-                            "label": "Label",
-                            "type": "TEXT",
-                            "width": "md",
-                            "required": true,
-                            "validation": {
-                                "minLength": 2,
-                                "maxLength": 20
-                            }
-                        },
-                        {
-                            "id": "type",
-                            "label": "Type",
-                            "type": "TEXT",
-                            "width": "md",
-                            "required": true,
-                            "validation": {
-                                "minLength": 2,
-                                "maxLength": 20
-                            }
-                        }
+                        { "masterId": "controlMaster.masterId" },
+                        { "masterId": "controlMaster.label" },
+                        { "masterId": "controlMaster.dataKey" },
+                        { "masterId": "controlMaster.width" },
+                        { "masterId": "controlMaster.readonly" }
                     ]
                 }
             ]
@@ -541,10 +412,21 @@
             "width": "SM",
             "isRequired": "YES"
         },
+        { "id": "layout", "masterId": "section.layout", "label": "Layout", "controlTypeCode": "TEXT", "dataTypeCode": "STRING", "width": "SM" },
+        { "id": "dataKey", "masterId": "section.dataKey", "label": "Data Key", "controlTypeCode": "TEXT", "dataTypeCode": "STRING", "width": "SM" },
         {
             "id": "id",
             "masterId": "controlMaster.id",
             "label": "Id",
+            "controlTypeCode": "TEXT",
+            "dataTypeCode": "STRING",
+            "width": "SM",
+            "isRequired": "YES"
+        },
+        {
+            "id": "masterId",
+            "masterId": "controlMaster.masterId",
+            "label": "Master Id",
             "controlTypeCode": "TEXT",
             "dataTypeCode": "STRING",
             "width": "SM",
