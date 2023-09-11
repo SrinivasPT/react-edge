@@ -1,6 +1,7 @@
 'use client';
 
 export default function Home() {
+    return <div>Welcome to React Edge Framework</div>;
     // const { isLoading, data } = useGetAllFormConfigQuery(null);
     // if (isLoading) return <div>Loading...</div>;
     // const count = useAppSelector(state => state.counter.value);

@@ -2,12 +2,14 @@
 
 import { config } from '@fortawesome/fontawesome-svg-core';
 import '@fortawesome/fontawesome-svg-core/styles.css';
+import MenuControl from '@lib/controls/organisms/menu-control/menu-control';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import { Suspense } from 'react';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { Providers } from '../redux/provider';
+import { menuData } from './config';
 import './globals.css';
 import Init from './init';
 config.autoAddCss = false;
@@ -25,7 +27,16 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <body className={inter.className}>
                 <Providers>
                     <Suspense fallback={<div>Loading...</div>}>
-                        <Init>{children}</Init>
+                        <header>
+                            <div className="sticky top-0 z-50 w-full py-3 bg-gray-900 text-white">
+                                <MenuControl menus={menuData} />
+                            </div>
+                        </header>
+
+                        <main>
+                            <Init>{children}</Init>
+                        </main>
+
                         <ToastContainer
                             position="bottom-center"
                             autoClose={1000}
@@ -38,6 +49,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                             pauseOnHover
                             theme="light"
                         />
+
+                        <footer></footer>
                     </Suspense>
                 </Providers>
             </body>

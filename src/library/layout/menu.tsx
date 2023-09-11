@@ -5,6 +5,18 @@ import { useState } from 'react';
 
 const MenuComponent = () => {
     const [isOpen, setIsOpen] = useState(false);
+    let hoverTimeout: any;
+
+    const handleMouseEnter = () => {
+        clearTimeout(hoverTimeout);
+        setIsOpen(true);
+    };
+
+    const handleMouseLeave = () => {
+        hoverTimeout = setTimeout(() => {
+            setIsOpen(false);
+        }, 300); // 300ms delay to cater for minor "gaps" in user movement
+    };
 
     return (
         <div className="relative">
@@ -18,11 +30,9 @@ const MenuComponent = () => {
                         />
                     </Link>
                 </div>
-                <div className="w-8">
+                <div className="w-8" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
                     {/* Header Button */}
-                    <button onClick={() => setIsOpen(!isOpen)} className="bg-gray-900 text-white px-4 py-2 rounded hover:bg-gray-800">
-                        Admin
-                    </button>
+                    <div className="bg-gray-900 text-white px-4 py-2 rounded hover:bg-gray-800">Admin</div>
 
                     {/* Dropdown */}
                     {isOpen && (
