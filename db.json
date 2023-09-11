@@ -198,6 +198,38 @@
                         { "masterId": "controlMaster.width" },
                         { "masterId": "controlMaster.readonly" }
                     ]
+                },
+                {
+                    "id": "control-master-free-form-readonly",
+                    "title": "Master Control Details",
+                    "readonly": "YES",
+                    "controls": [
+                        { "masterId": "controlMaster.id" },
+                        { "masterId": "controlMaster.masterId" },
+                        { "masterId": "controlMaster.label" },
+                        { "masterId": "controlMaster.controlTypeCode" },
+                        { "masterId": "controlMaster.dataTypeCode" },
+                        { "masterId": "controlMaster.dataKey" },
+                        { "masterId": "controlMaster.placeholder" },
+                        { "masterId": "controlMaster.width" },
+                        { "masterId": "controlMaster.className" },
+                        { "masterId": "controlMaster.domainCode" },
+                        { "masterId": "controlMaster.parentId" },
+                        { "masterId": "controlMaster.buttons" },
+                        { "masterId": "controlMaster.visible" },
+                        { "masterId": "controlMaster.visibleExpression" },
+                        { "masterId": "controlMaster.readonly" },
+                        { "masterId": "controlMaster.readonlyExpression" },
+                        { "masterId": "controlMaster.isRequired" },
+                        { "masterId": "controlMaster.requiredExpression" },
+                        { "masterId": "controlMaster.minLength" },
+                        { "masterId": "controlMaster.maxLength" },
+                        { "masterId": "controlMaster.min" },
+                        { "masterId": "controlMaster.max" },
+                        { "masterId": "controlMaster.pattern" },
+                        { "masterId": "controlMaster.minDate" },
+                        { "masterId": "controlMaster.maxDate" }
+                    ]
                 }
             ]
         },

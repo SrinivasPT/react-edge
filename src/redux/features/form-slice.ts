@@ -6,7 +6,7 @@ const initialState: FormState = {
     searchCriteria: {},
     data: {},
     flags: { isLoading: true, isEditing: false, isError: false, isSaved: false, isSaveInProgress: false, errorMessage: null },
-    internal: { table: {} },
+    internal: { table: {}, temp: {} },
     custom: {},
     errors: {},
 } as FormState;
@@ -65,9 +65,14 @@ export const form = createSlice({
             const { key, value } = action.payload;
             _.set(state, key, value);
         },
+
+        // Internal temp state
+        setInternalTemp: (state, action: PayloadAction<{ key: string; value: any }>) => {
+            _.set(state.internal.temp, action.payload.key, action.payload.value);
+        },
     },
 });
 
-export const { onChange, setFormDetail, reset, toggleTableEditableStatus, selectRow, setFilteredData } = form.actions;
+export const { onChange, setFormDetail, reset, toggleTableEditableStatus, selectRow, setFilteredData, setInternalTemp } = form.actions;
 
 export default form.reducer;

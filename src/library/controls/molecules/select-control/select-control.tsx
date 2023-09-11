@@ -11,7 +11,7 @@ const SelectControl: React.FC<ControlBuilderProps> = ({ control, parentKey }) =>
     return (
         <>
             <label className="w-full">{control.label}</label>
-            <select id={control.id} className={`border p-2 w-full`} defaultValue="--select--">
+            <select id={control.id} className={`border p-2 w-full`} defaultValue="--select--" disabled={control.readonly}>
                 {options?.map((option, index) => (
                     <option key={index} value={option.code}>
                         {option.label}

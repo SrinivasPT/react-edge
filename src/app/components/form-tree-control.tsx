@@ -2,6 +2,7 @@ import TreeNode from '@lib/controls/molecules/tree-control/tree-node';
 import { useFormConfig } from '@lib/hooks';
 import { CardLayout } from '@lib/layout';
 import { Control, Section, TreeItem } from '@lib/types';
+import _ from 'lodash';
 import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 
@@ -10,6 +11,7 @@ const FormTreeControl = (params: any) => {
     const formConfig = useFormConfig().getFormConfig(params.formId);
     const router = useRouter();
     const [data, setData] = useState(transformJson(formConfig));
+    const [selectedItemId, setSelectedItemId] = useState<string | null>(null);
 
     useEffect(() => {
         setData(transformJson(formConfig));
@@ -36,6 +38,7 @@ const FormTreeControl = (params: any) => {
     function transformJson(input: any, parentId = null) {
         if (input.id && input.title && input.sections) {
             return {
+                uniqueId: _.uniqueId(),
                 id: input.id,
                 label: input.title,
                 level: 'PAGE',
@@ -45,6 +48,7 @@ const FormTreeControl = (params: any) => {
 
         if (input.id && input.title && input.controls) {
             return {
+                uniqueId: _.uniqueId(),
                 id: input.id,
                 label: input.title,
                 level: 'SECTION',
@@ -54,7 +58,8 @@ const FormTreeControl = (params: any) => {
 
         if (input.id && input.label) {
             return {
-                id: input.id,
+                uniqueId: _.uniqueId(),
+                id: input.masterId,
                 label: input.label,
                 level: 'CONTROL',
                 parentId: parentId,
@@ -69,7 +74,14 @@ const FormTreeControl = (params: any) => {
         <CardLayout title="Page Structure">
             <div className="bg-white">
                 <ul className="list-item pl-1">
-                    <TreeNode key={data?.id} item={data as TreeItem} level={1} handleChange={handleChange} />
+                    <TreeNode
+                        key={data?.id}
+                        item={data as TreeItem}
+                        level={1}
+                        handleChange={handleChange}
+                        selectedItemId={selectedItemId}
+                        setSelectedItemId={setSelectedItemId}
+                    />
                 </ul>
             </div>
         </CardLayout>

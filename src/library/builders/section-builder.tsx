@@ -13,6 +13,12 @@ const SectionBuilder: React.FC<SectionBuilderProps> = ({ formId, sectionId, pare
     const sectionConfig = useFormConfig().getSectionConfig(formId, sectionId);
     const { getWidthClass } = useFormControlFormat();
 
+    const getOverrides = () => {
+        let overrides = {};
+        if (sectionConfig?.readonly === 'YES') overrides = { ...overrides, readonly: 'YES' };
+        return overrides;
+    };
+
     return (
         <LayoutBuilder layoutTypeCode={sectionConfig?.layoutTypeCode as string} title={sectionConfig?.title as string}>
             <div className="flex flex-wrap w-full">
@@ -20,7 +26,7 @@ const SectionBuilder: React.FC<SectionBuilderProps> = ({ formId, sectionId, pare
                     try {
                         return (
                             <div key={index} className={`${getWidthClass(control)}`}>
-                                <ControlBuilder control={control} parentKey={parentKey ?? `${sectionId}`} />
+                                <ControlBuilder control={{ ...control, ...getOverrides() }} parentKey={parentKey ?? `${sectionId}`} />
                             </div>
                         );
                     } catch (error) {

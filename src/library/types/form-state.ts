@@ -36,6 +36,7 @@ export interface TableInternalState {
 
 export interface InternalState {
     table: Record<string, TableInternalState>;
+    temp: {};
 }
 
 export interface FormState {

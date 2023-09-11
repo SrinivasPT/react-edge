@@ -29,6 +29,7 @@ export interface SectionControl {
     typeCode?: string;
     dataKey?: string;
     masterId: string;
+    readonly?: boolean;
     controls?: SectionControl[];
 }
 
@@ -82,6 +83,7 @@ export interface Section {
     layoutTypeCode: string;
     dataKey?: string;
     access: Access;
+    readonly: string;
     controls: Control[];
 }
 
@@ -95,6 +97,7 @@ export interface FormConfig {
 }
 
 export interface TreeItem {
+    uniqueId: string;
     id: string;
     label: string;
     level: string;

@@ -15,7 +15,8 @@ const InputControl: React.FC<InputControlProps> = ({ control, type, parentKey })
             value={value}
             className="border p-2 w-full" //{control.className}
             onChange={event => handleChange(event?.target.value)}
-            placeholder={control.placeholder}
+            placeholder={control?.placeholder}
+            disabled={control?.readonly}
         />
     );
 };
