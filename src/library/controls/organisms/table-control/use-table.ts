@@ -39,7 +39,17 @@ export function useTable(control: Control, parentKey: string) {
 
     const isRowSelected = (rowId: number) => iState?.selectedRowId === rowId;
 
-    return { data, dataKey, dispatch, isTableEditable, handleToggleEditTable, SelectAllControl, getSelectRowControl, handleSelectRow, isRowSelected };
+    return {
+        data: data || [],
+        dataKey,
+        dispatch,
+        isTableEditable,
+        handleToggleEditTable,
+        SelectAllControl,
+        getSelectRowControl,
+        handleSelectRow,
+        isRowSelected,
+    };
 }
 
 export default useTable;

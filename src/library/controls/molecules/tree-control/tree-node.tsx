@@ -1,6 +1,7 @@
 import { faCircleMinus, faCirclePlus } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { TreeItem } from '@lib/types';
+import { isNil } from '@lib/utils/functions/general-functions';
 import { useEffect, useState } from 'react';
 import ContextMenu from './context-menu';
 
@@ -67,6 +68,8 @@ const TreeNode: React.FC<TreeNodeProps> = ({ item, level, handleChange, selected
             window.removeEventListener('click', handleGlobalClick);
         };
     }, [contextMenuPos]);
+
+    if (isNil(item)) return null;
 
     return (
         <div className="my-1">

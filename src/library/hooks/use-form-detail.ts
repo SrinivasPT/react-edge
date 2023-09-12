@@ -17,8 +17,8 @@ const useFormDetail = ({ entityName, id, initialData, isInitialDataLoaded }: For
 
     const handleSave = async (event: any) => {
         event.preventDefault();
-        const mode = id ? 'update' : 'add';
-        const payload: any = id ? { id, changes: formData } : { formData };
+        const mode = id === 'new' ? 'add' : 'update';
+        const payload: any = formData;
 
         try {
             const response: any = await mutationFns[mode](payload);

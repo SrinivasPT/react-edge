@@ -39,11 +39,12 @@ const TableControl: React.FC<ControlBuilderProps> = ({ control, parentKey }) => 
                                 <CheckControl control={SelectAllControl} parentKey="" />
                             </th>
                         )}
-                        {control.controls.map((column, index) => (
-                            <th key={index} className="px-4 py-2 text-left text-xs font-medium text-gray-600 uppercase tracking-wider">
-                                {column.label}
-                            </th>
-                        ))}
+                        {control.controls &&
+                            control.controls.map((column, index) => (
+                                <th key={index} className="px-4 py-2 text-left text-xs font-medium text-gray-600 uppercase tracking-wider">
+                                    {column.label}
+                                </th>
+                            ))}
                     </tr>
                 </thead>
                 <tbody className="bg-white divide-y divide-gray-300">
@@ -65,23 +66,24 @@ const TableControl: React.FC<ControlBuilderProps> = ({ control, parentKey }) => 
                                     <CheckControl control={getSelectRowControl(row.guid)} parentKey="" />
                                 </td>
                             )}
-                            {control.controls.map((cellControl, colIndex) => (
-                                <td key={colIndex} className={`${getCellPadding()}`}>
-                                    {isTableEditable ? (
-                                        <div className="w-full">
-                                            <ControlBuilder
-                                                control={{
-                                                    ...cellControl,
-                                                    className: 'border p-2 w-full transition-shadow duration-200 hover:shadow-md',
-                                                }}
-                                                parentKey={`${dataKey}[${rowIndex}]`}
-                                            />
-                                        </div>
-                                    ) : (
-                                        row[cellControl.id]
-                                    )}
-                                </td>
-                            ))}
+                            {control.controls &&
+                                control.controls.map((cellControl, colIndex) => (
+                                    <td key={colIndex} className={`${getCellPadding()}`}>
+                                        {isTableEditable ? (
+                                            <div className="w-full">
+                                                <ControlBuilder
+                                                    control={{
+                                                        ...cellControl,
+                                                        className: 'border p-2 w-full transition-shadow duration-200 hover:shadow-md',
+                                                    }}
+                                                    parentKey={`${dataKey}[${rowIndex}]`}
+                                                />
+                                            </div>
+                                        ) : (
+                                            row[cellControl.id]
+                                        )}
+                                    </td>
+                                ))}
                         </tr>
                     ))}
                 </tbody>

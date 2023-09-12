@@ -15,14 +15,12 @@ const Page = ({ params }: { params: { formId: string } }) => {
         if (index >= 0) setControlsSectionParent(`data.sections[${index}].controls`);
     }, [formState.internal.table?.sections?.selectedRowId]);
 
-    const addControlsToSection = () => {};
-
     return (
         <>
             <SectionBuilder formId="form" sectionId="page-header-free-form" parentKey="data" />
             <SectionBuilder formId="form" sectionId="section-list-tabular" parentKey="data.sections" />
             <SectionBuilder formId="form" sectionId="section-control-list-tabular" parentKey={controlsSectionParent} />
-            <button onClick={() => setShowAddControls(true)}>Add Controls</button>
+            {/* <button onClick={() => setShowAddControls(true)}>Add Controls</button> */}
             {/* <AddControlsModal isOpen={showAddControls} onClose={() => setShowAddControls(false)} onAdd={addControlsToSection} /> */}
         </>
     );
