@@ -2,10 +2,10 @@
 
 import { SectionBuilder } from '@lib/builders';
 import { PageLayout } from '@lib/layout';
-import useControlMaster from '../../../hooks/use-control-master';
+import useControlMasterDetail from '../../../hooks/use-control-master-detail';
 
 const Page = ({ params }: { params: { controlId: string } }) => {
-    const { isFormReady, actions } = useControlMaster(params.controlId);
+    const { isFormReady, actions } = useControlMasterDetail(params.controlId);
 
     if (!isFormReady) return <div>Loading....</div>;
 

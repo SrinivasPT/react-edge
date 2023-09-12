@@ -6,7 +6,7 @@ import { useParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 
-const useFormDetail = ({ entityName, id, initialData, isInitialDataLoaded }: FormInit) => {
+const useFormBuilder = ({ entityName, id, initialData, isInitialDataLoaded }: FormInit) => {
     const params = useParams();
     const [addForm] = useAddFormMutation();
     const [updateForm] = useUpdateFormMutation();
@@ -66,4 +66,4 @@ const useFormDetail = ({ entityName, id, initialData, isInitialDataLoaded }: For
     return { isFormReady, handleSave, handleDelete };
 };
 
-export default useFormDetail;
+export default useFormBuilder;

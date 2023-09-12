@@ -1,4 +1,4 @@
-import { IButtonPallet } from '@lib/controls/organisms/button-pallet/page-title-with-actions';
+import { IButtonPallet } from '@lib/controls/organisms/button-pallet/button-pallet';
 import { FormState } from '@lib/types';
 import { useDeleteControlMutation, useGetControlByMasterIdQuery, useUpdateControlMutation } from '@store/api/control-master-api';
 import { reset, setFormDetail } from '@store/features/form-slice';
@@ -7,7 +7,7 @@ import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 
-const useControlMaster = (id: string) => {
+const useControlMasterDetail = (id: string) => {
     const router = useRouter();
     // Get the data from the server
     const { isSuccess: isInitialDataLoaded, data: initialData } = useGetControlByMasterIdQuery({ masterId: id });
@@ -71,4 +71,4 @@ const useControlMaster = (id: string) => {
     return { isFormReady, actions, handleSave, handleDelete };
 };
 
-export default useControlMaster;
+export default useControlMasterDetail;

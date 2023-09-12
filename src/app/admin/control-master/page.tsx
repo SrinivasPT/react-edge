@@ -1,17 +1,16 @@
 'use client';
 
 import { SectionBuilder } from '@lib/builders';
-import { useFormDetail } from '@lib/hooks';
 import { PageLayout } from '@lib/layout';
 import { isNil } from '@lib/utils/functions/general-functions';
-import { useAllControlsQuery, useGetFilteredControlsQuery } from '@store/api/control-master-api';
+import { useGetFilteredControlsQuery } from '@store/api/control-master-api';
 import { setFilteredData } from '@store/features/form-slice';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import useControlMasterList from '../../hooks/use-control-master-list';
 
 const Page = ({ params }: { params: { formId: string } }) => {
-    const { isSuccess: isInitialDataLoaded, data: initialData } = useAllControlsQuery(null);
-    const { isFormReady } = useFormDetail({ id: params.formId as string, entityName: 'controls', initialData, isInitialDataLoaded });
+    const { isFormReady } = useControlMasterList();
     const searchCriteria = useSelector((store: any) => store.form?.searchCriteria);
     const { data: filteredData, refetch } = useGetFilteredControlsQuery(searchCriteria);
 
