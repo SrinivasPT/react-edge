@@ -33,6 +33,18 @@ const FormTreeControl = (params: any) => {
                     break;
             }
         }
+
+        if (action === 'ADD') {
+            switch (item.level) {
+                case 'PAGE':
+                    // const sectionId = prompt('Please enter section id');
+                    router.push(`/admin/form-builder/${params.formId}/sections/new`);
+                    break;
+                case 'SECTION':
+                    router.push(`/admin/form-builder/${params.formId}/sections/${item.id}/controls/new`);
+                    break;
+            }
+        }
     };
 
     function transformJson(input: any, parentId = null) {

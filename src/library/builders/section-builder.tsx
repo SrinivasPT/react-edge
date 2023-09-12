@@ -20,7 +20,11 @@ const SectionBuilder: React.FC<SectionBuilderProps> = ({ formId, sectionId, pare
     };
 
     return (
-        <LayoutBuilder layoutTypeCode={sectionConfig?.layoutTypeCode as string} title={sectionConfig?.title as string}>
+        <LayoutBuilder
+            layoutTypeCode={sectionConfig?.layoutTypeCode as string}
+            title={sectionConfig?.title as string}
+            actions={sectionConfig?.actions}
+        >
             <div className="flex flex-wrap w-full">
                 {sectionConfig?.controls.map((control, index) => {
                     try {

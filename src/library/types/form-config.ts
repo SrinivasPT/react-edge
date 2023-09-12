@@ -83,6 +83,7 @@ export interface Section {
     layoutTypeCode: string;
     dataKey?: string;
     access: Access;
+    actions: string;
     readonly: string;
     controls: Control[];
 }

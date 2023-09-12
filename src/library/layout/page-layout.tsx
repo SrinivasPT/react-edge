@@ -1,4 +1,4 @@
-import { ButtonPallet } from '@lib/controls';
+import { PageTitleBar } from '@lib/controls';
 
 const PageLayout = (props: any) => {
     return (
@@ -6,7 +6,7 @@ const PageLayout = (props: any) => {
             {/* <div className="sticky top-0 z-50 w-full py-3 bg-gray-900 text-white">
                 <MenuComponent />
             </div> */}
-            <ButtonPallet title={props.title} buttons={props.buttons} />
+            <PageTitleBar title={props.title} buttons={props.buttons} />
             <div className="flex justify-center pt-2 flex-grow">
                 <main className="w-5/6 bg-white px-6 pt-6 shadow-md">{props.children}</main>
             </div>

@@ -14,3 +14,4 @@ export { default as SelectControl } from './molecules/select-control/select-cont
 
 // Organism Controls
 export { default as ButtonPallet } from './organisms/button-pallet/button-pallet';
+export { default as PageTitleBar } from './organisms/button-pallet/page-title-with-actions';

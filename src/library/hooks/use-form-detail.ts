@@ -1,24 +1,27 @@
-import { FormInit, FormState } from '@lib/types';
+import { FormConfig, FormInit } from '@lib/types';
 import { useAddFormMutation, useDeleteFormMutation, useUpdateFormMutation } from '@store/api/form-config-api';
 import { reset, setFormDetail } from '@store/features/form-slice';
 import { useAppDispatch } from '@store/hooks';
+import { useParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 
 const useFormDetail = ({ entityName, id, initialData, isInitialDataLoaded }: FormInit) => {
+    const params = useParams();
     const [addForm] = useAddFormMutation();
     const [updateForm] = useUpdateFormMutation();
     const [deleteForm] = useDeleteFormMutation();
     const mutationFns = { add: addForm, update: updateForm, delete: deleteForm };
 
-    const formData: FormState = useSelector((store: any) => store.form.data);
+    const formData: FormConfig = useSelector((store: any) => store.form.data);
     const [isFormReady, setIsFormReady] = useState(false);
     const dispatch = useAppDispatch();
 
     const handleSave = async (event: any) => {
         event.preventDefault();
+
         const mode = id === 'new' ? 'add' : 'update';
-        const payload: any = formData;
+        const payload: any = getPayload();
 
         try {
             const response: any = await mutationFns[mode](payload);
@@ -50,6 +53,15 @@ const useFormDetail = ({ entityName, id, initialData, isInitialDataLoaded }: For
             setIsFormReady(true);
         }
     }, [isInitialDataLoaded]);
+
+    const getPayload = () => {
+        const { formId, sectionId, controlId } = params;
+        const updateLevel = controlId ? 'CONTROL' : sectionId ? 'SECTION' : formId ? 'FORM' : 'Unknown';
+
+        let sanitizedFormData = {};
+        if (!formData?.sections) sanitizedFormData = { ...formData, sections: [] };
+        return sanitizedFormData;
+    };
 
     return { isFormReady, handleSave, handleDelete };
 };

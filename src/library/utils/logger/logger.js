@@ -4,7 +4,7 @@ const isDevelopment = process.env.NODE_ENV !== 'production';
 
 const logger = pino({
     level: isDevelopment ? 'info' : 'warn', // Log everything in development, only warnings/errors in production
-    prettyPrint: isDevelopment, // Pretty print in development for readability
+    // prettyPrint: isDevelopment, // Pretty print in development for readability
 });
 
 const logWrapper = {

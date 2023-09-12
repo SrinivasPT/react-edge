@@ -3,7 +3,11 @@ import { CardLayout, SearchBarLayout } from '.';
 const LayoutBuilder = (props: any) => {
     switch (props.layoutTypeCode) {
         case 'CARD':
-            return <CardLayout title={props.title}>{props.children}</CardLayout>;
+            return (
+                <CardLayout title={props.title} actions={props.actions}>
+                    {props.children}
+                </CardLayout>
+            );
         case 'SEARCH_BAR':
             return <SearchBarLayout title={props.title}>{props.children}</SearchBarLayout>;
         default:

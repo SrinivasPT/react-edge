@@ -1,4 +1,4 @@
-import { IButtonPallet } from '@lib/controls/organisms/button-pallet/button-pallet';
+import { IButtonPallet } from '@lib/controls/organisms/button-pallet/page-title-with-actions';
 import { FormState } from '@lib/types';
 import { useDeleteControlMutation, useGetControlByMasterIdQuery, useUpdateControlMutation } from '@store/api/control-master-api';
 import { reset, setFormDetail } from '@store/features/form-slice';

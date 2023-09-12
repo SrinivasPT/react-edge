@@ -6,7 +6,11 @@ import { useAppSelector } from '@store/hooks';
 
 const Page = ({ params }: { params: { formId: string; sectionId: string } }) => {
     const formState = useAppSelector(state => state.form);
-    const sectionIndex = formState.data?.sections?.findIndex((section: Section) => section.id === params.sectionId);
+    let sectionIndex = formState.data?.sections?.findIndex((section: Section) => section.id === params.sectionId);
+
+    if (params.sectionId === 'new' && sectionIndex === -1) {
+        sectionIndex = formState.data?.sections?.length;
+    }
 
     return (
         <>

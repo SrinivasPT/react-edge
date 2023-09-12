@@ -175,6 +175,7 @@
                 {
                     "id": "section-list-tabular",
                     "title": "Section List",
+                    "actions": "ADD,DELETE",
                     "controls": [
                         {
                             "id": "sections",
@@ -563,8 +564,7 @@
         {
             "id": "adhar",
             "title": "Adhar",
-            "dataKey": "adhar",
-            "version": "1.0"
+            "sections": []
         }
     ],
     "control-master": [

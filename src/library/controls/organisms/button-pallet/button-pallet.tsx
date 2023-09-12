@@ -13,7 +13,7 @@ enum ButtonType {
     ERROR = 'ERROR',
 }
 
-const ButtonPallet: React.FC<{ title: string; buttons: IButtonPallet[] }> = ({ title, buttons }) => {
+const ButtonPallet: React.FC<{ buttons: IButtonPallet[] }> = ({ buttons }) => {
     const handleOnClick = (event: any, button: IButtonPallet) => {
         try {
             button.handler(event);
@@ -35,23 +35,20 @@ const ButtonPallet: React.FC<{ title: string; buttons: IButtonPallet[] }> = ({ t
     };
 
     return (
-        <div className="flex justify-between items-center py-2 px-6 text-black shadow-md bg-gray-300">
-            <h1 className="text-xl font-semibold">{title}</h1>
-            <div className="flex space-x-2">
-                {buttons?.map((button, index) => (
-                    <button
-                        key={index}
-                        className={
-                            index === 0
-                                ? 'bg-blue-600 hover:bg-blue-700 px-4 py-1 rounded text-white'
-                                : 'bg-gray-600 hover:bg-gray-700 px-4 py-1 rounded text-white'
-                        }
-                        onClick={event => handleOnClick(event, button)}
-                    >
-                        {button.label}
-                    </button>
-                ))}
-            </div>
+        <div className="flex space-x-2">
+            {buttons?.map((button, index) => (
+                <button
+                    key={index}
+                    className={
+                        index === 0
+                            ? 'bg-blue-600 hover:bg-blue-700 px-4 py-1 rounded text-white'
+                            : 'bg-gray-600 hover:bg-gray-700 px-4 py-1 rounded text-white'
+                    }
+                    onClick={event => handleOnClick(event, button)}
+                >
+                    {button.label}
+                </button>
+            ))}
         </div>
     );
 };
