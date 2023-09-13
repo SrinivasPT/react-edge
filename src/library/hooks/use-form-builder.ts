@@ -1,3 +1,5 @@
+import { IButtonPallet } from '@lib/controls/organisms/button-pallet/button-pallet';
+import { IFormActions } from '@lib/sections/form-actions-context';
 import { FormConfig, FormInit } from '@lib/types';
 import { useAddFormMutation, useDeleteFormMutation, useUpdateFormMutation } from '@store/api/form-config-api';
 import { reset, setFormDetail } from '@store/features/form-slice';
@@ -16,6 +18,14 @@ const useFormBuilder = ({ entityName, id, initialData, isInitialDataLoaded }: Fo
     const formData: FormConfig = useSelector((store: any) => store.form.data);
     const [isFormReady, setIsFormReady] = useState(false);
     const dispatch = useAppDispatch();
+
+    const addSection = (action: IButtonPallet) => {
+        console.log(`Add section called from section button pallet ${JSON.stringify(action)})}`);
+    };
+
+    const actions: IFormActions = {
+        'section-list-tabular': [{ controlId: 'section-list-tabular', code: 'ADD', label: 'Add', handler: addSection }],
+    };
 
     const handleSave = async (event: any) => {
         event.preventDefault();
@@ -63,7 +73,7 @@ const useFormBuilder = ({ entityName, id, initialData, isInitialDataLoaded }: Fo
         return sanitizedFormData;
     };
 
-    return { isFormReady, handleSave, handleDelete };
+    return { isFormReady, actions, handleSave, handleDelete };
 };
 
 export default useFormBuilder;

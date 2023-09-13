@@ -4,6 +4,7 @@ import FormTreeControl from '@components/form-tree-control';
 import { IButtonPallet } from '@lib/controls/organisms/button-pallet/button-pallet';
 import { useFormBuilder } from '@lib/hooks';
 import { PageLayout } from '@lib/layout';
+import FormActionsContext from '@lib/sections/form-actions-context';
 import { useGetFormByIdQuery } from '@store/api/form-config-api';
 import { useParams, useRouter } from 'next/navigation';
 import { useSelector } from 'react-redux';
@@ -14,7 +15,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
     const router = useRouter();
 
     const { isSuccess: isInitialDataLoaded, data: initialData } = useGetFormByIdQuery({ id: params.formId as string });
-    const { isFormReady, handleSave, handleDelete } = useFormBuilder({
+    const { isFormReady, handleSave, handleDelete, actions } = useFormBuilder({
         id: params.formId as string,
         entityName: 'form',
         initialData,
@@ -34,8 +35,8 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
      * All the handlers will be coming from the hook - in this case useFromDetails. Keep this code only for UI
      */
     const buttons: IButtonPallet[] = [
-        { code: 'save', label: 'Save', handler: handleSaveClick },
-        { code: 'delete', label: 'Reset', handler: handleDelete },
+        { controlId: '', code: 'save', label: 'Save', handler: handleSaveClick },
+        { controlId: '', code: 'delete', label: 'Reset', handler: handleDelete },
     ];
 
     if (params.formId === 'new')
@@ -48,15 +49,17 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
     if (!isFormReady) return <div>Loading....</div>;
 
     return (
-        <PageLayout title="Page Structure" buttons={buttons}>
-            {/* <ButtonPallet title="Test Page Handle Me" buttons={buttons} /> */}
-            <div className="flex">
-                <div className="flex-none w-1/4 p-4">
-                    <FormTreeControl formId={params.formId} />
+        <FormActionsContext.Provider value={actions}>
+            <PageLayout title="Page Structure" buttons={buttons}>
+                {/* <ButtonPallet title="Test Page Handle Me" buttons={buttons} /> */}
+                <div className="flex">
+                    <div className="flex-none w-1/4 p-4">
+                        <FormTreeControl formId={params.formId} />
+                    </div>
+                    <div className="flex-grow p-4">{children}</div>
                 </div>
-                <div className="flex-grow p-4">{children}</div>
-            </div>
-        </PageLayout>
+            </PageLayout>
+        </FormActionsContext.Provider>
     );
 };
 

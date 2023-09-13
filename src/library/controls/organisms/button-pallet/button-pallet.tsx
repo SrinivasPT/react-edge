@@ -1,6 +1,7 @@
 import { toast } from 'react-toastify';
 
 export interface IButtonPallet {
+    controlId: string;
     code: string;
     label: string;
     handler: (event: any) => Promise<void> | any;
@@ -16,7 +17,7 @@ enum ButtonType {
 const ButtonPallet: React.FC<{ buttons: IButtonPallet[] }> = ({ buttons }) => {
     const handleOnClick = (event: any, button: IButtonPallet) => {
         try {
-            button.handler(event);
+            button.handler(button);
             sendToastMessage(button.code);
         } catch (error) {
             sendToastMessage('error');

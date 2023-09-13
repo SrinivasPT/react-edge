@@ -1,6 +1,7 @@
 import { useFormConfig } from '@lib/hooks';
 import useFormControlFormat from '@lib/hooks/use-form-control-format';
 import { LayoutBuilder } from '@lib/layout';
+import { Section } from '@lib/types';
 import { ControlBuilder } from '.';
 
 interface SectionBuilderProps {
@@ -20,11 +21,7 @@ const SectionBuilder: React.FC<SectionBuilderProps> = ({ formId, sectionId, pare
     };
 
     return (
-        <LayoutBuilder
-            layoutTypeCode={sectionConfig?.layoutTypeCode as string}
-            title={sectionConfig?.title as string}
-            actions={sectionConfig?.actions}
-        >
+        <LayoutBuilder section={sectionConfig as Section}>
             <div className="flex flex-wrap w-full">
                 {sectionConfig?.controls.map((control, index) => {
                     try {

@@ -1,17 +1,22 @@
+import { Section } from '@lib/types';
+import { ReactNode } from 'react';
 import { CardLayout, SearchBarLayout } from '.';
 
-const LayoutBuilder = (props: any) => {
-    switch (props.layoutTypeCode) {
+export interface LayoutBuilderProps {
+    section: Section;
+    children: ReactNode;
+}
+
+const LayoutBuilder: React.FC<LayoutBuilderProps> = ({ section, children }) => {
+    // const { actions } = useContext(FormActionsContext);
+
+    switch (section.layoutTypeCode) {
         case 'CARD':
-            return (
-                <CardLayout title={props.title} actions={props.actions}>
-                    {props.children}
-                </CardLayout>
-            );
+            return <CardLayout section={section}>{children}</CardLayout>;
         case 'SEARCH_BAR':
-            return <SearchBarLayout title={props.title}>{props.children}</SearchBarLayout>;
+            return <SearchBarLayout title={section.title}>{children}</SearchBarLayout>;
         default:
-            return <CardLayout title={props.title}>{props.children}</CardLayout>;
+            return <CardLayout section={section}>{children}</CardLayout>;
     }
 };
 

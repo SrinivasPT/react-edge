@@ -83,7 +83,7 @@ const FormTreeControl = (params: any) => {
     const getFormTree = () => {};
 
     return (
-        <CardLayout title="Page Structure">
+        <CardLayout section={{ title: 'Page Structure' } as Section}>
             <div className="bg-white">
                 <ul className="list-item pl-1">
                     <TreeNode
