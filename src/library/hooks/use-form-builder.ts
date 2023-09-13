@@ -28,7 +28,7 @@ const useFormBuilder = ({ entityName, id, initialData, isInitialDataLoaded }: Fo
     };
 
     const handleSave = async (event: any) => {
-        event.preventDefault();
+        // event.preventDefault();
 
         const mode = id === 'new' ? 'add' : 'update';
         const payload: any = getPayload();
@@ -69,7 +69,8 @@ const useFormBuilder = ({ entityName, id, initialData, isInitialDataLoaded }: Fo
         const updateLevel = controlId ? 'CONTROL' : sectionId ? 'SECTION' : formId ? 'FORM' : 'Unknown';
 
         let sanitizedFormData = {};
-        if (!formData?.sections) sanitizedFormData = { ...formData, sections: [] };
+        // if (!formData?.sections) sanitizedFormData = { ...formData, sections: [] };
+        sanitizedFormData = { ...formData };
         return sanitizedFormData;
     };
 

@@ -70,9 +70,17 @@ export const form = createSlice({
         setInternalTemp: (state, action: PayloadAction<{ key: string; value: any }>) => {
             _.set(state.internal.temp, action.payload.key, action.payload.value);
         },
+
+        // Add passed in object in a array whose path is passed in as key
+        addToArray: (state, action: PayloadAction<{ key: string; value: any }>) => {
+            const { key, value } = action.payload;
+            const array = _.get(state, key);
+            array.push(value);
+            _.set(state, key, array);
+        },
     },
 });
 
-export const { onChange, setFormDetail, reset, toggleTableEditableStatus, selectRow, setFilteredData, setInternalTemp } = form.actions;
+export const { onChange, setFormDetail, reset, toggleTableEditableStatus, selectRow, setFilteredData, setInternalTemp, addToArray } = form.actions;
 
 export default form.reducer;

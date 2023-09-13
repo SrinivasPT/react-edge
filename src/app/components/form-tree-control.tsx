@@ -2,6 +2,8 @@ import TreeNode from '@lib/controls/molecules/tree-control/tree-node';
 import { useFormConfig } from '@lib/hooks';
 import { CardLayout } from '@lib/layout';
 import { Control, Section, TreeItem } from '@lib/types';
+import { addToArray } from '@store/features/form-slice';
+import { useAppDispatch } from '@store/hooks';
 import _ from 'lodash';
 import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
@@ -12,6 +14,7 @@ const FormTreeControl = (params: any) => {
     const router = useRouter();
     const [data, setData] = useState(transformJson(formConfig));
     const [selectedItemId, setSelectedItemId] = useState<string | null>(null);
+    const dispatch = useAppDispatch();
 
     useEffect(() => {
         setData(transformJson(formConfig));
@@ -37,8 +40,9 @@ const FormTreeControl = (params: any) => {
         if (action === 'ADD') {
             switch (item.level) {
                 case 'PAGE':
-                    // const sectionId = prompt('Please enter section id');
-                    router.push(`/admin/form-builder/${params.formId}/sections/new`);
+                    const sectionId = prompt('Please enter section id');
+                    dispatch(addToArray({ key: 'data.sections', value: { id: sectionId, title: '', controls: [] } }));
+                    router.push(`/admin/form-builder/${params.formId}/sections/${sectionId}`);
                     break;
                 case 'SECTION':
                     router.push(`/admin/form-builder/${params.formId}/sections/${item.id}/controls/new`);
