@@ -2,7 +2,7 @@ import { IButtonPallet } from '@lib/controls/organisms/button-pallet/button-pall
 import { IFormActions } from '@lib/sections/form-actions-context';
 import { FormConfig, FormInit } from '@lib/types';
 import { useAddFormMutation, useDeleteFormMutation, useUpdateFormMutation } from '@store/api/form-config-api';
-import { reset, setFormDetail } from '@store/features/form-slice';
+import { reset, setFlag, setFormDetail } from '@store/features/form-slice';
 import { useAppDispatch } from '@store/hooks';
 import { useParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
@@ -27,7 +27,12 @@ const useFormBuilder = ({ entityName, id, initialData, isInitialDataLoaded }: Fo
     const actions: IFormActions = {
         'section-list-tabular': [{ controlId: 'section-list-tabular', code: 'ADD', label: 'Add', handler: addSection }],
         'section-control-list-tabular': [
-            { controlId: 'section-list-tabular', code: 'ADD', label: 'Add Controls', handler: () => setShowAddControls(true) },
+            {
+                controlId: 'section-list-tabular',
+                code: 'ADD',
+                label: 'Add Controls',
+                handler: () => dispatch(setFlag({ key: 'showAddControls' })),
+            },
         ],
     };
 

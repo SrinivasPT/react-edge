@@ -1,8 +1,9 @@
 'use client';
 
+import AddControlsModal from '@components/add-controls-modal';
 import { SectionBuilder } from '@lib/builders';
 import { Section } from '@lib/types';
-import { addToArray } from '@store/features/form-slice';
+import { addToArray, removeFlag } from '@store/features/form-slice';
 import { useAppDispatch, useAppSelector } from '@store/hooks';
 import { useEffect } from 'react';
 
@@ -26,7 +27,11 @@ const Page = ({ params }: { params: { formId: string; sectionId: string } }) => 
         <>
             <SectionBuilder formId="form" sectionId="section-header-free-form" parentKey={`data.sections[${sectionIndex}]`} />
             <SectionBuilder formId="form" sectionId="section-control-list-tabular" parentKey={`data.sections[${sectionIndex}].controls`} />
-            {/* <AddControlsModal isOpen={showAddControls} onClose={() => setShowAddControls(false)} onAdd={() => {}} /> */}
+            <AddControlsModal
+                isOpen={formState.flags?.showAddControls}
+                onClose={() => dispatch(removeFlag({ key: 'showAddControls' }))}
+                onAdd={() => {}}
+            />
         </>
     );
 };

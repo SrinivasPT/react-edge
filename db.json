@@ -367,7 +367,6 @@
                         {
                             "id": "controlMaster",
                             "controlTypeCode": "TABLE",
-                            "dataKey": "data",
                             "actions": "EDIT,DELETE",
                             "entityUrl": "/admin/control-master/<%=masterId%>",
                             "controls": [

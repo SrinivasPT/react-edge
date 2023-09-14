@@ -1,8 +1,8 @@
 'use client';
 
 import { SectionBuilder } from '@lib/builders';
+import useControlMasterDetail from '@lib/hooks/use-control-master-detail';
 import { PageLayout } from '@lib/layout';
-import useControlMasterDetail from '../../../hooks/use-control-master-detail';
 
 const Page = ({ params }: { params: { controlId: string } }) => {
     const { isFormReady, actions } = useControlMasterDetail(params.controlId);

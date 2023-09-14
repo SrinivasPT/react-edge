@@ -5,7 +5,7 @@ import _ from 'lodash';
 const initialState: FormState = {
     searchCriteria: {},
     data: {},
-    flags: { isLoading: true, isEditing: false, isError: false, isSaved: false, isSaveInProgress: false, errorMessage: null },
+    flags: { isLoading: true, isEditing: false, isError: false, isSaved: false, isSaveInProgress: false },
     internal: { table: {}, temp: {} },
     custom: {},
     errors: {},
@@ -78,9 +78,30 @@ export const form = createSlice({
             array.push(value);
             _.set(state, key, array);
         },
+
+        // set flags in the internal state for various triggers
+        setFlag: (state, action: PayloadAction<{ key: string }>) => {
+            const { key } = action.payload;
+            _.set(state.flags, key, true);
+        },
+        removeFlag: (state, action: PayloadAction<{ key: string }>) => {
+            const { key } = action.payload;
+            _.set(state.flags, key, false);
+        },
     },
 });
 
-export const { onChange, setFormDetail, reset, toggleTableEditableStatus, selectRow, setFilteredData, setInternalTemp, addToArray } = form.actions;
+export const {
+    onChange,
+    setFormDetail,
+    reset,
+    toggleTableEditableStatus,
+    selectRow,
+    setFilteredData,
+    setInternalTemp,
+    addToArray,
+    setFlag,
+    removeFlag,
+} = form.actions;
 
 export default form.reducer;

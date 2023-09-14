@@ -8,7 +8,7 @@ export interface UIState {
     isError: boolean;
     isSaved: boolean;
     isSaveInProgress: boolean;
-    errorMessage: string | null;
+    [key: string]: boolean;
 }
 
 export interface Entity {
