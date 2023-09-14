@@ -97,7 +97,7 @@ const TreeNode: React.FC<TreeNodeProps> = ({ item, level, handleChange, selected
             {isExpanded && item.children && (
                 <ul className="list-item pl-8">
                     {item.children.map(child => (
-                        <li key={child.id}>
+                        <li key={child?.id}>
                             <TreeNode
                                 item={child}
                                 level={level + 1}

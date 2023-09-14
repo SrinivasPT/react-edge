@@ -14,6 +14,7 @@ const useFormBuilder = ({ entityName, id, initialData, isInitialDataLoaded }: Fo
     const [updateForm] = useUpdateFormMutation();
     const [deleteForm] = useDeleteFormMutation();
     const mutationFns = { add: addForm, update: updateForm, delete: deleteForm };
+    const [showAddControls, setShowAddControls] = useState(false);
 
     const formData: FormConfig = useSelector((store: any) => store.form.data);
     const [isFormReady, setIsFormReady] = useState(false);
@@ -25,13 +26,16 @@ const useFormBuilder = ({ entityName, id, initialData, isInitialDataLoaded }: Fo
 
     const actions: IFormActions = {
         'section-list-tabular': [{ controlId: 'section-list-tabular', code: 'ADD', label: 'Add', handler: addSection }],
+        'section-control-list-tabular': [
+            { controlId: 'section-list-tabular', code: 'ADD', label: 'Add Controls', handler: () => setShowAddControls(true) },
+        ],
     };
 
     const handleSave = async (event: any) => {
         // event.preventDefault();
 
         const mode = id === 'new' ? 'add' : 'update';
-        const payload: any = getPayload();
+        const payload: any = getPayload(mode);
 
         try {
             const response: any = await mutationFns[mode](payload);
@@ -64,17 +68,17 @@ const useFormBuilder = ({ entityName, id, initialData, isInitialDataLoaded }: Fo
         }
     }, [isInitialDataLoaded]);
 
-    const getPayload = () => {
+    const getPayload = (mode: string) => {
         const { formId, sectionId, controlId } = params;
         const updateLevel = controlId ? 'CONTROL' : sectionId ? 'SECTION' : formId ? 'FORM' : 'Unknown';
 
         let sanitizedFormData = {};
         // if (!formData?.sections) sanitizedFormData = { ...formData, sections: [] };
         sanitizedFormData = { ...formData };
-        return sanitizedFormData;
+        return mode === 'add' ? { newConfig: sanitizedFormData } : { id: formData.id, changes: sanitizedFormData };
     };
 
-    return { isFormReady, actions, handleSave, handleDelete };
+    return { isFormReady, actions, handleSave, handleDelete, showAddControls };
 };
 
 export default useFormBuilder;

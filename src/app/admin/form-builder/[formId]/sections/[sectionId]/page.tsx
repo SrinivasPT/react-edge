@@ -9,6 +9,8 @@ import { useEffect } from 'react';
 const Page = ({ params }: { params: { formId: string; sectionId: string } }) => {
     const formState = useAppSelector(state => state.form);
     const dispatch = useAppDispatch();
+    // const { showAddControls } = useFormBuilder();
+
     let sectionIndex = formState.data?.sections?.findIndex((section: Section) => section.id === params.sectionId);
 
     // if (params.sectionId === 'new' && sectionIndex === -1) {
@@ -24,6 +26,7 @@ const Page = ({ params }: { params: { formId: string; sectionId: string } }) => 
         <>
             <SectionBuilder formId="form" sectionId="section-header-free-form" parentKey={`data.sections[${sectionIndex}]`} />
             <SectionBuilder formId="form" sectionId="section-control-list-tabular" parentKey={`data.sections[${sectionIndex}].controls`} />
+            {/* <AddControlsModal isOpen={showAddControls} onClose={() => setShowAddControls(false)} onAdd={() => {}} /> */}
         </>
     );
 };
