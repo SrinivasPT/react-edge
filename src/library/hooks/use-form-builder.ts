@@ -1,8 +1,8 @@
 import { IButtonPallet } from '@lib/controls/organisms/button-pallet/button-pallet';
 import { IFormActions } from '@lib/sections/form-actions-context';
-import { FormConfig } from '@lib/types';
+import { FormConfig, Section } from '@lib/types';
 import { useAddFormMutation, useDeleteFormMutation, useUpdateFormMutation } from '@store/api/form-config-api';
-import { addToArray, removeFlag, setFlag } from '@store/features/form-slice';
+import { addToArray, removeFlag, setFlag, setValue } from '@store/features/form-slice';
 import { useAppDispatch } from '@store/hooks';
 import { useParams } from 'next/navigation';
 import { useSelector } from 'react-redux';
@@ -37,8 +37,15 @@ const useFormBuilder = () => {
     const addControlsToSection = (formId: string, sectionId: string) => {
         const selectedRecords = internalState.table['internal-temp-all-master-controls-controlMaster'].selectedRecords;
         const selectedControls = selectedRecords.map((record: any) => ({ masterId: record }));
+
+        const sectionIndex = formData?.sections?.findIndex((section: Section) => section.id === params.sectionId);
+        dispatch(addToArray({ key: `data.sections[${sectionIndex}].controls`, value: selectedControls }));
+        closeAddControlsModal();
+    };
+
+    const closeAddControlsModal = () => {
         dispatch(removeFlag({ key: 'showAddControls' }));
-        dispatch(addToArray({ key: `data.forms.${formId}.sections.${sectionId}.controls`, value: selectedControls }));
+        dispatch(setValue({ key: `internal.table.internal-temp-all-master-controls-controlMaster.selectedRecords`, value: [] }));
     };
 
     const handleSave = async (event: any) => {
@@ -76,7 +83,7 @@ const useFormBuilder = () => {
         return mode === 'add' ? { newConfig: sanitizedFormData } : { id: formData.id, changes: sanitizedFormData };
     };
 
-    return { actions, handleSave, handleDelete, addControlsToSection };
+    return { actions, handleSave, handleDelete, addControlsToSection, closeAddControlsModal };
 };
 
 export default useFormBuilder;

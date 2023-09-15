@@ -4,14 +4,14 @@ import AddControlsModal from '@components/add-controls-modal';
 import { SectionBuilder } from '@lib/builders';
 import { useFormBuilder } from '@lib/hooks';
 import { Section } from '@lib/types';
-import { addToArray, removeFlag } from '@store/features/form-slice';
+import { addToArray } from '@store/features/form-slice';
 import { useAppDispatch, useAppSelector } from '@store/hooks';
 import { useEffect } from 'react';
 
 const Page = ({ params }: { params: { formId: string; sectionId: string } }) => {
     const formState = useAppSelector(state => state.form);
     const dispatch = useAppDispatch();
-    const { addControlsToSection } = useFormBuilder();
+    const { addControlsToSection, closeAddControlsModal } = useFormBuilder();
     // const { showAddControls } = useFormBuilder();
 
     let sectionIndex = formState.data?.sections?.findIndex((section: Section) => section.id === params.sectionId);
@@ -31,7 +31,7 @@ const Page = ({ params }: { params: { formId: string; sectionId: string } }) => 
             <SectionBuilder formId="form" sectionId="section-control-list-tabular" parentKey={`data.sections[${sectionIndex}].controls`} />
             <AddControlsModal
                 isOpen={formState.flags?.showAddControls}
-                onClose={() => dispatch(removeFlag({ key: 'showAddControls' }))}
+                onClose={closeAddControlsModal}
                 onAdd={() => addControlsToSection(params.formId, params.sectionId)}
             />
         </>

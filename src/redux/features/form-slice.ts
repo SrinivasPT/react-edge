@@ -60,6 +60,12 @@ export const form = createSlice({
 
         rowAction: (state, action: PayloadAction<{ key: string; rowId: any; action: string }>) => {},
 
+        // Set value for the key
+        setValue: (state, action: PayloadAction<{ key: string; value: any }>) => {
+            const { key, value } = action.payload;
+            _.set(state, key, value);
+        },
+
         // Control
         onChange: (state, action: PayloadAction<{ key: string; value: string }>) => {
             const { key, value } = action.payload;
@@ -74,12 +80,10 @@ export const form = createSlice({
         // Add passed in object in a array whose path is passed in as key
         addToArray: (state, action: PayloadAction<{ key: string; value: any }>) => {
             const { key, value } = action.payload;
-            let array = _.get(state, key);
+            const currentValue = _.get(state, key) || [];
 
-            if (!Array.isArray(array)) array = [];
-
-            array.push(value);
-            _.set(state, key, array);
+            const newValue = Array.isArray(value) ? [...currentValue, ...value] : [...currentValue, value];
+            _.set(state, key, newValue);
         },
 
         // Remove passed in object from a array whose path is passed in as key
@@ -114,6 +118,7 @@ export const {
     removeFromArray,
     setFlag,
     removeFlag,
+    setValue,
 } = form.actions;
 
 export default form.reducer;
