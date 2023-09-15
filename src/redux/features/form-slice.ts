@@ -34,7 +34,7 @@ export const form = createSlice({
             if (!state.internal.table[key]) {
                 // Initialize the table with the given key if it doesn't exist
                 state.internal.table[key] = {
-                    selectedRecords: {},
+                    selectedRecords: [],
                     isEditable: false, // Default to true if key is being created for the first time
                 };
             } else {
@@ -48,7 +48,7 @@ export const form = createSlice({
             if (!state.internal.table[key]) {
                 // Initialize the table with the given key if it doesn't exist
                 state.internal.table[key] = {
-                    selectedRecords: {},
+                    selectedRecords: [],
                     isEditable: false, // Default to true if key is being created for the first time
                     selectedRowId: rowId,
                 };
@@ -74,8 +74,19 @@ export const form = createSlice({
         // Add passed in object in a array whose path is passed in as key
         addToArray: (state, action: PayloadAction<{ key: string; value: any }>) => {
             const { key, value } = action.payload;
-            const array = _.get(state, key);
+            let array = _.get(state, key);
+
+            if (!Array.isArray(array)) array = [];
+
             array.push(value);
+            _.set(state, key, array);
+        },
+
+        // Remove passed in object from a array whose path is passed in as key
+        removeFromArray: (state, action: PayloadAction<{ key: string; value: any }>) => {
+            const { key, value } = action.payload;
+            const array = _.get(state, key, []);
+            _.remove(array, value);
             _.set(state, key, array);
         },
 
@@ -100,6 +111,7 @@ export const {
     setFilteredData,
     setInternalTemp,
     addToArray,
+    removeFromArray,
     setFlag,
     removeFlag,
 } = form.actions;

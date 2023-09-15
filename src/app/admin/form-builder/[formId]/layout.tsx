@@ -3,6 +3,7 @@
 import FormTreeControl from '@components/form-tree-control';
 import { IButtonPallet } from '@lib/controls/organisms/button-pallet/button-pallet';
 import { useFormBuilder } from '@lib/hooks';
+import useInitializeForm from '@lib/hooks/use-initialize-form';
 import { PageLayout } from '@lib/layout';
 import FormActionsContext from '@lib/sections/form-actions-context';
 import { useGetFormByIdQuery } from '@store/api/form-config-api';
@@ -15,12 +16,8 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
     const router = useRouter();
 
     const { isSuccess: isInitialDataLoaded, data: initialData } = useGetFormByIdQuery({ id: params.formId as string });
-    const { isFormReady, handleSave, handleDelete, actions } = useFormBuilder({
-        id: params.formId as string,
-        entityName: 'form',
-        initialData,
-        isInitialDataLoaded,
-    });
+    const { isFormReady } = useInitializeForm({ id: params.formId as string, initialData, isInitialDataLoaded });
+    const { handleSave, handleDelete, actions } = useFormBuilder();
 
     const formData = useSelector((store: any) => store.form.data);
 

@@ -51,9 +51,9 @@ const TableControl: React.FC<ControlBuilderProps> = ({ control, parentKey }) => 
                     {data?.map((row: any, rowIndex: number) => (
                         <tr
                             key={rowIndex}
-                            onClick={() => handleSelectRow(row.id)}
+                            onClick={() => handleSelectRow(row[control.selectColumn ?? 'id'])}
                             className={`cursor-pointer hover:bg-yellow-50 ${isTableEditable ? 'space-y-2' : ''} items-center ${
-                                isRowSelected(row.id) ? 'bg-yellow-50' : ''
+                                isRowSelected(row[control.selectColumn ?? 'id']) ? 'bg-yellow-50' : ''
                             }`}
                         >
                             {control?.actions && (
@@ -63,7 +63,11 @@ const TableControl: React.FC<ControlBuilderProps> = ({ control, parentKey }) => 
                             )}
                             {control?.isEditable && (
                                 <td className="flex justify-center items-center p-3">
-                                    <CheckControl control={getSelectRowControl(row.guid)} parentKey="" />
+                                    <CheckControl
+                                        control={{ ...getSelectRowControl(row.guid), id: row[control.selectColumn ?? 'id'] }}
+                                        parentKey=""
+                                        value={isRowSelected(row[control.selectColumn ?? 'id'])}
+                                    />
                                 </td>
                             )}
                             {control.controls &&

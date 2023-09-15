@@ -32,7 +32,7 @@ const AddControlsModal: React.FC<AddControlsModal> = ({ isOpen, onAdd, onClose }
             }
         >
             {/* <AddControls /> */}
-            <SectionBuilder formId="control-master" sectionId="list" parentKey={`internal.temp.all-master-controls`} />
+            <SectionBuilder formId="form" sectionId="add-master-controls" parentKey={`internal.temp.all-master-controls`} />
         </ModalPopup>
     );
 };

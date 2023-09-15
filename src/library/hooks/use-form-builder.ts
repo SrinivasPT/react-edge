@@ -1,23 +1,21 @@
 import { IButtonPallet } from '@lib/controls/organisms/button-pallet/button-pallet';
 import { IFormActions } from '@lib/sections/form-actions-context';
-import { FormConfig, FormInit } from '@lib/types';
+import { FormConfig } from '@lib/types';
 import { useAddFormMutation, useDeleteFormMutation, useUpdateFormMutation } from '@store/api/form-config-api';
-import { reset, setFlag, setFormDetail } from '@store/features/form-slice';
+import { addToArray, removeFlag, setFlag } from '@store/features/form-slice';
 import { useAppDispatch } from '@store/hooks';
 import { useParams } from 'next/navigation';
-import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 
-const useFormBuilder = ({ entityName, id, initialData, isInitialDataLoaded }: FormInit) => {
+const useFormBuilder = () => {
     const params = useParams();
     const [addForm] = useAddFormMutation();
     const [updateForm] = useUpdateFormMutation();
     const [deleteForm] = useDeleteFormMutation();
     const mutationFns = { add: addForm, update: updateForm, delete: deleteForm };
-    const [showAddControls, setShowAddControls] = useState(false);
 
     const formData: FormConfig = useSelector((store: any) => store.form.data);
-    const [isFormReady, setIsFormReady] = useState(false);
+    const internalState = useSelector((store: any) => store.form.internal);
     const dispatch = useAppDispatch();
 
     const addSection = (action: IButtonPallet) => {
@@ -36,10 +34,17 @@ const useFormBuilder = ({ entityName, id, initialData, isInitialDataLoaded }: Fo
         ],
     };
 
+    const addControlsToSection = (formId: string, sectionId: string) => {
+        const selectedRecords = internalState.table['internal-temp-all-master-controls-controlMaster'].selectedRecords;
+        const selectedControls = selectedRecords.map((record: any) => ({ masterId: record }));
+        dispatch(removeFlag({ key: 'showAddControls' }));
+        dispatch(addToArray({ key: `data.forms.${formId}.sections.${sectionId}.controls`, value: selectedControls }));
+    };
+
     const handleSave = async (event: any) => {
         // event.preventDefault();
 
-        const mode = id === 'new' ? 'add' : 'update';
+        const mode = formData.id === 'new' ? 'add' : 'update';
         const payload: any = getPayload(mode);
 
         try {
@@ -54,24 +59,12 @@ const useFormBuilder = ({ entityName, id, initialData, isInitialDataLoaded }: Fo
         event.preventDefault();
 
         try {
-            const response: any = await mutationFns['delete'](id);
+            const response: any = await mutationFns['delete'](formData.id);
             console.log('Operation successful:', response.data);
         } catch (error) {
             console.error('Operation failed:', error);
         }
     };
-
-    useEffect(() => {
-        setIsFormReady(false);
-        dispatch(reset());
-    }, [id]);
-
-    useEffect(() => {
-        if (isInitialDataLoaded) {
-            dispatch(setFormDetail({ initialData }));
-            setIsFormReady(true);
-        }
-    }, [isInitialDataLoaded]);
 
     const getPayload = (mode: string) => {
         const { formId, sectionId, controlId } = params;
@@ -83,7 +76,7 @@ const useFormBuilder = ({ entityName, id, initialData, isInitialDataLoaded }: Fo
         return mode === 'add' ? { newConfig: sanitizedFormData } : { id: formData.id, changes: sanitizedFormData };
     };
 
-    return { isFormReady, actions, handleSave, handleDelete, showAddControls };
+    return { actions, handleSave, handleDelete, addControlsToSection };
 };
 
 export default useFormBuilder;

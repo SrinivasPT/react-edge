@@ -332,6 +332,48 @@
                             "masterId": "controlMaster.maxDate"
                         }
                     ]
+                },
+                {
+                    "id": "add-master-controls",
+                    "title": "Add Controls",
+                    "layoutTypeCode": "CARD",
+                    "controls": [
+                        {
+                            "id": "controlMaster",
+                            "controlTypeCode": "TABLE",
+                            "isEditable": true,
+                            "selectColumn": "masterId",
+                            "controls": [
+                                {
+                                    "masterId": "controlMaster.masterId"
+                                },
+                                {
+                                    "masterId": "controlMaster.id"
+                                },
+                                {
+                                    "masterId": "controlMaster.label"
+                                },
+                                {
+                                    "masterId": "controlMaster.controlTypeCode"
+                                },
+                                {
+                                    "masterId": "controlMaster.dataTypeCode"
+                                },
+                                {
+                                    "masterId": "controlMaster.dataKey"
+                                },
+                                {
+                                    "masterId": "controlMaster.width"
+                                },
+                                {
+                                    "masterId": "controlMaster.domainCode"
+                                },
+                                {
+                                    "masterId": "controlMaster.parentId"
+                                }
+                            ]
+                        }
+                    ]
                 }
             ],
             "version": "1.1"

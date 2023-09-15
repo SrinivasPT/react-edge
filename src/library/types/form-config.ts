@@ -64,6 +64,7 @@ export interface Control {
     isEditable?: boolean;
     actions: string;
     entityUrl?: string;
+    selectColumn?: string;
 
     // Non Mandatory properties
     entityAttribute?: string;
@@ -114,6 +115,7 @@ export type ContextMenuAction = {
 export interface ControlBuilderProps {
     control: Control;
     parentKey: string;
+    value?: any;
 }
 
 export interface InputControlProps {

@@ -12,7 +12,7 @@ interface ModalProps {
 const sizeClass = {
     small: 'w-1/3 h-1/3 flex flex-col',
     medium: 'w-3/5 h-3/5 flex flex-col',
-    large: 'w-4/5 h-4/5 flex flex-col',
+    large: 'w-9/10 h-4/5 flex flex-col', // increase width from w-4/5 to w-9/10
 };
 
 const ModalPopup: FC<ModalProps> = ({ isOpen, title, size, children, onClose, footerButtons }) => {
@@ -20,7 +20,7 @@ const ModalPopup: FC<ModalProps> = ({ isOpen, title, size, children, onClose, fo
 
     return (
         <div className="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-50 transition-opacity">
-            <div className={`modal-content bg-white rounded-lg shadow-lg max-w-lg w-full ${size && sizeClass[size]}`}>
+            <div className={`modal-content bg-white rounded-lg shadow-lg ${size && sizeClass[size]}`} style={{ width: '90%' }}>
                 {title && (
                     <div className="border-b p-4">
                         <h2 className="text-xl">{title}</h2>

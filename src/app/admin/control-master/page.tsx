@@ -23,8 +23,8 @@ const Page = ({ params }: { params: { formId: string } }) => {
     }, [searchCriteria, refetch]);
 
     useEffect(() => {
-        if (filteredData && !isNil(searchCriteria)) {
-            dispatch(setFilteredData(filteredData));
+        if (filteredData) {
+            dispatch(setFilteredData({ controlMaster: filteredData }));
         }
     }, [filteredData, searchCriteria, dispatch]);
 

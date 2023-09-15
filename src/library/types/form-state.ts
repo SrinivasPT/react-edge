@@ -27,7 +27,7 @@ export interface Pagination {
 }
 
 export interface TableInternalState {
-    selectedRecords?: Record<string, boolean>;
+    selectedRecords?: any[];
     isEditable?: boolean;
     selectAllRows?: boolean;
     parentDataKey?: string;
@@ -56,7 +56,7 @@ export type DispatchEvent = {
 
 export type FormInit = {
     id: string;
-    entityName: string;
+    // entityName: string;
     initialData: any;
     isInitialDataLoaded: boolean;
     actions?: { [key: string]: () => void };

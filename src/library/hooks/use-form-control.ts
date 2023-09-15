@@ -1,7 +1,7 @@
-import { Control } from '@lib/types';
+import { Control, ControlType } from '@lib/types';
 import { FormState } from '@lib/types/form-state';
 import { isNil } from '@lib/utils/functions/general-functions';
-import { onChange } from '@store/features/form-slice';
+import { addToArray, onChange, removeFromArray } from '@store/features/form-slice';
 import _ from 'lodash';
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -17,6 +17,12 @@ export function useFormControl(control: Control, parentKey: string) {
 
     const handleFieldChange = (value: any) => {
         const dataKey = getDataKey();
+
+        if (control.controlTypeCode === ControlType.Checkbox) {
+            const { id: selectedItem, checked } = value.target;
+            checked ? dispatch(addToArray({ key: dataKey, value: selectedItem })) : dispatch(removeFromArray({ key: dataKey, value: selectedItem }));
+            return;
+        }
         dispatch(onChange({ key: dataKey, value }));
     };
 

@@ -63,9 +63,9 @@ const useControlMasterDetail = (id: string) => {
     };
 
     const actions: IButtonPallet[] = [
-        { code: 'BACK', label: 'To List', handler: () => router.push('/admin/control-master') },
-        { code: 'SAVE', label: 'Save', handler: () => console.log('save') },
-        { code: 'DELETE', label: 'Reset', handler: () => console.log('delete') },
+        { controlId: '', code: 'BACK', label: 'To List', handler: () => router.push('/admin/control-master') },
+        { controlId: '', code: 'SAVE', label: 'Save', handler: () => console.log('save') },
+        { controlId: '', code: 'DELETE', label: 'Reset', handler: () => console.log('delete') },
     ];
 
     return { isFormReady, actions, handleSave, handleDelete };
