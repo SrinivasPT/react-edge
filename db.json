@@ -1,1005 +1,999 @@
 {
-  "form-config": [
-    {
-      "id": "user-info-page",
-      "title": "User Info",
-      "layout": "vertical",
-      "sections": [
+    "form-config": [
         {
-          "id": "basic",
-          "title": "Basic Info",
-          "controls": [
-            {
-              "id": "firstName",
-              "label": "First Name",
-              "type": "TEXT",
-              "required": true,
-              "width": "md",
-              "validation": {
-                "minLength": 2,
-                "maxLength": 20
-              },
-              "placeholder": "Enter your First Name"
-            },
-            {
-              "id": "lastName",
-              "label": "Last Name",
-              "type": "TEXT",
-              "required": true,
-              "width": "md",
-              "validation": {
-                "minLength": 2,
-                "maxLength": 20
-              },
-              "placeholder": "Enter your Last Name"
-            },
-            {
-              "id": "maidenName",
-              "label": "Maiden Name",
-              "type": "TEXT",
-              "width": "md",
-              "required": true,
-              "validation": {
-                "minLength": 2,
-                "maxLength": 20
-              },
-              "placeholder": "Enter your Maiden Name"
-            },
-            {
-              "id": "age",
-              "label": "Age",
-              "type": "TEXT",
-              "width": "md",
-              "required": true,
-              "validation": {
-                "minLength": 2,
-                "maxLength": 20
-              },
-              "placeholder": "Enter your Age"
-            },
-            {
-              "id": "gender",
-              "label": "Gender",
-              "type": "TEXT",
-              "width": "md",
-              "required": true,
-              "validation": {
-                "minLength": 2,
-                "maxLength": 20
-              },
-              "placeholder": "Enter your Gender"
-            }
-          ]
+            "id": "user-info-page",
+            "title": "User Info",
+            "layout": "vertical",
+            "sections": [
+                {
+                    "id": "basic",
+                    "title": "Basic Info",
+                    "controls": [
+                        {
+                            "id": "firstName",
+                            "label": "First Name",
+                            "type": "TEXT",
+                            "required": true,
+                            "width": "md",
+                            "validation": {
+                                "minLength": 2,
+                                "maxLength": 20
+                            },
+                            "placeholder": "Enter your First Name"
+                        },
+                        {
+                            "id": "lastName",
+                            "label": "Last Name",
+                            "type": "TEXT",
+                            "required": true,
+                            "width": "md",
+                            "validation": {
+                                "minLength": 2,
+                                "maxLength": 20
+                            },
+                            "placeholder": "Enter your Last Name"
+                        },
+                        {
+                            "id": "maidenName",
+                            "label": "Maiden Name",
+                            "type": "TEXT",
+                            "width": "md",
+                            "required": true,
+                            "validation": {
+                                "minLength": 2,
+                                "maxLength": 20
+                            },
+                            "placeholder": "Enter your Maiden Name"
+                        },
+                        {
+                            "id": "age",
+                            "label": "Age",
+                            "type": "TEXT",
+                            "width": "md",
+                            "required": true,
+                            "validation": {
+                                "minLength": 2,
+                                "maxLength": 20
+                            },
+                            "placeholder": "Enter your Age"
+                        },
+                        {
+                            "id": "gender",
+                            "label": "Gender",
+                            "type": "TEXT",
+                            "width": "md",
+                            "required": true,
+                            "validation": {
+                                "minLength": 2,
+                                "maxLength": 20
+                            },
+                            "placeholder": "Enter your Gender"
+                        }
+                    ]
+                },
+                {
+                    "id": "identities",
+                    "title": "Identities",
+                    "controls": [
+                        {
+                            "id": "number",
+                            "label": "Identity #",
+                            "type": "TEXT",
+                            "width": "md",
+                            "required": true,
+                            "validation": {
+                                "minLength": 2,
+                                "maxLength": 20
+                            }
+                        },
+                        {
+                            "id": "type",
+                            "label": "Identity Type",
+                            "type": "TEXT",
+                            "width": "md",
+                            "required": true,
+                            "validation": {
+                                "minLength": 2,
+                                "maxLength": 20
+                            }
+                        },
+                        {
+                            "id": "validTo",
+                            "label": "Valid Up To",
+                            "type": "TEXT",
+                            "width": "md",
+                            "required": true,
+                            "validation": {
+                                "minLength": 2,
+                                "maxLength": 20
+                            }
+                        },
+                        {
+                            "id": "remarks",
+                            "label": "Remarks",
+                            "type": "TEXT",
+                            "width": "md",
+                            "required": true,
+                            "validation": {
+                                "minLength": 2,
+                                "maxLength": 20
+                            }
+                        }
+                    ]
+                }
+            ]
         },
         {
-          "id": "identities",
-          "title": "Identities",
-          "controls": [
-            {
-              "id": "number",
-              "label": "Identity #",
-              "type": "TEXT",
-              "width": "md",
-              "required": true,
-              "validation": {
-                "minLength": 2,
-                "maxLength": 20
-              }
-            },
-            {
-              "id": "type",
-              "label": "Identity Type",
-              "type": "TEXT",
-              "width": "md",
-              "required": true,
-              "validation": {
-                "minLength": 2,
-                "maxLength": 20
-              }
-            },
-            {
-              "id": "validTo",
-              "label": "Valid Up To",
-              "type": "TEXT",
-              "width": "md",
-              "required": true,
-              "validation": {
-                "minLength": 2,
-                "maxLength": 20
-              }
-            },
-            {
-              "id": "remarks",
-              "label": "Remarks",
-              "type": "TEXT",
-              "width": "md",
-              "required": true,
-              "validation": {
-                "minLength": 2,
-                "maxLength": 20
-              }
-            }
-          ]
+            "id": "form",
+            "title": "Build Page",
+            "layout": "vertical",
+            "sections": [
+                {
+                    "id": "page-header-free-form",
+                    "title": "Page Header",
+                    "controls": [
+                        {
+                            "masterId": "page.id",
+                            "width": "MD"
+                        },
+                        {
+                            "masterId": "page.title",
+                            "width": "MD"
+                        },
+                        {
+                            "masterId": "page.layout",
+                            "width": "MD"
+                        },
+                        {
+                            "masterId": "page.dataKey",
+                            "width": "MD"
+                        },
+                        {
+                            "masterId": "page.version",
+                            "width": "MD"
+                        }
+                    ]
+                },
+                {
+                    "id": "section-header-free-form",
+                    "title": "Section Header",
+                    "controls": [
+                        {
+                            "masterId": "section.id"
+                        },
+                        {
+                            "masterId": "section.title"
+                        },
+                        {
+                            "masterId": "section.dataKey"
+                        },
+                        {
+                            "masterId": "section.layout"
+                        }
+                    ]
+                },
+                {
+                    "id": "section-list-tabular",
+                    "title": "Section List",
+                    "actions": "ADD,DELETE",
+                    "controls": [
+                        {
+                            "id": "sections",
+                            "label": "Sections",
+                            "dataKey": "USE_PARENT",
+                            "controlTypeCode": "TABLE",
+                            "isEditable": false,
+                            "controls": [
+                                {
+                                    "masterId": "section.id"
+                                },
+                                {
+                                    "masterId": "section.title"
+                                },
+                                {
+                                    "masterId": "section.dataKey"
+                                },
+                                {
+                                    "masterId": "section.layout"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": "section-control-list-tabular",
+                    "title": "Controls List",
+                    "controls": [
+                        {
+                            "id": "controls",
+                            "dataKey": "USE_PARENT",
+                            "controlTypeCode": "TABLE",
+                            "parentDataKey": "sections",
+                            "isEditable": false,
+                            "controls": [
+                                {
+                                    "masterId": "controlMaster.masterId"
+                                },
+                                {
+                                    "masterId": "controlMaster.label"
+                                },
+                                {
+                                    "masterId": "controlMaster.dataKey"
+                                },
+                                {
+                                    "masterId": "controlMaster.width"
+                                },
+                                {
+                                    "masterId": "controlMaster.readonly"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": "control-free-form",
+                    "title": "Section Control Details",
+                    "controls": [
+                        {
+                            "masterId": "controlMaster.masterId"
+                        },
+                        {
+                            "masterId": "controlMaster.label"
+                        },
+                        {
+                            "masterId": "controlMaster.dataKey"
+                        },
+                        {
+                            "masterId": "controlMaster.width"
+                        },
+                        {
+                            "masterId": "controlMaster.readonly"
+                        }
+                    ]
+                },
+                {
+                    "id": "control-master-free-form-readonly",
+                    "title": "Master Control Details",
+                    "readonly": "YES",
+                    "controls": [
+                        {
+                            "masterId": "controlMaster.id"
+                        },
+                        {
+                            "masterId": "controlMaster.masterId"
+                        },
+                        {
+                            "masterId": "controlMaster.label"
+                        },
+                        {
+                            "masterId": "controlMaster.controlTypeCode"
+                        },
+                        {
+                            "masterId": "controlMaster.dataTypeCode"
+                        },
+                        {
+                            "masterId": "controlMaster.dataKey"
+                        },
+                        {
+                            "masterId": "controlMaster.placeholder"
+                        },
+                        {
+                            "masterId": "controlMaster.width"
+                        },
+                        {
+                            "masterId": "controlMaster.className"
+                        },
+                        {
+                            "masterId": "controlMaster.domainCode"
+                        },
+                        {
+                            "masterId": "controlMaster.parentId"
+                        },
+                        {
+                            "masterId": "controlMaster.buttons"
+                        },
+                        {
+                            "masterId": "controlMaster.visible"
+                        },
+                        {
+                            "masterId": "controlMaster.visibleExpression"
+                        },
+                        {
+                            "masterId": "controlMaster.readonly"
+                        },
+                        {
+                            "masterId": "controlMaster.readonlyExpression"
+                        },
+                        {
+                            "masterId": "controlMaster.isRequired"
+                        },
+                        {
+                            "masterId": "controlMaster.requiredExpression"
+                        },
+                        {
+                            "masterId": "controlMaster.minLength"
+                        },
+                        {
+                            "masterId": "controlMaster.maxLength"
+                        },
+                        {
+                            "masterId": "controlMaster.min"
+                        },
+                        {
+                            "masterId": "controlMaster.max"
+                        },
+                        {
+                            "masterId": "controlMaster.pattern"
+                        },
+                        {
+                            "masterId": "controlMaster.minDate"
+                        },
+                        {
+                            "masterId": "controlMaster.maxDate"
+                        }
+                    ]
+                },
+                {
+                    "id": "add-master-controls",
+                    "title": "Add Controls",
+                    "layoutTypeCode": "CARD",
+                    "controls": [
+                        {
+                            "id": "controlMaster",
+                            "controlTypeCode": "TABLE",
+                            "isEditable": true,
+                            "selectColumn": "masterId",
+                            "controls": [
+                                {
+                                    "masterId": "controlMaster.masterId"
+                                },
+                                {
+                                    "masterId": "controlMaster.id"
+                                },
+                                {
+                                    "masterId": "controlMaster.label"
+                                },
+                                {
+                                    "masterId": "controlMaster.controlTypeCode"
+                                },
+                                {
+                                    "masterId": "controlMaster.dataTypeCode"
+                                },
+                                {
+                                    "masterId": "controlMaster.dataKey"
+                                },
+                                {
+                                    "masterId": "controlMaster.width"
+                                },
+                                {
+                                    "masterId": "controlMaster.domainCode"
+                                },
+                                {
+                                    "masterId": "controlMaster.parentId"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ],
+            "version": "1.1"
+        },
+        {
+            "id": "control-master",
+            "title": "Control Master",
+            "sections": [
+                {
+                    "id": "search-criteria",
+                    "title": "Search Criteria",
+                    "layoutTypeCode": "SEARCH_BAR",
+                    "controls": [
+                        {
+                            "masterId": "controlMaster.masterId"
+                        },
+                        {
+                            "masterId": "controlMaster.id"
+                        },
+                        {
+                            "masterId": "controlMaster.label"
+                        },
+                        {
+                            "masterId": "controlMaster.dataKey"
+                        }
+                    ]
+                },
+                {
+                    "id": "list",
+                    "title": "Controls",
+                    "layoutTypeCode": "CARD",
+                    "controls": [
+                        {
+                            "id": "controlMaster",
+                            "controlTypeCode": "TABLE",
+                            "actions": "EDIT,DELETE",
+                            "entityUrl": "/admin/control-master/<%=masterId%>",
+                            "controls": [
+                                {
+                                    "masterId": "controlMaster.masterId"
+                                },
+                                {
+                                    "masterId": "controlMaster.id"
+                                },
+                                {
+                                    "masterId": "controlMaster.label"
+                                },
+                                {
+                                    "masterId": "controlMaster.controlTypeCode"
+                                },
+                                {
+                                    "masterId": "controlMaster.dataTypeCode"
+                                },
+                                {
+                                    "masterId": "controlMaster.dataKey"
+                                },
+                                {
+                                    "masterId": "controlMaster.width"
+                                },
+                                {
+                                    "masterId": "controlMaster.domainCode"
+                                },
+                                {
+                                    "masterId": "controlMaster.parentId"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": "edit",
+                    "layout": "SECTION",
+                    "controls": [
+                        {
+                            "masterId": "controlMaster.id"
+                        },
+                        {
+                            "masterId": "controlMaster.label"
+                        },
+                        {
+                            "masterId": "controlMaster.controlTypeCode"
+                        },
+                        {
+                            "masterId": "controlMaster.dataTypeCode"
+                        },
+                        {
+                            "masterId": "controlMaster.dataKey"
+                        },
+                        {
+                            "masterId": "controlMaster.placeholder"
+                        },
+                        {
+                            "masterId": "controlMaster.width"
+                        },
+                        {
+                            "masterId": "controlMaster.className"
+                        },
+                        {
+                            "masterId": "controlMaster.domainCode"
+                        },
+                        {
+                            "masterId": "controlMaster.parentId"
+                        },
+                        {
+                            "masterId": "controlMaster.buttons"
+                        },
+                        {
+                            "masterId": "controlMaster.visible"
+                        },
+                        {
+                            "masterId": "controlMaster.visibleExpression"
+                        },
+                        {
+                            "masterId": "controlMaster.readonly"
+                        },
+                        {
+                            "masterId": "controlMaster.readonlyExpression"
+                        },
+                        {
+                            "masterId": "controlMaster.isRequired"
+                        },
+                        {
+                            "masterId": "controlMaster.requiredExpression"
+                        },
+                        {
+                            "masterId": "controlMaster.minLength"
+                        },
+                        {
+                            "masterId": "controlMaster.maxLength"
+                        },
+                        {
+                            "masterId": "controlMaster.min"
+                        },
+                        {
+                            "masterId": "controlMaster.max"
+                        },
+                        {
+                            "masterId": "controlMaster.pattern"
+                        },
+                        {
+                            "masterId": "controlMaster.minDate"
+                        },
+                        {
+                            "masterId": "controlMaster.maxDate"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "adhar",
+            "title": "Adhar",
+            "sections": []
         }
-      ]
-    },
-    {
-      "id": "form",
-      "title": "Build Page",
-      "layout": "vertical",
-      "sections": [
+    ],
+    "control-master": [
         {
-          "id": "page-header-free-form",
-          "title": "Page Header",
-          "controls": [
-            {
-              "masterId": "page.id",
-              "width": "MD"
-            },
-            {
-              "masterId": "page.title",
-              "width": "MD"
-            },
-            {
-              "masterId": "page.layout",
-              "width": "MD"
-            },
-            {
-              "masterId": "page.dataKey",
-              "width": "MD"
-            },
-            {
-              "masterId": "page.version",
-              "width": "MD"
-            },
-            {
-              "masterId": "controlMaster.width"
-            },
-            {
-              "masterId": "controlMaster.className"
-            }
-          ]
+            "id": "id",
+            "masterId": "page.id",
+            "label": "Id",
+            "controlTypeCode": "TEXT",
+            "dataTypeCode": "STRING",
+            "width": "SM",
+            "isRequired": "YES"
         },
         {
-          "id": "section-header-free-form",
-          "title": "Section Header",
-          "controls": [
-            {
-              "masterId": "section.id"
-            },
-            {
-              "masterId": "section.title"
-            },
-            {
-              "masterId": "section.dataKey"
-            },
-            {
-              "masterId": "section.layout"
-            }
-          ]
+            "id": "title",
+            "masterId": "page.title",
+            "label": "Title",
+            "controlTypeCode": "TEXT",
+            "dataTypeCode": "STRING",
+            "width": "SM",
+            "isRequired": "YES",
+            "minLength": 50
         },
         {
-          "id": "section-list-tabular",
-          "title": "Section List",
-          "actions": "ADD,DELETE",
-          "controls": [
-            {
-              "id": "sections",
-              "label": "Sections",
-              "dataKey": "USE_PARENT",
-              "controlTypeCode": "TABLE",
-              "isEditable": false,
-              "controls": [
-                {
-                  "masterId": "section.id"
-                },
-                {
-                  "masterId": "section.title"
-                },
-                {
-                  "masterId": "section.dataKey"
-                },
-                {
-                  "masterId": "section.layout"
-                }
-              ]
-            }
-          ]
+            "id": "layout",
+            "masterId": "page.layout",
+            "label": "Layout",
+            "controlTypeCode": "SELECT",
+            "dataTypeCode": "STRING",
+            "width": "SM",
+            "domainCode": "LAYOUT_CODE",
+            "isRequired": "YES",
+            "maxLength": 50
         },
         {
-          "id": "section-control-list-tabular",
-          "title": "Controls List",
-          "controls": [
-            {
-              "id": "controls",
-              "dataKey": "USE_PARENT",
-              "controlTypeCode": "TABLE",
-              "parentDataKey": "sections",
-              "isEditable": false,
-              "controls": [
-                {
-                  "masterId": "controlMaster.masterId"
-                },
-                {
-                  "masterId": "controlMaster.label"
-                },
-                {
-                  "masterId": "controlMaster.dataKey"
-                },
-                {
-                  "masterId": "controlMaster.width"
-                },
-                {
-                  "masterId": "controlMaster.readonly"
-                }
-              ]
-            }
-          ]
+            "id": "dataKey",
+            "masterId": "page.dataKey",
+            "label": "Data Key",
+            "controlTypeCode": "TEXT",
+            "dataTypeCode": "STRING",
+            "width": "SM",
+            "isRequired": "YES"
         },
         {
-          "id": "control-free-form",
-          "title": "Section Control Details",
-          "controls": [
-            {
-              "masterId": "controlMaster.masterId"
-            },
-            {
-              "masterId": "controlMaster.label"
-            },
-            {
-              "masterId": "controlMaster.dataKey"
-            },
-            {
-              "masterId": "controlMaster.width"
-            },
-            {
-              "masterId": "controlMaster.readonly"
-            }
-          ]
+            "id": "version",
+            "masterId": "page.version",
+            "label": "Version",
+            "controlTypeCode": "TEXT",
+            "dataTypeCode": "STRING",
+            "width": "SM",
+            "isRequired": "YES"
         },
         {
-          "id": "control-master-free-form-readonly",
-          "title": "Master Control Details",
-          "readonly": "YES",
-          "controls": [
-            {
-              "masterId": "controlMaster.id"
-            },
-            {
-              "masterId": "controlMaster.masterId"
-            },
-            {
-              "masterId": "controlMaster.label"
-            },
-            {
-              "masterId": "controlMaster.controlTypeCode"
-            },
-            {
-              "masterId": "controlMaster.dataTypeCode"
-            },
-            {
-              "masterId": "controlMaster.dataKey"
-            },
-            {
-              "masterId": "controlMaster.placeholder"
-            },
-            {
-              "masterId": "controlMaster.width"
-            },
-            {
-              "masterId": "controlMaster.className"
-            },
-            {
-              "masterId": "controlMaster.domainCode"
-            },
-            {
-              "masterId": "controlMaster.parentId"
-            },
-            {
-              "masterId": "controlMaster.buttons"
-            },
-            {
-              "masterId": "controlMaster.visible"
-            },
-            {
-              "masterId": "controlMaster.visibleExpression"
-            },
-            {
-              "masterId": "controlMaster.readonly"
-            },
-            {
-              "masterId": "controlMaster.readonlyExpression"
-            },
-            {
-              "masterId": "controlMaster.isRequired"
-            },
-            {
-              "masterId": "controlMaster.requiredExpression"
-            },
-            {
-              "masterId": "controlMaster.minLength"
-            },
-            {
-              "masterId": "controlMaster.maxLength"
-            },
-            {
-              "masterId": "controlMaster.min"
-            },
-            {
-              "masterId": "controlMaster.max"
-            },
-            {
-              "masterId": "controlMaster.pattern"
-            },
-            {
-              "masterId": "controlMaster.minDate"
-            },
-            {
-              "masterId": "controlMaster.maxDate"
-            }
-          ]
+            "id": "id",
+            "masterId": "section.id",
+            "label": "Id",
+            "controlTypeCode": "TEXT",
+            "dataTypeCode": "STRING",
+            "width": "SM",
+            "isRequired": "YES"
         },
         {
-          "id": "add-master-controls",
-          "title": "Add Controls",
-          "layoutTypeCode": "CARD",
-          "controls": [
-            {
-              "id": "controlMaster",
-              "controlTypeCode": "TABLE",
-              "isEditable": true,
-              "selectColumn": "masterId",
-              "controls": [
-                {
-                  "masterId": "controlMaster.masterId"
-                },
-                {
-                  "masterId": "controlMaster.id"
-                },
-                {
-                  "masterId": "controlMaster.label"
-                },
-                {
-                  "masterId": "controlMaster.controlTypeCode"
-                },
-                {
-                  "masterId": "controlMaster.dataTypeCode"
-                },
-                {
-                  "masterId": "controlMaster.dataKey"
-                },
-                {
-                  "masterId": "controlMaster.width"
-                },
-                {
-                  "masterId": "controlMaster.domainCode"
-                },
-                {
-                  "masterId": "controlMaster.parentId"
-                }
-              ]
-            }
-          ]
+            "id": "title",
+            "masterId": "section.title",
+            "label": "Title",
+            "controlTypeCode": "TEXT",
+            "dataTypeCode": "STRING",
+            "width": "SM",
+            "isRequired": "YES"
+        },
+        {
+            "id": "layout",
+            "masterId": "section.layout",
+            "label": "Layout",
+            "controlTypeCode": "TEXT",
+            "dataTypeCode": "STRING",
+            "width": "SM"
+        },
+        {
+            "id": "dataKey",
+            "masterId": "section.dataKey",
+            "label": "Data Key",
+            "controlTypeCode": "TEXT",
+            "dataTypeCode": "STRING",
+            "width": "SM"
+        },
+        {
+            "id": "id",
+            "masterId": "controlMaster.id",
+            "label": "Id",
+            "controlTypeCode": "TEXT",
+            "dataTypeCode": "STRING",
+            "width": "SM",
+            "isRequired": "YES"
+        },
+        {
+            "id": "masterId",
+            "masterId": "controlMaster.masterId",
+            "label": "Master Id",
+            "controlTypeCode": "TEXT",
+            "dataTypeCode": "STRING",
+            "width": "SM",
+            "isRequired": "YES"
+        },
+        {
+            "id": "label",
+            "masterId": "controlMaster.label",
+            "label": "Label",
+            "controlTypeCode": "TEXT",
+            "dataTypeCode": "STRING",
+            "width": "SM",
+            "isRequired": "YES"
+        },
+        {
+            "id": "typeCode",
+            "masterId": "controlMaster.controlTypeCode",
+            "label": "Control Type Code",
+            "controlTypeCode": "SELECT",
+            "dataTypeCode": "STRING",
+            "width": "SM",
+            "domainCode": "CONTROL_TYPE_CODE",
+            "isRequired": "YES",
+            "maxLength": 50
+        },
+        {
+            "id": "dataTypeCode",
+            "masterId": "controlMaster.dataTypeCode",
+            "label": "Data Type Code",
+            "controlTypeCode": "SELECT",
+            "dataTypeCode": "STRING",
+            "width": "SM",
+            "domainCode": "DATA_TYPE_CODE",
+            "isRequired": "YES",
+            "maxLength": 50
+        },
+        {
+            "id": "dataKey",
+            "masterId": "controlMaster.dataKey",
+            "label": "Data Key",
+            "controlTypeCode": "TEXT",
+            "dataTypeCode": "STRING",
+            "width": "SM",
+            "isRequired": "YES"
+        },
+        {
+            "id": "placeholder",
+            "masterId": "controlMaster.placeholder",
+            "label": "Placeholder",
+            "controlTypeCode": "TEXT",
+            "dataTypeCode": "STRING",
+            "width": "SM",
+            "isRequired": "YES"
+        },
+        {
+            "id": "width",
+            "masterId": "controlMaster.width",
+            "label": "Width",
+            "controlTypeCode": "SELECT",
+            "dataTypeCode": "STRING",
+            "width": "SM",
+            "domainCode": "WIDTH_CODE",
+            "isRequired": "YES",
+            "maxLength": 50
+        },
+        {
+            "id": "className",
+            "masterId": "controlMaster.className",
+            "label": "Class Name",
+            "controlTypeCode": "TEXT",
+            "dataTypeCode": "STRING",
+            "width": "SM",
+            "isRequired": "YES"
+        },
+        {
+            "id": "domainCode",
+            "masterId": "controlMaster.domainCode",
+            "label": "Domain Code",
+            "controlTypeCode": "SELECT",
+            "dataTypeCode": "STRING",
+            "width": "SM",
+            "domainCode": "DOMAIN_CODE",
+            "isRequired": "YES",
+            "maxLength": 50
+        },
+        {
+            "id": "parentId",
+            "masterId": "controlMaster.parentId",
+            "label": "Parent Id",
+            "controlTypeCode": "TEXT",
+            "dataTypeCode": "STRING",
+            "width": "SM",
+            "isRequired": "YES"
+        },
+        {
+            "id": "buttons",
+            "masterId": "controlMaster.buttons",
+            "label": "Buttons",
+            "controlTypeCode": "TEXT",
+            "dataTypeCode": "STRING",
+            "width": "SM",
+            "isRequired": "YES"
+        },
+        {
+            "id": "visible",
+            "masterId": "controlMaster.visible",
+            "label": "Visible",
+            "controlTypeCode": "SELECT",
+            "dataTypeCode": "STRING",
+            "width": "SM",
+            "domainCode": "YES_NO_CODE",
+            "isRequired": "YES"
+        },
+        {
+            "id": "visibleExpression",
+            "masterId": "controlMaster.visibleExpression",
+            "label": "Visible Expression",
+            "controlTypeCode": "TEXT",
+            "dataTypeCode": "STRING",
+            "width": "SM",
+            "isRequired": "YES"
+        },
+        {
+            "id": "readonly",
+            "masterId": "controlMaster.readonly",
+            "label": "Readonly",
+            "controlTypeCode": "TEXT",
+            "dataTypeCode": "STRING",
+            "width": "SM",
+            "isRequired": "YES"
+        },
+        {
+            "id": "readonlyExpression",
+            "masterId": "controlMaster.readonlyExpression",
+            "label": "Readonly Expression",
+            "controlTypeCode": "TEXT",
+            "dataTypeCode": "STRING",
+            "width": "SM",
+            "isRequired": "YES"
+        },
+        {
+            "id": "isRequired",
+            "masterId": "controlMaster.isRequired",
+            "label": "Is Required",
+            "controlTypeCode": "SELECT",
+            "dataTypeCode": "STRING",
+            "width": "SM",
+            "domainCode": "YES_NO_CODE",
+            "isRequired": "YES",
+            "maxLength": 50
+        },
+        {
+            "id": "requiredExpression",
+            "masterId": "controlMaster.requiredExpression",
+            "label": "Required Expression",
+            "controlTypeCode": "TEXTAREA",
+            "dataTypeCode": "STRING",
+            "width": "SM",
+            "isRequired": "YES"
+        },
+        {
+            "id": "isHidden",
+            "masterId": "controlMaster.isHidden",
+            "label": "Is Hidden",
+            "controlTypeCode": "TEXT",
+            "dataTypeCode": "BOOL",
+            "width": "SM",
+            "domainCode": "YES_NO_CODE",
+            "isRequired": "YES"
+        },
+        {
+            "id": "hiddenExpression",
+            "masterId": "controlMaster.hiddenExpression",
+            "label": "Hidden Expression",
+            "controlTypeCode": "TEXTAREA",
+            "dataTypeCode": "STRING",
+            "width": "SM",
+            "isRequired": "YES"
+        },
+        {
+            "id": "minLength",
+            "masterId": "controlMaster.minLength",
+            "label": "Min Length",
+            "controlTypeCode": "TEXT",
+            "dataTypeCode": "NUMBER",
+            "width": "SM",
+            "isRequired": "YES"
+        },
+        {
+            "id": "maxLength",
+            "masterId": "controlMaster.maxLength",
+            "label": "Max Length",
+            "controlTypeCode": "TEXT",
+            "dataTypeCode": "NUMBER",
+            "width": "SM",
+            "isRequired": "YES"
+        },
+        {
+            "id": "min",
+            "masterId": "controlMaster.min",
+            "label": "Min",
+            "controlTypeCode": "NUMBER",
+            "dataTypeCode": "NUMBER",
+            "width": "SM",
+            "isRequired": "YES"
+        },
+        {
+            "id": "max",
+            "masterId": "controlMaster.max",
+            "label": "Max",
+            "controlTypeCode": "NUMBER",
+            "dataTypeCode": "NUMBER",
+            "width": "SM",
+            "isRequired": "YES"
+        },
+        {
+            "id": "pattern",
+            "masterId": "controlMaster.pattern",
+            "label": "Pattern",
+            "controlTypeCode": "TEXT",
+            "dataTypeCode": "STRING",
+            "width": "SM",
+            "isRequired": "YES"
+        },
+        {
+            "id": "minDate",
+            "masterId": "controlMaster.minDate",
+            "label": "Min Date",
+            "controlTypeCode": "DATE",
+            "dataTypeCode": "DATE",
+            "width": "SM",
+            "isRequired": "YES"
+        },
+        {
+            "id": "maxDate",
+            "masterId": "controlMaster.maxDate",
+            "label": "Max Date",
+            "controlTypeCode": "DATE",
+            "dataTypeCode": "DATE",
+            "width": "SM",
+            "isRequired": "YES"
         }
-      ],
-      "version": "1.1"
+    ],
+    "domain": {
+        "CONTROL_TYPE_CODE": [
+            {
+                "code": "CHECK",
+                "label": "Check",
+                "sortOrder": 1
+            },
+            {
+                "code": "DATE",
+                "label": "Date",
+                "sortOrder": 2
+            },
+            {
+                "code": "NUMBER",
+                "label": "Number",
+                "sortOrder": 3
+            },
+            {
+                "code": "RADIO",
+                "label": "Radio",
+                "sortOrder": 4
+            },
+            {
+                "code": "SELECT",
+                "label": "Select",
+                "sortOrder": 5
+            },
+            {
+                "code": "TEXT",
+                "label": "Text",
+                "sortOrder": 6
+            },
+            {
+                "code": "PASSWORD",
+                "label": "Password",
+                "sortOrder": 6
+            },
+            {
+                "code": "TELEPHONE",
+                "label": "Telephone",
+                "sortOrder": 6
+            },
+            {
+                "code": "URL",
+                "label": "Url",
+                "sortOrder": 6
+            },
+            {
+                "code": "TEXTAREA",
+                "label": "Textarea",
+                "sortOrder": 6
+            }
+        ],
+        "DATA_TYPE_CODE": [
+            {
+                "code": "BOOL",
+                "label": "Text",
+                "sortOrder": 1
+            },
+            {
+                "code": "DATE",
+                "label": "Bool",
+                "sortOrder": 2
+            },
+            {
+                "code": "NUMBER",
+                "label": "Date",
+                "sortOrder": 3
+            },
+            {
+                "code": "STRING",
+                "label": "Number",
+                "sortOrder": 4
+            }
+        ],
+        "WIDTH_CODE": [
+            {
+                "code": "SM",
+                "label": "Small (1/4)",
+                "sortOrder": 1
+            },
+            {
+                "code": "MD",
+                "label": "Medium (1/3)",
+                "sortOrder": 2
+            },
+            {
+                "code": "LG",
+                "label": "Large (1/2)",
+                "sortOrder": 3
+            },
+            {
+                "code": "full",
+                "label": "Full (1)",
+                "sortOrder": 4
+            }
+        ],
+        "YES_NO_CODE": [
+            {
+                "code": "YES",
+                "label": "Yes",
+                "sortOrder": 1
+            },
+            {
+                "code": "NO",
+                "label": "No",
+                "sortOrder": 2
+            }
+        ]
     },
-    {
-      "id": "control-master",
-      "title": "Control Master",
-      "sections": [
+    "user": [
         {
-          "id": "search-criteria",
-          "title": "Search Criteria",
-          "layoutTypeCode": "SEARCH_BAR",
-          "controls": [
-            {
-              "masterId": "controlMaster.masterId"
-            },
-            {
-              "masterId": "controlMaster.id"
-            },
-            {
-              "masterId": "controlMaster.label"
-            },
-            {
-              "masterId": "controlMaster.dataKey"
-            }
-          ]
+            "id": 1000,
+            "firstName": "John",
+            "lastName": "Doe",
+            "age": 40,
+            "email": "john.doe@gmail.com",
+            "birthDate": "1/1/1980"
         },
         {
-          "id": "list",
-          "title": "Controls",
-          "layoutTypeCode": "CARD",
-          "controls": [
-            {
-              "id": "controlMaster",
-              "controlTypeCode": "TABLE",
-              "actions": "EDIT,DELETE",
-              "entityUrl": "/admin/control-master/<%=masterId%>",
-              "controls": [
-                {
-                  "masterId": "controlMaster.masterId"
-                },
-                {
-                  "masterId": "controlMaster.id"
-                },
-                {
-                  "masterId": "controlMaster.label"
-                },
-                {
-                  "masterId": "controlMaster.controlTypeCode"
-                },
-                {
-                  "masterId": "controlMaster.dataTypeCode"
-                },
-                {
-                  "masterId": "controlMaster.dataKey"
-                },
-                {
-                  "masterId": "controlMaster.width"
-                },
-                {
-                  "masterId": "controlMaster.domainCode"
-                },
-                {
-                  "masterId": "controlMaster.parentId"
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "id": "edit",
-          "layout": "SECTION",
-          "controls": [
-            {
-              "masterId": "controlMaster.id"
-            },
-            {
-              "masterId": "controlMaster.label"
-            },
-            {
-              "masterId": "controlMaster.controlTypeCode"
-            },
-            {
-              "masterId": "controlMaster.dataTypeCode"
-            },
-            {
-              "masterId": "controlMaster.dataKey"
-            },
-            {
-              "masterId": "controlMaster.placeholder"
-            },
-            {
-              "masterId": "controlMaster.width"
-            },
-            {
-              "masterId": "controlMaster.className"
-            },
-            {
-              "masterId": "controlMaster.domainCode"
-            },
-            {
-              "masterId": "controlMaster.parentId"
-            },
-            {
-              "masterId": "controlMaster.buttons"
-            },
-            {
-              "masterId": "controlMaster.visible"
-            },
-            {
-              "masterId": "controlMaster.visibleExpression"
-            },
-            {
-              "masterId": "controlMaster.readonly"
-            },
-            {
-              "masterId": "controlMaster.readonlyExpression"
-            },
-            {
-              "masterId": "controlMaster.isRequired"
-            },
-            {
-              "masterId": "controlMaster.requiredExpression"
-            },
-            {
-              "masterId": "controlMaster.minLength"
-            },
-            {
-              "masterId": "controlMaster.maxLength"
-            },
-            {
-              "masterId": "controlMaster.min"
-            },
-            {
-              "masterId": "controlMaster.max"
-            },
-            {
-              "masterId": "controlMaster.pattern"
-            },
-            {
-              "masterId": "controlMaster.minDate"
-            },
-            {
-              "masterId": "controlMaster.maxDate"
-            }
-          ]
+            "id": 1001,
+            "firstName": "Jane",
+            "lastName": "Doe",
+            "age": 38,
+            "email": "jane.doe@gmail.com",
+            "birthDate": "1/1/1983"
         }
-      ]
-    },
-    {
-      "id": "adhar",
-      "title": "Adhar",
-      "sections": []
-    }
-  ],
-  "control-master": [
-    {
-      "id": "id",
-      "masterId": "page.id",
-      "label": "Id",
-      "controlTypeCode": "TEXT",
-      "dataTypeCode": "STRING",
-      "width": "SM",
-      "isRequired": "YES"
-    },
-    {
-      "id": "title",
-      "masterId": "page.title",
-      "label": "Title",
-      "controlTypeCode": "TEXT",
-      "dataTypeCode": "STRING",
-      "width": "SM",
-      "isRequired": "YES",
-      "minLength": 50
-    },
-    {
-      "id": "layout",
-      "masterId": "page.layout",
-      "label": "Layout",
-      "controlTypeCode": "SELECT",
-      "dataTypeCode": "STRING",
-      "width": "SM",
-      "domainCode": "LAYOUT_CODE",
-      "isRequired": "YES",
-      "maxLength": 50
-    },
-    {
-      "id": "dataKey",
-      "masterId": "page.dataKey",
-      "label": "Data Key",
-      "controlTypeCode": "TEXT",
-      "dataTypeCode": "STRING",
-      "width": "SM",
-      "isRequired": "YES"
-    },
-    {
-      "id": "version",
-      "masterId": "page.version",
-      "label": "Version",
-      "controlTypeCode": "TEXT",
-      "dataTypeCode": "STRING",
-      "width": "SM",
-      "isRequired": "YES"
-    },
-    {
-      "id": "id",
-      "masterId": "section.id",
-      "label": "Id",
-      "controlTypeCode": "TEXT",
-      "dataTypeCode": "STRING",
-      "width": "SM",
-      "isRequired": "YES"
-    },
-    {
-      "id": "title",
-      "masterId": "section.title",
-      "label": "Title",
-      "controlTypeCode": "TEXT",
-      "dataTypeCode": "STRING",
-      "width": "SM",
-      "isRequired": "YES"
-    },
-    {
-      "id": "layout",
-      "masterId": "section.layout",
-      "label": "Layout",
-      "controlTypeCode": "TEXT",
-      "dataTypeCode": "STRING",
-      "width": "SM"
-    },
-    {
-      "id": "dataKey",
-      "masterId": "section.dataKey",
-      "label": "Data Key",
-      "controlTypeCode": "TEXT",
-      "dataTypeCode": "STRING",
-      "width": "SM"
-    },
-    {
-      "id": "id",
-      "masterId": "controlMaster.id",
-      "label": "Id",
-      "controlTypeCode": "TEXT",
-      "dataTypeCode": "STRING",
-      "width": "SM",
-      "isRequired": "YES"
-    },
-    {
-      "id": "masterId",
-      "masterId": "controlMaster.masterId",
-      "label": "Master Id",
-      "controlTypeCode": "TEXT",
-      "dataTypeCode": "STRING",
-      "width": "SM",
-      "isRequired": "YES"
-    },
-    {
-      "id": "label",
-      "masterId": "controlMaster.label",
-      "label": "Label",
-      "controlTypeCode": "TEXT",
-      "dataTypeCode": "STRING",
-      "width": "SM",
-      "isRequired": "YES"
-    },
-    {
-      "id": "typeCode",
-      "masterId": "controlMaster.controlTypeCode",
-      "label": "Control Type Code",
-      "controlTypeCode": "SELECT",
-      "dataTypeCode": "STRING",
-      "width": "SM",
-      "domainCode": "CONTROL_TYPE_CODE",
-      "isRequired": "YES",
-      "maxLength": 50
-    },
-    {
-      "id": "dataTypeCode",
-      "masterId": "controlMaster.dataTypeCode",
-      "label": "Data Type Code",
-      "controlTypeCode": "SELECT",
-      "dataTypeCode": "STRING",
-      "width": "SM",
-      "domainCode": "DATA_TYPE_CODE",
-      "isRequired": "YES",
-      "maxLength": 50
-    },
-    {
-      "id": "dataKey",
-      "masterId": "controlMaster.dataKey",
-      "label": "Data Key",
-      "controlTypeCode": "TEXT",
-      "dataTypeCode": "STRING",
-      "width": "SM",
-      "isRequired": "YES"
-    },
-    {
-      "id": "placeholder",
-      "masterId": "controlMaster.placeholder",
-      "label": "Placeholder",
-      "controlTypeCode": "TEXT",
-      "dataTypeCode": "STRING",
-      "width": "SM",
-      "isRequired": "YES"
-    },
-    {
-      "id": "width",
-      "masterId": "controlMaster.width",
-      "label": "Width",
-      "controlTypeCode": "SELECT",
-      "dataTypeCode": "STRING",
-      "width": "SM",
-      "domainCode": "WIDTH_CODE",
-      "isRequired": "YES",
-      "maxLength": 50
-    },
-    {
-      "id": "className",
-      "masterId": "controlMaster.className",
-      "label": "Class Name",
-      "controlTypeCode": "TEXT",
-      "dataTypeCode": "STRING",
-      "width": "SM",
-      "isRequired": "YES"
-    },
-    {
-      "id": "domainCode",
-      "masterId": "controlMaster.domainCode",
-      "label": "Domain Code",
-      "controlTypeCode": "SELECT",
-      "dataTypeCode": "STRING",
-      "width": "SM",
-      "domainCode": "DOMAIN_CODE",
-      "isRequired": "YES",
-      "maxLength": 50
-    },
-    {
-      "id": "parentId",
-      "masterId": "controlMaster.parentId",
-      "label": "Parent Id",
-      "controlTypeCode": "TEXT",
-      "dataTypeCode": "STRING",
-      "width": "SM",
-      "isRequired": "YES"
-    },
-    {
-      "id": "buttons",
-      "masterId": "controlMaster.buttons",
-      "label": "Buttons",
-      "controlTypeCode": "TEXT",
-      "dataTypeCode": "STRING",
-      "width": "SM",
-      "isRequired": "YES"
-    },
-    {
-      "id": "visible",
-      "masterId": "controlMaster.visible",
-      "label": "Visible",
-      "controlTypeCode": "SELECT",
-      "dataTypeCode": "STRING",
-      "width": "SM",
-      "domainCode": "YES_NO_CODE",
-      "isRequired": "YES"
-    },
-    {
-      "id": "visibleExpression",
-      "masterId": "controlMaster.visibleExpression",
-      "label": "Visible Expression",
-      "controlTypeCode": "TEXT",
-      "dataTypeCode": "STRING",
-      "width": "SM",
-      "isRequired": "YES"
-    },
-    {
-      "id": "readonly",
-      "masterId": "controlMaster.readonly",
-      "label": "Readonly",
-      "controlTypeCode": "TEXT",
-      "dataTypeCode": "STRING",
-      "width": "SM",
-      "isRequired": "YES"
-    },
-    {
-      "id": "readonlyExpression",
-      "masterId": "controlMaster.readonlyExpression",
-      "label": "Readonly Expression",
-      "controlTypeCode": "TEXT",
-      "dataTypeCode": "STRING",
-      "width": "SM",
-      "isRequired": "YES"
-    },
-    {
-      "id": "isRequired",
-      "masterId": "controlMaster.isRequired",
-      "label": "Is Required",
-      "controlTypeCode": "SELECT",
-      "dataTypeCode": "STRING",
-      "width": "SM",
-      "domainCode": "YES_NO_CODE",
-      "isRequired": "YES",
-      "maxLength": 50
-    },
-    {
-      "id": "requiredExpression",
-      "masterId": "controlMaster.requiredExpression",
-      "label": "Required Expression",
-      "controlTypeCode": "TEXTAREA",
-      "dataTypeCode": "STRING",
-      "width": "SM",
-      "isRequired": "YES"
-    },
-    {
-      "id": "isHidden",
-      "masterId": "controlMaster.isHidden",
-      "label": "Is Hidden",
-      "controlTypeCode": "TEXT",
-      "dataTypeCode": "BOOL",
-      "width": "SM",
-      "domainCode": "YES_NO_CODE",
-      "isRequired": "YES"
-    },
-    {
-      "id": "hiddenExpression",
-      "masterId": "controlMaster.hiddenExpression",
-      "label": "Hidden Expression",
-      "controlTypeCode": "TEXTAREA",
-      "dataTypeCode": "STRING",
-      "width": "SM",
-      "isRequired": "YES"
-    },
-    {
-      "id": "minLength",
-      "masterId": "controlMaster.minLength",
-      "label": "Min Length",
-      "controlTypeCode": "TEXT",
-      "dataTypeCode": "NUMBER",
-      "width": "SM",
-      "isRequired": "YES"
-    },
-    {
-      "id": "maxLength",
-      "masterId": "controlMaster.maxLength",
-      "label": "Max Length",
-      "controlTypeCode": "TEXT",
-      "dataTypeCode": "NUMBER",
-      "width": "SM",
-      "isRequired": "YES"
-    },
-    {
-      "id": "min",
-      "masterId": "controlMaster.min",
-      "label": "Min",
-      "controlTypeCode": "NUMBER",
-      "dataTypeCode": "NUMBER",
-      "width": "SM",
-      "isRequired": "YES"
-    },
-    {
-      "id": "max",
-      "masterId": "controlMaster.max",
-      "label": "Max",
-      "controlTypeCode": "NUMBER",
-      "dataTypeCode": "NUMBER",
-      "width": "SM",
-      "isRequired": "YES"
-    },
-    {
-      "id": "pattern",
-      "masterId": "controlMaster.pattern",
-      "label": "Pattern",
-      "controlTypeCode": "TEXT",
-      "dataTypeCode": "STRING",
-      "width": "SM",
-      "isRequired": "YES"
-    },
-    {
-      "id": "minDate",
-      "masterId": "controlMaster.minDate",
-      "label": "Min Date",
-      "controlTypeCode": "DATE",
-      "dataTypeCode": "DATE",
-      "width": "SM",
-      "isRequired": "YES"
-    },
-    {
-      "id": "maxDate",
-      "masterId": "controlMaster.maxDate",
-      "label": "Max Date",
-      "controlTypeCode": "DATE",
-      "dataTypeCode": "DATE",
-      "width": "SM",
-      "isRequired": "YES"
-    }
-  ],
-  "domain": {
-    "CONTROL_TYPE_CODE": [
-      {
-        "code": "CHECK",
-        "label": "Check",
-        "sortOrder": 1
-      },
-      {
-        "code": "DATE",
-        "label": "Date",
-        "sortOrder": 2
-      },
-      {
-        "code": "NUMBER",
-        "label": "Number",
-        "sortOrder": 3
-      },
-      {
-        "code": "RADIO",
-        "label": "Radio",
-        "sortOrder": 4
-      },
-      {
-        "code": "SELECT",
-        "label": "Select",
-        "sortOrder": 5
-      },
-      {
-        "code": "TEXT",
-        "label": "Text",
-        "sortOrder": 6
-      },
-      {
-        "code": "PASSWORD",
-        "label": "Password",
-        "sortOrder": 6
-      },
-      {
-        "code": "TELEPHONE",
-        "label": "Telephone",
-        "sortOrder": 6
-      },
-      {
-        "code": "URL",
-        "label": "Url",
-        "sortOrder": 6
-      },
-      {
-        "code": "TEXTAREA",
-        "label": "Textarea",
-        "sortOrder": 6
-      }
-    ],
-    "DATA_TYPE_CODE": [
-      {
-        "code": "BOOL",
-        "label": "Text",
-        "sortOrder": 1
-      },
-      {
-        "code": "DATE",
-        "label": "Bool",
-        "sortOrder": 2
-      },
-      {
-        "code": "NUMBER",
-        "label": "Date",
-        "sortOrder": 3
-      },
-      {
-        "code": "STRING",
-        "label": "Number",
-        "sortOrder": 4
-      }
-    ],
-    "WIDTH_CODE": [
-      {
-        "code": "SM",
-        "label": "Small (1/4)",
-        "sortOrder": 1
-      },
-      {
-        "code": "MD",
-        "label": "Medium (1/3)",
-        "sortOrder": 2
-      },
-      {
-        "code": "LG",
-        "label": "Large (1/2)",
-        "sortOrder": 3
-      },
-      {
-        "code": "full",
-        "label": "Full (1)",
-        "sortOrder": 4
-      }
-    ],
-    "YES_NO_CODE": [
-      {
-        "code": "YES",
-        "label": "Yes",
-        "sortOrder": 1
-      },
-      {
-        "code": "NO",
-        "label": "No",
-        "sortOrder": 2
-      }
     ]
-  },
-  "user": [
-    {
-      "id": 1000,
-      "firstName": "John",
-      "lastName": "Doe",
-      "age": 40,
-      "email": "john.doe@gmail.com",
-      "birthDate": "1/1/1980"
-    },
-    {
-      "id": 1001,
-      "firstName": "Jane",
-      "lastName": "Doe",
-      "age": 38,
-      "email": "jane.doe@gmail.com",
-      "birthDate": "1/1/1983"
-    }
-  ]
 }
