@@ -5,11 +5,11 @@ import { useFormConfig } from '@lib/hooks';
 import { Control, Section } from '@lib/types';
 import { setInternalTemp } from '@store/features/form-slice';
 import { useAppDispatch, useAppSelector } from '@store/hooks';
-import { Suspense, useEffect } from 'react';
+import { useEffect } from 'react';
 
 const Page = ({ params }: { params: { formId: string; sectionId: string; controlId: string } }) => {
     // Here the control id is masterId
-    const formState = useAppSelector(state => state.form);
+    const formState = useAppSelector((state: any) => state.form);
     const { getFullControlConfig } = useFormConfig();
     const dispatch = useAppDispatch();
 
@@ -27,10 +27,10 @@ const Page = ({ params }: { params: { formId: string; sectionId: string; control
     if (controlIndex === undefined || controlIndex === -1) return <>Unable to get the control</>;
 
     return (
-        <Suspense fallback={<div>Loading...</div>}>
+        <>
             <SectionBuilder formId="form" sectionId="control-free-form" parentKey={`data.sections[${sectionIndex}].controls[${controlIndex}]`} />
             <SectionBuilder formId="form" sectionId="control-master-free-form-readonly" parentKey={`internal.temp.${params.controlId}`} />
-        </Suspense>
+        </>
     );
 };
 

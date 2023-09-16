@@ -2,7 +2,8 @@
 
 import { config } from '@fortawesome/fontawesome-svg-core';
 import '@fortawesome/fontawesome-svg-core/styles.css';
-import MenuControl from '@lib/controls/organisms/menu-control/menu-control';
+import { ErrorBoundary } from '@lib/common';
+import { MenuControl } from '@lib/controls';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import { Suspense } from 'react';
@@ -24,34 +25,39 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
     return (
         <html lang="en">
+            <head>
+                <link rel="icon" type="image/svg+xml" href="/artstation.svg" />
+            </head>
             <body className={inter.className}>
                 <Providers>
-                    <Suspense fallback={<div>Loading...</div>}>
-                        <header>
-                            <div className="sticky top-0 z-50 w-full py-3 bg-gray-900 text-white">
-                                <MenuControl menus={menuData} />
-                            </div>
-                        </header>
+                    <ErrorBoundary>
+                        <Suspense fallback={<div>Loading...</div>}>
+                            <header>
+                                <div className="sticky top-0 z-50 w-full py-3 bg-gray-900 text-white">
+                                    <MenuControl menus={menuData} />
+                                </div>
+                            </header>
 
-                        <main>
-                            <Init>{children}</Init>
-                        </main>
+                            <main>
+                                <Init>{children}</Init>
+                            </main>
 
-                        <ToastContainer
-                            position="bottom-center"
-                            autoClose={1000}
-                            hideProgressBar={false}
-                            newestOnTop={false}
-                            closeOnClick
-                            rtl={false}
-                            pauseOnFocusLoss
-                            draggable
-                            pauseOnHover
-                            theme="light"
-                        />
+                            <ToastContainer
+                                position="bottom-center"
+                                autoClose={1000}
+                                hideProgressBar={false}
+                                newestOnTop={false}
+                                closeOnClick
+                                rtl={false}
+                                pauseOnFocusLoss
+                                draggable
+                                pauseOnHover
+                                theme="light"
+                            />
 
-                        <footer></footer>
-                    </Suspense>
+                            <footer></footer>
+                        </Suspense>
+                    </ErrorBoundary>
                 </Providers>
             </body>
         </html>
