@@ -1,18 +1,21 @@
 import { SectionBuilder } from '@lib/builders';
 import { ModalPopup } from '@lib/common/modal';
+import { useFormBuilder } from '@lib/hooks';
 import { useAllControlsQuery } from '@store/api/control-master-api';
 import { setInternalTemp } from '@store/features/form-slice';
-import { useAppDispatch } from '@store/hooks';
+import { useAppDispatch, useAppSelector } from '@store/hooks';
 import { useEffect } from 'react';
 
 export interface AddControlsModal {
-    isOpen: boolean;
-    onAdd: () => void;
-    onClose: () => void;
+    formId: string;
+    sectionId: string;
 }
 
-const AddControlsModal: React.FC<AddControlsModal> = ({ isOpen, onAdd, onClose }) => {
+const AddControlsModal: React.FC<AddControlsModal> = ({ formId, sectionId }) => {
     const { data, isSuccess } = useAllControlsQuery(null);
+    const { addControlsToSection, closeAddControlsModal } = useFormBuilder();
+    const formState = useAppSelector(state => state.form);
+
     const dispatch = useAppDispatch();
 
     useEffect(() => {
@@ -23,11 +26,11 @@ const AddControlsModal: React.FC<AddControlsModal> = ({ isOpen, onAdd, onClose }
         <ModalPopup
             title="Add Controls"
             size="large"
-            isOpen={isOpen}
+            isOpen={formState.flags?.showAddControls}
             footerButtons={
                 <>
-                    <button onClick={onAdd}>Add Controls</button>
-                    <button onClick={onClose}>Close</button>
+                    <button onClick={() => addControlsToSection(formId, sectionId)}>Add Controls</button>
+                    <button onClick={closeAddControlsModal}>Close</button>
                 </>
             }
         >

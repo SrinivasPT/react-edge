@@ -1,44 +1,24 @@
 'use client';
 
 import FormTreeControl from '@components/form-tree-control';
-import { IButtonPallet } from '@lib/controls/organisms/button-pallet/button-pallet';
 import { useFormBuilder } from '@lib/hooks';
 import useInitializeForm from '@lib/hooks/use-initialize-form';
 import { PageLayout } from '@lib/layout';
 import FormActionsContext from '@lib/sections/form-actions-context';
 import { useGetFormByIdQuery } from '@store/api/form-config-api';
-import { useParams, useRouter } from 'next/navigation';
-import { useSelector } from 'react-redux';
+import { useParams } from 'next/navigation';
 import CreateNewForm from './create-new-form';
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
     const params = useParams();
-    const router = useRouter();
 
     const { isSuccess: isInitialDataLoaded, data: initialData } = useGetFormByIdQuery({ id: params.formId as string });
     const { isFormReady } = useInitializeForm({ id: params.formId as string, initialData, isInitialDataLoaded });
-    const { handleSave, handleDelete, actions } = useFormBuilder();
-
-    const formData = useSelector((store: any) => store.form.data);
-
-    const handleSaveClick = (event: any) => {
-        handleSave(event);
-        if (params.formId === 'new') {
-            router.push(`/admin/form-builder/${formData.id}`);
-        }
-    };
-
-    /**
-     * All the handlers will be coming from the hook - in this case useFromDetails. Keep this code only for UI
-     */
-    const buttons: IButtonPallet[] = [
-        { controlId: '', code: 'save', label: 'Save', handler: handleSaveClick },
-        { controlId: '', code: 'delete', label: 'Reset', handler: handleDelete },
-    ];
+    const { actions } = useFormBuilder();
 
     if (params.formId === 'new')
         return (
-            <PageLayout title="Page Structure" buttons={buttons}>
+            <PageLayout title="Page Structure" buttons={actions['page-actions']}>
                 <CreateNewForm />
             </PageLayout>
         );
@@ -47,8 +27,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
 
     return (
         <FormActionsContext.Provider value={actions}>
-            <PageLayout title="Page Structure" buttons={buttons}>
-                {/* <ButtonPallet title="Test Page Handle Me" buttons={buttons} /> */}
+            <PageLayout title="Page Structure" buttons={actions['page-actions']}>
                 <div className="flex">
                     <div className="flex-none w-1/4 p-4">
                         <FormTreeControl formId={params.formId} />
