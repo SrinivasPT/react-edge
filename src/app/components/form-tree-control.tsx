@@ -1,16 +1,18 @@
 import TreeNode from '@lib/controls/molecules/tree-control/tree-node';
 import { useFormConfig } from '@lib/hooks';
 import { CardLayout } from '@lib/layout';
-import { Control, Section, TreeItem } from '@lib/types';
+import { Control, FormConfig, Section, TreeItem } from '@lib/types';
 import { addToArray } from '@store/features/form-slice';
 import { useAppDispatch } from '@store/hooks';
 import _ from 'lodash';
 import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
 
 const FormTreeControl = (params: any) => {
     const { getFullControlConfig } = useFormConfig();
-    const formConfig = useFormConfig().getFormConfig(params.formId);
+    // const formConfig = useFormConfig().getFormConfig(params.formId);
+    const formConfig: FormConfig = useSelector((store: any) => store.form.data);
     const router = useRouter();
     const [data, setData] = useState(transformJson(formConfig));
     const [selectedItemId, setSelectedItemId] = useState<string | null>(null);
@@ -18,7 +20,7 @@ const FormTreeControl = (params: any) => {
 
     useEffect(() => {
         setData(transformJson(formConfig));
-    }, []);
+    }, [formConfig]);
 
     const handleChange = (action: string, item: TreeItem) => {
         console.log(`User performed action ${action} and the item is ${JSON.stringify(item)}`);
@@ -52,7 +54,7 @@ const FormTreeControl = (params: any) => {
     };
 
     function transformJson(input: any, parentId = null) {
-        if (input.id && input.title && input.sections) {
+        if (input?.id && input.title && input.sections) {
             return {
                 uniqueId: _.uniqueId(),
                 id: input.id,
@@ -62,7 +64,7 @@ const FormTreeControl = (params: any) => {
             };
         }
 
-        if (input.id && input.title && input.controls) {
+        if (input?.id && input.title && input.controls) {
             return {
                 uniqueId: _.uniqueId(),
                 id: input.id,
@@ -72,7 +74,7 @@ const FormTreeControl = (params: any) => {
             };
         }
 
-        if (input.id && input.label) {
+        if (input?.id && input.label) {
             return {
                 uniqueId: _.uniqueId(),
                 id: input.masterId,

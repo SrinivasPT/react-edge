@@ -39,7 +39,7 @@ const useFormBuilder = () => {
     };
 
     const handleSave = async (event: any) => {
-        const mode = formData?.mode || 'new';
+        const mode = formData?.mode || 'EDIT';
         const payload: any = getPayload(mode);
 
         try {
@@ -69,7 +69,8 @@ const useFormBuilder = () => {
         let sanitizedFormData = {};
         // if (!formData?.sections) sanitizedFormData = { ...formData, sections: [] };
         sanitizedFormData = { ...formData };
-        return mode === 'NEW' ? sanitizedFormData : { id: formData.id, changes: sanitizedFormData };
+        // Rest the mode to null
+        return mode === 'NEW' ? { ...sanitizedFormData, mode: 'EDIT' } : { id: formData.id, changes: sanitizedFormData };
     };
 
     const actions: IFormActions = {
