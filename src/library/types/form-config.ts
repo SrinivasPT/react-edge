@@ -91,6 +91,7 @@ export interface Section {
 
 export interface FormConfig {
     id: string;
+    mode: 'NEW' | 'EDIT';
     title: string;
     version: number;
     buttons: string;

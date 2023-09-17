@@ -16,14 +16,14 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
     const { isFormReady } = useInitializeForm({ id: params.formId as string, initialData, isInitialDataLoaded });
     const { actions } = useFormBuilder();
 
+    if (!isFormReady) return <div>Loading....</div>;
+
     if (params.formId === 'new')
         return (
             <PageLayout title="Page Structure" buttons={actions['page-actions']}>
                 <CreateNewForm />
             </PageLayout>
         );
-
-    if (!isFormReady) return <div>Loading....</div>;
 
     return (
         <FormActionsContext.Provider value={actions}>

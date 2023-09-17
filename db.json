@@ -524,8 +524,8 @@
             ]
         },
         {
-            "id": "adhar",
-            "title": "Adhar",
+            "id": "new",
+            "mode": "NEW",
             "sections": []
         }
     ],

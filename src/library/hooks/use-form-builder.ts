@@ -10,10 +10,11 @@ import { useSelector } from 'react-redux';
 const useFormBuilder = () => {
     const params = useParams();
     const router = useRouter();
+
     const [addForm] = useAddFormMutation();
     const [updateForm] = useUpdateFormMutation();
     const [deleteForm] = useDeleteFormMutation();
-    const mutationFns = { add: addForm, update: updateForm, delete: deleteForm };
+    const mutationFns = { NEW: addForm, EDIT: updateForm, delete: deleteForm };
 
     const formData: FormConfig = useSelector((store: any) => store.form.data);
     const internalState = useSelector((store: any) => store.form.internal);
@@ -38,9 +39,7 @@ const useFormBuilder = () => {
     };
 
     const handleSave = async (event: any) => {
-        // event.preventDefault();
-
-        const mode = formData.id === 'new' ? 'add' : 'update';
+        const mode = formData?.mode || 'new';
         const payload: any = getPayload(mode);
 
         try {
@@ -70,7 +69,7 @@ const useFormBuilder = () => {
         let sanitizedFormData = {};
         // if (!formData?.sections) sanitizedFormData = { ...formData, sections: [] };
         sanitizedFormData = { ...formData };
-        return mode === 'add' ? { newConfig: sanitizedFormData } : { id: formData.id, changes: sanitizedFormData };
+        return mode === 'NEW' ? sanitizedFormData : { id: formData.id, changes: sanitizedFormData };
     };
 
     const actions: IFormActions = {
