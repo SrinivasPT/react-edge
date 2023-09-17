@@ -21,6 +21,7 @@
         ],
         "paths": {
             "@components/*": ["./src/app/components/*"],
+            "@hooks/*": ["./src/app/hooks/*"],
             "@lib/*": ["./src/library/*"],
             "@store/*": ["./src/redux/*"],
             "@util/*": ["./src/util/*"],

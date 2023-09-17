@@ -1,4 +1,3 @@
-import { IButtonPallet } from '@lib/controls/organisms/button-pallet/button-pallet';
 import { IFormActions } from '@lib/sections/form-actions-context';
 import { FormConfig, Section } from '@lib/types';
 import { useAddFormMutation, useDeleteFormMutation, useUpdateFormMutation } from '@store/api/form-config-api';
@@ -20,8 +19,11 @@ const useFormBuilder = () => {
     const internalState = useSelector((store: any) => store.form.internal);
     const dispatch = useAppDispatch();
 
-    const addSection = (action: IButtonPallet) => {
-        console.log(`Add section called from section button pallet ${JSON.stringify(action)})}`);
+    const addSection = () => {
+        // console.log(`Add section called from section button pallet ${JSON.stringify(action)})}`);
+        const sectionId = prompt('Please enter section id');
+        dispatch(addToArray({ key: 'data.sections', value: { id: sectionId, title: '', controls: [] } }));
+        router.push(`/admin/form-builder/${params.formId}/sections/${sectionId}`);
     };
 
     const addControlsToSection = (formId: string, sectionId: string) => {
@@ -89,7 +91,7 @@ const useFormBuilder = () => {
         ],
     };
 
-    return { actions, handleSave, handleDelete, addControlsToSection, closeAddControlsModal };
+    return { actions, handleSave, handleDelete, addControlsToSection, closeAddControlsModal, addSection };
 };
 
 export default useFormBuilder;

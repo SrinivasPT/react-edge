@@ -16,9 +16,9 @@ const Page = ({ params }: { params: { formId: string } }) => {
 
     return (
         <>
-            <SectionBuilder formId="form" sectionId="page-header-free-form" parentKey="data" />
-            <SectionBuilder formId="form" sectionId="section-list-tabular" parentKey="data.sections" />
-            <SectionBuilder formId="form" sectionId="section-control-list-tabular" parentKey={controlsSectionParent} />
+            <SectionBuilder formId="form" sectionId="page-header-free-form" dataKey="data" />
+            <SectionBuilder formId="form" sectionId="section-list-tabular" dataKey="data.sections" />
+            <SectionBuilder formId="form" sectionId="section-control-list-tabular" dataKey={controlsSectionParent} />
         </>
     );
 };

@@ -8,10 +8,12 @@ interface SectionBuilderProps {
     formId: string;
     sectionId: string;
     parentKey?: string;
+    dataKey?: string;
 }
 
-const SectionBuilder: React.FC<SectionBuilderProps> = ({ formId, sectionId, parentKey }) => {
-    const sectionConfig = useFormConfig().getSectionConfig(formId, sectionId);
+const SectionBuilder: React.FC<SectionBuilderProps> = ({ formId, sectionId, parentKey, dataKey }) => {
+    const sectionConfig = useFormConfig().getSectionConfig(formId, sectionId) as Section;
+    const sectionDataKey = useFormConfig().getSectionDataKey(sectionConfig, parentKey as string);
     const { getWidthClass } = useFormControlFormat();
 
     const getOverrides = () => {
@@ -27,7 +29,7 @@ const SectionBuilder: React.FC<SectionBuilderProps> = ({ formId, sectionId, pare
                     try {
                         return (
                             <div key={index} className={`${getWidthClass(control)}`}>
-                                <ControlBuilder control={{ ...control, ...getOverrides() }} parentKey={parentKey ?? `${sectionId}`} />
+                                <ControlBuilder control={{ ...control, ...getOverrides() }} parentKey={dataKey ?? sectionDataKey} />
                             </div>
                         );
                     } catch (error) {

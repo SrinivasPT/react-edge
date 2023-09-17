@@ -21,8 +21,8 @@ const Page = ({ params }: { params: { formId: string; sectionId: string } }) => 
 
     return (
         <>
-            <SectionBuilder formId="form" sectionId="section-header-free-form" parentKey={`data.sections[${sectionIndex}]`} />
-            <SectionBuilder formId="form" sectionId="section-control-list-tabular" parentKey={`data.sections[${sectionIndex}].controls`} />
+            <SectionBuilder formId="form" sectionId="section-header-free-form" dataKey={`data.sections[${sectionIndex}]`} />
+            <SectionBuilder formId="form" sectionId="section-control-list-tabular" dataKey={`data.sections[${sectionIndex}].controls`} />
             <AddControlsModal formId={params.formId} sectionId={params.sectionId} />
         </>
     );

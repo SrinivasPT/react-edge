@@ -527,6 +527,35 @@
             "id": "new",
             "mode": "NEW",
             "sections": []
+        },
+        {
+            "id": "employee",
+            "mode": "EDIT",
+            "sections": [
+                {
+                    "id": "basic",
+                    "title": "Basic Info",
+                    "controls": [
+                        {
+                            "masterId": "employee.id"
+                        },
+                        {
+                            "masterId": "employee.firstName"
+                        },
+                        {
+                            "masterId": "employee.lastName"
+                        },
+                        {
+                            "masterId": "employee.age"
+                        },
+                        {
+                            "masterId": "employee.email"
+                        }
+                    ]
+                }
+            ],
+            "title": "Employees",
+            "version": "1.0"
         }
     ],
     "control-master": [
@@ -866,6 +895,51 @@
             "dataTypeCode": "DATE",
             "width": "SM",
             "isRequired": "YES"
+        },
+        {
+            "id": "id",
+            "masterId": "employee.id",
+            "label": "Id",
+            "controlTypeCode": "TEXT",
+            "dataTypeCode": "STRING",
+            "width": "SM",
+            "isRequired": "YES"
+        },
+        {
+            "id": "firstName",
+            "masterId": "employee.firstName",
+            "label": "First Name",
+            "controlTypeCode": "TEXT",
+            "dataTypeCode": "STRING",
+            "width": "SM",
+            "isRequired": "YES"
+        },
+        {
+            "id": "lastName",
+            "masterId": "employee.lastName",
+            "label": "Last Name",
+            "controlTypeCode": "TEXT",
+            "dataTypeCode": "STRING",
+            "width": "SM",
+            "isRequired": "YES"
+        },
+        {
+            "id": "age",
+            "masterId": "employee.age",
+            "label": "Age",
+            "controlTypeCode": "NUMBER",
+            "dataTypeCode": "NUMBER",
+            "width": "SM",
+            "isRequired": "YES"
+        },
+        {
+            "id": "email",
+            "masterId": "employee.email",
+            "label": "Email",
+            "controlTypeCode": "TEXT",
+            "dataTypeCode": "STRING",
+            "width": "SM",
+            "isRequired": "YES"
         }
     ],
     "domain": {
@@ -994,6 +1068,28 @@
             "age": 38,
             "email": "jane.doe@gmail.com",
             "birthDate": "1/1/1983"
+        }
+    ],
+    "employee": [
+        {
+            "id": 1000,
+            "basic": {
+                "id": 1000,
+                "firstName": "John",
+                "lastName": "Doe",
+                "age": 40,
+                "email": "john.doe@gmail.com"
+            }
+        },
+        {
+            "id": 1001,
+            "basic": {
+                "id": 1001,
+                "firstName": "Jane",
+                "lastName": "Doe",
+                "age": 40,
+                "email": "jane.doe@gmail.com"
+            }
         }
     ]
 }

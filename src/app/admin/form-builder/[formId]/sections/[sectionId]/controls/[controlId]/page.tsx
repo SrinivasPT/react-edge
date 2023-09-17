@@ -28,8 +28,8 @@ const Page = ({ params }: { params: { formId: string; sectionId: string; control
 
     return (
         <>
-            <SectionBuilder formId="form" sectionId="control-free-form" parentKey={`data.sections[${sectionIndex}].controls[${controlIndex}]`} />
-            <SectionBuilder formId="form" sectionId="control-master-free-form-readonly" parentKey={`internal.temp.${params.controlId}`} />
+            <SectionBuilder formId="form" sectionId="control-free-form" dataKey={`data.sections[${sectionIndex}].controls[${controlIndex}]`} />
+            <SectionBuilder formId="form" sectionId="control-master-free-form-readonly" dataKey={`internal.temp.${params.controlId}`} />
         </>
     );
 };

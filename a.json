@@ -1,298 +1,61 @@
-[
-    { "id": "id", "masterId": "page.id", "label": "Id", "controlTypeCode": "TEXT", "dataTypeCode": "STRING", "width": "SM", "isRequired": "YES" },
-    {
-        "id": "title",
-        "masterId": "page.title",
-        "label": "Title",
-        "controlTypeCode": "TEXT",
-        "dataTypeCode": "STRING",
-        "width": "SM",
-        "isRequired": "YES",
-        "minLength": 50
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "title": "Book",
+    "properties": {
+        "title": {
+            "type": "string",
+            "description": "The title of the book."
+        },
+        "description": {
+            "type": "string",
+            "description": "A brief summary of the book."
+        },
+        "isbn": {
+            "type": "string",
+            "description": "The International Standard Book Number."
+        },
+        "releaseDates": {
+            "type": "array",
+            "description": "List of release dates in various regions.",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "region": {
+                        "type": "string",
+                        "description": "The region where the book was released."
+                    },
+                    "date": {
+                        "type": "string",
+                        "format": "date",
+                        "description": "The release date of the book in the specified region."
+                    }
+                },
+                "required": ["region", "date"]
+            }
+        },
+        "authors": {
+            "type": "array",
+            "description": "List of authors of the book.",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "firstName": {
+                        "type": "string",
+                        "description": "The first name of the author."
+                    },
+                    "lastName": {
+                        "type": "string",
+                        "description": "The last name of the author."
+                    },
+                    "bio": {
+                        "type": "string",
+                        "description": "A brief biography of the author."
+                    }
+                },
+                "required": ["firstName", "lastName"]
+            }
+        }
     },
-    {
-        "id": "layout",
-        "masterId": "page.layout",
-        "label": "Layout",
-        "controlTypeCode": "SELECT",
-        "dataTypeCode": "STRING",
-        "width": "SM",
-        "domainCode": "LAYOUT_CODE",
-        "isRequired": "YES",
-        "maxLength": 50
-    },
-    {
-        "id": "dataKey",
-        "masterId": "page.dataKey",
-        "label": "Data Key",
-        "controlTypeCode": "TEXT",
-        "dataTypeCode": "STRING",
-        "width": "SM",
-        "isRequired": "YES"
-    },
-    {
-        "id": "version",
-        "masterId": "page.version",
-        "label": "Version",
-        "controlTypeCode": "TEXT",
-        "dataTypeCode": "STRING",
-        "width": "SM",
-        "isRequired": "YES"
-    },
-    { "id": "id", "masterId": "section.id", "label": "Id", "controlTypeCode": "TEXT", "dataTypeCode": "STRING", "width": "SM", "isRequired": "YES" },
-    {
-        "id": "title",
-        "masterId": "section.title",
-        "label": "Title",
-        "controlTypeCode": "TEXT",
-        "dataTypeCode": "STRING",
-        "width": "SM",
-        "isRequired": "YES"
-    },
-    {
-        "id": "id",
-        "masterId": "controlMaster.id",
-        "label": "Id",
-        "controlTypeCode": "TEXT",
-        "dataTypeCode": "STRING",
-        "width": "SM",
-        "isRequired": "YES"
-    },
-    {
-        "id": "label",
-        "masterId": "controlMaster.label",
-        "label": "Label",
-        "controlTypeCode": "TEXT",
-        "dataTypeCode": "STRING",
-        "width": "SM",
-        "isRequired": "YES"
-    },
-    {
-        "id": "typeCode",
-        "masterId": "controlMaster.controlTypeCode",
-        "label": "Control Type Code",
-        "controlTypeCode": "SELECT",
-        "dataTypeCode": "STRING",
-        "width": "SM",
-        "domainCode": "CONTROL_TYPE_CODE",
-        "isRequired": "YES",
-        "maxLength": 50
-    },
-    {
-        "id": "dataTypeCode",
-        "masterId": "controlMaster.dataTypeCode",
-        "label": "Data Type Code",
-        "controlTypeCode": "SELECT",
-        "dataTypeCode": "STRING",
-        "width": "SM",
-        "domainCode": "DATA_TYPE_CODE",
-        "isRequired": "YES",
-        "maxLength": 50
-    },
-    {
-        "id": "dataKey",
-        "masterId": "controlMaster.dataKey",
-        "label": "Data Key",
-        "controlTypeCode": "TEXT",
-        "dataTypeCode": "STRING",
-        "width": "SM",
-        "isRequired": "YES"
-    },
-    {
-        "id": "placeholder",
-        "masterId": "controlMaster.placeholder",
-        "label": "Placeholder",
-        "controlTypeCode": "TEXT",
-        "dataTypeCode": "STRING",
-        "width": "SM",
-        "isRequired": "YES"
-    },
-    {
-        "id": "width",
-        "masterId": "controlMaster.width",
-        "label": "Width",
-        "controlTypeCode": "SELECT",
-        "dataTypeCode": "STRING",
-        "width": "SM",
-        "domainCode": "WIDTH_CODE",
-        "isRequired": "YES",
-        "maxLength": 50
-    },
-    {
-        "id": "className",
-        "masterId": "controlMaster.className",
-        "label": "Class Name",
-        "controlTypeCode": "TEXT",
-        "dataTypeCode": "STRING",
-        "width": "SM",
-        "isRequired": "YES"
-    },
-    {
-        "id": "domainCode",
-        "masterId": "controlMaster.domainCode",
-        "label": "Domain Code",
-        "controlTypeCode": "SELECT",
-        "dataTypeCode": "STRING",
-        "width": "SM",
-        "domainCode": "DOMAIN_CODE",
-        "isRequired": "YES",
-        "maxLength": 50
-    },
-    {
-        "id": "parentId",
-        "masterId": "controlMaster.parentId",
-        "label": "Parent Id",
-        "controlTypeCode": "TEXT",
-        "dataTypeCode": "STRING",
-        "width": "SM",
-        "isRequired": "YES"
-    },
-    {
-        "id": "buttons",
-        "masterId": "controlMaster.buttons",
-        "label": "Buttons",
-        "controlTypeCode": "TEXT",
-        "dataTypeCode": "STRING",
-        "width": "SM",
-        "isRequired": "YES"
-    },
-    {
-        "id": "visible",
-        "masterId": "controlMaster.visible",
-        "label": "Visible",
-        "controlTypeCode": "SELECT",
-        "dataTypeCode": "STRING",
-        "width": "SM",
-        "domainCode": "YES_NO_CODE",
-        "isRequired": "YES"
-    },
-    {
-        "id": "visibleExpression",
-        "masterId": "controlMaster.visibleExpression",
-        "label": "Visible Expression",
-        "controlTypeCode": "TEXT",
-        "dataTypeCode": "STRING",
-        "width": "SM",
-        "isRequired": "YES"
-    },
-    {
-        "id": "readonly",
-        "masterId": "controlMaster.readonly",
-        "label": "Readonly",
-        "controlTypeCode": "TEXT",
-        "dataTypeCode": "STRING",
-        "width": "SM",
-        "isRequired": "YES"
-    },
-    {
-        "id": "readonlyExpression",
-        "masterId": "controlMaster.readonlyExpression",
-        "label": "Readonly Expression",
-        "controlTypeCode": "TEXT",
-        "dataTypeCode": "STRING",
-        "width": "SM",
-        "isRequired": "YES"
-    },
-    {
-        "id": "required",
-        "masterId": "controlMaster.isRequired",
-        "label": "Is Required",
-        "controlTypeCode": "SELECT",
-        "dataTypeCode": "STRING",
-        "width": "SM",
-        "domainCode": "YES_NO_CODE",
-        "isRequired": "YES",
-        "maxLength": 50
-    },
-    {
-        "id": "requiredExpression",
-        "masterId": "controlMaster.requiredExpression",
-        "label": "Required Expression",
-        "controlTypeCode": "TEXTAREA",
-        "dataTypeCode": "STRING",
-        "width": "SM",
-        "isRequired": "YES"
-    },
-    {
-        "id": "isHidden",
-        "masterId": "controlMaster.isHidden",
-        "label": "Is Hidden",
-        "controlTypeCode": "TEXT",
-        "dataTypeCode": "BOOL",
-        "width": "SM",
-        "domainCode": "YES_NO_CODE",
-        "isRequired": "YES"
-    },
-    {
-        "id": "hiddenExpression",
-        "masterId": "controlMaster.hiddenExpression",
-        "label": "Hidden Expression",
-        "controlTypeCode": "TEXTAREA",
-        "dataTypeCode": "STRING",
-        "width": "SM",
-        "isRequired": "YES"
-    },
-    {
-        "id": "minLength",
-        "masterId": "controlMaster.minLength",
-        "label": "Min Length",
-        "controlTypeCode": "TEXT",
-        "dataTypeCode": "NUMBER",
-        "width": "SM",
-        "isRequired": "YES"
-    },
-    {
-        "id": "maxLength",
-        "masterId": "controlMaster.maxLength",
-        "label": "Max Length",
-        "controlTypeCode": "TEXT",
-        "dataTypeCode": "NUMBER",
-        "width": "SM",
-        "isRequired": "YES"
-    },
-    {
-        "id": "min",
-        "masterId": "controlMaster.min",
-        "label": "Min",
-        "controlTypeCode": "NUMERIC",
-        "dataTypeCode": "NUMBER",
-        "width": "SM",
-        "isRequired": "YES"
-    },
-    {
-        "id": "max",
-        "masterId": "controlMaster.max",
-        "label": "Max",
-        "controlTypeCode": "NUMERIC",
-        "dataTypeCode": "NUMBER",
-        "width": "SM",
-        "isRequired": "YES"
-    },
-    {
-        "id": "pattern",
-        "masterId": "controlMaster.pattern",
-        "label": "Pattern",
-        "controlTypeCode": "TEXT",
-        "dataTypeCode": "STRING",
-        "width": "SM",
-        "isRequired": "YES"
-    },
-    {
-        "id": "minDate",
-        "masterId": "controlMaster.minDate",
-        "label": "Min Date",
-        "controlTypeCode": "DATE",
-        "dataTypeCode": "DATE",
-        "width": "SM",
-        "isRequired": "YES"
-    },
-    {
-        "id": "maxDate",
-        "masterId": "controlMaster.maxDate",
-        "label": "Max Date",
-        "controlTypeCode": "DATE",
-        "dataTypeCode": "DATE",
-        "width": "SM",
-        "isRequired": "YES"
-    }
-]
+    "required": ["title", "authors"]
+}

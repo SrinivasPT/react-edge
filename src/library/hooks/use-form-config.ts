@@ -3,18 +3,23 @@ import { useAppSelector } from '@store/hooks';
 import _ from 'lodash';
 
 export const useFormConfig = () => {
-    // const { data: config } = useAllFormsQuery();
     const formConfig = useAppSelector((state: any) => state.formConfig.queries['AllForms(null)']?.data);
     const controlMaster = useAppSelector((state: any) => state.controlMaster.queries['AllControls(null)']?.data);
 
     const getFormConfig = (formId: string): FormConfig | undefined => {
-        // const config = allFormsQuery.data;
         return formConfig?.find((form: any) => form.id === formId);
     };
 
     const getSectionConfig = (formId: string, sectionId: string): Section | undefined => {
         const formConfig = getFormConfig(formId);
         return formConfig?.sections.find(section => section.id === sectionId);
+    };
+
+    const getSectionDataKey = (section: Section, parentKey: string) => {
+        if (section.dataKey === 'USE_PARENT') return parentKey;
+        if (section.dataKey) return section.dataKey;
+        if (parentKey) return `${parentKey}.${section.id}`;
+        return section.id;
     };
 
     // const getControlConfig = (formId: string, sectionId: string, controlId: string): Control | undefined => {
@@ -56,6 +61,7 @@ export const useFormConfig = () => {
 
     return {
         getFormConfig,
+        getSectionDataKey,
         getSectionConfig,
         getFullControlConfig,
         getControlConfigByKey,

@@ -2,8 +2,6 @@ import TreeNode from '@lib/controls/molecules/tree-control/tree-node';
 import { useFormConfig } from '@lib/hooks';
 import { CardLayout } from '@lib/layout';
 import { Control, FormConfig, Section, TreeItem } from '@lib/types';
-import { addToArray } from '@store/features/form-slice';
-import { useAppDispatch } from '@store/hooks';
 import _ from 'lodash';
 import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
@@ -11,12 +9,10 @@ import { useSelector } from 'react-redux';
 
 const FormTreeControl = (params: any) => {
     const { getFullControlConfig } = useFormConfig();
-    // const formConfig = useFormConfig().getFormConfig(params.formId);
     const formConfig: FormConfig = useSelector((store: any) => store.form.data);
     const router = useRouter();
     const [data, setData] = useState(transformJson(formConfig));
     const [selectedItemId, setSelectedItemId] = useState<string | null>(null);
-    const dispatch = useAppDispatch();
 
     useEffect(() => {
         setData(transformJson(formConfig));
@@ -35,19 +31,6 @@ const FormTreeControl = (params: any) => {
                     break;
                 case 'SECTION':
                     router.push(`/admin/form-builder/${params.formId}/sections/${item.id}`);
-                    break;
-            }
-        }
-
-        if (action === 'ADD') {
-            switch (item.level) {
-                case 'PAGE':
-                    const sectionId = prompt('Please enter section id');
-                    dispatch(addToArray({ key: 'data.sections', value: { id: sectionId, title: '', controls: [] } }));
-                    router.push(`/admin/form-builder/${params.formId}/sections/${sectionId}`);
-                    break;
-                case 'SECTION':
-                    router.push(`/admin/form-builder/${params.formId}/sections/${item.id}/controls/new`);
                     break;
             }
         }
@@ -85,8 +68,6 @@ const FormTreeControl = (params: any) => {
             };
         }
     }
-
-    const getFormTree = () => {};
 
     return (
         <CardLayout section={{ title: 'Page Structure' } as Section}>
