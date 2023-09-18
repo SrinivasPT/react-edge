@@ -33,3 +33,11 @@ This makes sure your app's main ideas are used everywhere.
 -   Typescript is used to check the code.
 -   Tailwind CSS lets you design the look of the app.
 -   NextJS Dynamic Routing handles moving between pages.
+
+## 📚 **Tech Stack**
+
+-   NextJS
+-   React
+-   Typescript
+-   Redux RTKQ
+-   Tailwind CSS
