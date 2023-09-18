@@ -6,9 +6,11 @@ Our library is designed for your project, focusing on flexibility and customizat
 
 -   Platforms like IBM BPM, PEGA, and Workday have many features. But they're hard to change. Teams often build their own code instead of using these tools. This makes more work later.
 -   Making a fully custom app means teams do the same work over and over. This causes repeated code and extra effort.
--   Our UI library aims to fix this. It gives you the basic tools you need to make an app with less code. And it's easy to change to fit your project.
+-   Many UI libraries are too simple. They don't have the features teams need.
 
-## 🎯 **Key Ideas:**
+#### _This UI library aims to fix this. It gives you the basic tools you need to make an app with less code. And it's easy to change to fit your project._
+
+## 🎯 **Key Ideas**
 
 ### **Master Controls**
 
@@ -20,7 +22,7 @@ This makes sure your app's main ideas are used everywhere.
 
 ### **Library Connects Configuration and State**
 
--   Our library links the setup and the current state of the app.
+-   This library links the setup and the current state of the app.
 -   Each control works on its own. It only knows about its own data, not other controls.
 
 ### **Redux RTKQ**
