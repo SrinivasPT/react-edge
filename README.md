@@ -27,14 +27,15 @@ This makes sure your app's main ideas are used everywhere.
 
 ### **Redux RTKQ**
 
--   We use Redux RTKQ to manage the app's data and connect to the backend.
+-   This library uses Redux RTKQ to manage the app's data and connect to the backend.
 
 ### **Other Details**
 
--   We use hooks to let you change the library how you want.
+-   Provides hooks to let you change the library how you want.
 -   Typescript is used to check the code.
 -   Tailwind CSS lets you design the look of the app.
 -   NextJS Dynamic Routing handles moving between pages.
+-   Code values are centralized and dropdowns reads from the central values based on configuration.
 
 ## 📚 **Tech Stack**
 
