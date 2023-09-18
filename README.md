@@ -1,4 +1,4 @@
-# 🚀 **Customizable UI Library for Web App Development Teams**
+# 🚀 **Customizable UI Library for Web App Dev Teams**
 
 Our library is designed for your project, focusing on flexibility and customization.
 
