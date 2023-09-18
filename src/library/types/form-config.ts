@@ -1,4 +1,3 @@
-import { UUID } from 'crypto';
 import { ControlType, DataType } from './enums';
 
 export interface Validation {
@@ -24,33 +23,53 @@ export interface CustomProperties {
     [key: string]: any;
 }
 
-export interface Control {
-    guid: UUID;
+export interface SectionControl {
     id: string;
-    type: ControlType;
     label: string;
-    dataType: DataType;
+    typeCode?: string;
+    dataKey?: string;
+    masterId: string;
+    readonly?: boolean;
+    controls?: SectionControl[];
+}
+
+export interface Control {
+    id: string;
+    masterId: string;
+
+    label: string;
+    controlTypeCode: ControlType;
+    dataTypeCode: DataType;
     dataKey: string;
 
+    // Text Are
+    rows?: number;
+
     // Button
-    action: string;
+    buttons?: string;
 
     // Complex Controls
-    controls: Control[];
+    controls?: Control[];
 
     // Permissions
-    access?: Access;
+    visible?: boolean;
+    visibleExpression: string;
+    readonly?: boolean;
+    readonlyExpression: string;
 
     // Validations
     validations?: Validation;
 
     // Table
     isEditable?: boolean;
+    actions: string;
+    entityUrl?: string;
+    selectColumn?: string;
 
     // Non Mandatory properties
     entityAttribute?: string;
     placeholder?: string;
-    width?: string;
+    width: string;
     className?: string;
     domainCode?: string;
     parentId?: string;
@@ -62,17 +81,26 @@ export interface Control {
 export interface Section {
     id: string;
     title: string;
-    layout: string;
+    layoutTypeCode: string;
+    dataKey?: string;
+    access: Access;
+    actions: string;
+    readonly: string;
     controls: Control[];
 }
 
 export interface FormConfig {
     id: string;
+    mode: 'NEW' | 'EDIT';
     title: string;
+    version: number;
+    buttons: string;
+    dataKey?: string;
     sections: Section[];
 }
 
 export interface TreeItem {
+    uniqueId: string;
     id: string;
     label: string;
     level: string;
@@ -87,6 +115,13 @@ export type ContextMenuAction = {
 
 export interface ControlBuilderProps {
     control: Control;
+    parentKey: string;
+    value?: any;
+}
+
+export interface InputControlProps {
+    control: Control;
+    type: string;
     parentKey: string;
 }
 

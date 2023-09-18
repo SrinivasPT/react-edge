@@ -2,6 +2,7 @@ import { ControlBuilder } from '@lib/builders';
 import { CheckControl } from '@lib/controls';
 import { ControlBuilderProps } from '@lib/types';
 import { logger } from '@lib/utils';
+import RowAction from './row-action';
 import useTable from './use-table';
 
 const TableControl: React.FC<ControlBuilderProps> = ({ control, parentKey }) => {
@@ -32,49 +33,61 @@ const TableControl: React.FC<ControlBuilderProps> = ({ control, parentKey }) => 
             <table className="min-w-full divide-y divide-gray-200">
                 <thead className="bg-gray-100">
                     <tr>
+                        {control?.actions && <th className="pr-2">Actions</th>}
                         {control?.isEditable && (
                             <th className="pr-2">
                                 <CheckControl control={SelectAllControl} parentKey="" />
                             </th>
                         )}
-                        {control.controls.map((column, index) => (
-                            <th key={index} className="px-4 py-2 text-left text-xs font-medium text-gray-600 uppercase tracking-wider">
-                                {column.label}
-                            </th>
-                        ))}
+                        {control.controls &&
+                            control.controls.map((column, index) => (
+                                <th key={index} className="px-4 py-2 text-left text-xs font-medium text-gray-600 uppercase tracking-wider">
+                                    {column.label}
+                                </th>
+                            ))}
                     </tr>
                 </thead>
                 <tbody className="bg-white divide-y divide-gray-300">
-                    {data.map((row: any, rowIndex: number) => (
+                    {data?.map((row: any, rowIndex: number) => (
                         <tr
                             key={rowIndex}
-                            onClick={() => handleSelectRow(row.id)}
+                            onClick={() => handleSelectRow(row[control.selectColumn ?? 'id'])}
                             className={`cursor-pointer hover:bg-yellow-50 ${isTableEditable ? 'space-y-2' : ''} items-center ${
-                                isRowSelected(row.id) ? 'bg-yellow-50' : ''
+                                isRowSelected(row[control.selectColumn ?? 'id']) ? 'bg-yellow-50' : ''
                             }`}
                         >
-                            {control?.isEditable && (
+                            {control?.actions && (
                                 <td className="flex justify-center items-center p-3">
-                                    <CheckControl control={getSelectRowControl(row.guid)} parentKey="" />
+                                    <RowAction control={control} row={row} />
                                 </td>
                             )}
-                            {control.controls.map((cellControl, colIndex) => (
-                                <td key={colIndex} className={`${getCellPadding()}`}>
-                                    {isTableEditable ? (
-                                        <div className="w-full">
-                                            <ControlBuilder
-                                                control={{
-                                                    ...cellControl,
-                                                    className: 'border p-2 w-full transition-shadow duration-200 hover:shadow-md',
-                                                }}
-                                                parentKey={`${dataKey}[${rowIndex}]`}
-                                            />
-                                        </div>
-                                    ) : (
-                                        row[cellControl.id]
-                                    )}
+                            {control?.isEditable && (
+                                <td className="flex justify-center items-center p-3">
+                                    <CheckControl
+                                        control={{ ...getSelectRowControl(row.guid), id: row[control.selectColumn ?? 'id'] }}
+                                        parentKey=""
+                                        value={isRowSelected(row[control.selectColumn ?? 'id'])}
+                                    />
                                 </td>
-                            ))}
+                            )}
+                            {control.controls &&
+                                control.controls.map((cellControl, colIndex) => (
+                                    <td key={colIndex} className={`${getCellPadding()}`}>
+                                        {isTableEditable ? (
+                                            <div className="w-full">
+                                                <ControlBuilder
+                                                    control={{
+                                                        ...cellControl,
+                                                        className: 'border p-2 w-full transition-shadow duration-200 hover:shadow-md',
+                                                    }}
+                                                    parentKey={`${dataKey}[${rowIndex}]`}
+                                                />
+                                            </div>
+                                        ) : (
+                                            row[cellControl.id]
+                                        )}
+                                    </td>
+                                ))}
                         </tr>
                     ))}
                 </tbody>

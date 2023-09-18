@@ -1,3 +1,5 @@
+import _ from 'lodash';
+
 const { v4: uuidv4 } = require('uuid');
 
 export const newGuid = () => uuidv4();
@@ -20,3 +22,10 @@ export const isNil = (value: any) => {
 export const isNotNil = (value: any) => !isNil(value);
 
 export const isNotEmpty = (value: any) => !isEmpty(value);
+
+export const buildQueryString = (params: any) => {
+    const validParams = _.pickBy(params, value => !isNil(value));
+    const queryParams = _.toPairs(validParams).map(([key, value]) => `${key}=${value}`);
+    // if (queryParams.length === 0) return '';
+    return `${queryParams.join('&')}`;
+};

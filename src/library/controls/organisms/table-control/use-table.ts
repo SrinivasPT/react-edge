@@ -1,5 +1,5 @@
 import { useFormControl } from '@lib/hooks';
-import { Control, TableInternalState } from '@lib/types';
+import { Control, ControlType, TableInternalState } from '@lib/types';
 import { selectRow, toggleTableEditableStatus } from '@store/features/form-slice';
 import _ from 'lodash';
 import { useSelector } from 'react-redux';
@@ -31,15 +31,32 @@ export function useTable(control: Control, parentKey: string) {
         dispatch(toggleTableEditableStatus({ key: getInternalStateKey(dataKey) }));
     };
 
-    const SelectAllControl = { dataKey: `internal.table.${getInternalStateKey(dataKey)}.selectAllRows` } as Control;
+    const SelectAllControl = {
+        controlTypeCode: ControlType.Checkbox,
+        dataKey: `internal.table.${getInternalStateKey(dataKey)}.selectAllRows`,
+    } as Control;
 
-    const getSelectRowControl = (id: string) => ({ dataKey: `internal.table.${getInternalStateKey(dataKey)}.selectedRecords.${id}` } as Control);
+    const getSelectRowControl = (id: string) =>
+        ({ controlTypeCode: ControlType.Checkbox, dataKey: `internal.table.${getInternalStateKey(dataKey)}.selectedRecords` } as Control);
 
     const handleSelectRow = (rowId: number) => dispatch(selectRow({ key: getInternalStateKey(dataKey), rowId }));
 
-    const isRowSelected = (rowId: number) => iState?.selectedRowId === rowId;
+    const isRowSelected = (rowId: any) => {
+        if (!iState?.selectedRecords) return false;
+        return iState?.selectedRecords?.includes(rowId);
+    };
 
-    return { data, dataKey, dispatch, isTableEditable, handleToggleEditTable, SelectAllControl, getSelectRowControl, handleSelectRow, isRowSelected };
+    return {
+        data: data || [],
+        dataKey,
+        dispatch,
+        isTableEditable,
+        handleToggleEditTable,
+        SelectAllControl,
+        getSelectRowControl,
+        handleSelectRow,
+        isRowSelected,
+    };
 }
 
 export default useTable;

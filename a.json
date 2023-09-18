@@ -1,16 +1,61 @@
 {
-    "CONTROL_TYPE": [
-        { "code": "CHECK", "label": "Code", "sortOrder": 1 },
-        { "code": "DATE", "label": "Check", "sortOrder": 2 },
-        { "code": "NUMERIC", "label": "Date", "sortOrder": 3 },
-        { "code": "RADIO", "label": "Numeric", "sortOrder": 4 },
-        { "code": "SELECT", "label": "Radio", "sortOrder": 5 },
-        { "code": "TEXT", "label": "Select", "sortOrder": 6 }
-    ],
-    "DATA_TYPE": [
-        { "code": "BOOL", "label": "Text", "sortOrder": 1 },
-        { "code": "DATE", "label": "Bool", "sortOrder": 2 },
-        { "code": "NUMBER", "label": "Date", "sortOrder": 3 },
-        { "code": "STRING", "label": "Number", "sortOrder": 4 }
-    ]
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "title": "Book",
+    "properties": {
+        "title": {
+            "type": "string",
+            "description": "The title of the book."
+        },
+        "description": {
+            "type": "string",
+            "description": "A brief summary of the book."
+        },
+        "isbn": {
+            "type": "string",
+            "description": "The International Standard Book Number."
+        },
+        "releaseDates": {
+            "type": "array",
+            "description": "List of release dates in various regions.",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "region": {
+                        "type": "string",
+                        "description": "The region where the book was released."
+                    },
+                    "date": {
+                        "type": "string",
+                        "format": "date",
+                        "description": "The release date of the book in the specified region."
+                    }
+                },
+                "required": ["region", "date"]
+            }
+        },
+        "authors": {
+            "type": "array",
+            "description": "List of authors of the book.",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "firstName": {
+                        "type": "string",
+                        "description": "The first name of the author."
+                    },
+                    "lastName": {
+                        "type": "string",
+                        "description": "The last name of the author."
+                    },
+                    "bio": {
+                        "type": "string",
+                        "description": "A brief biography of the author."
+                    }
+                },
+                "required": ["firstName", "lastName"]
+            }
+        }
+    },
+    "required": ["title", "authors"]
 }

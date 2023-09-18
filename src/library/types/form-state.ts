@@ -8,7 +8,7 @@ export interface UIState {
     isError: boolean;
     isSaved: boolean;
     isSaveInProgress: boolean;
-    errorMessage: string | null;
+    [key: string]: boolean;
 }
 
 export interface Entity {
@@ -27,7 +27,7 @@ export interface Pagination {
 }
 
 export interface TableInternalState {
-    selectedRecords?: Record<string, boolean>;
+    selectedRecords?: any[];
     isEditable?: boolean;
     selectAllRows?: boolean;
     parentDataKey?: string;
@@ -36,10 +36,13 @@ export interface TableInternalState {
 
 export interface InternalState {
     table: Record<string, TableInternalState>;
+    temp: {};
 }
 
 export interface FormState {
+    searchCriteria: SearchCriteria;
     data: { [key: string]: any };
+    actions: { [key: string]: (...args: any[]) => void };
     internal: InternalState;
     custom: { [key: string]: any };
     flags: UIState;
@@ -53,9 +56,10 @@ export type DispatchEvent = {
 
 export type FormInit = {
     id: string;
-    entityName: string;
+    // entityName: string;
     initialData: any;
     isInitialDataLoaded: boolean;
+    actions?: { [key: string]: () => void };
 };
 
 export type MutationFunctions = {
@@ -65,6 +69,5 @@ export type MutationFunctions = {
 };
 
 export type InitialActionPayload = {
-    key: string;
     initialData: any;
 };

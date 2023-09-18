@@ -3,18 +3,10 @@ import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 import _ from 'lodash';
 
 const initialState: FormState = {
+    searchCriteria: {},
     data: {},
-    flags: {
-        isLoading: true,
-        isEditing: false,
-        isError: false,
-        isSaved: false,
-        isSaveInProgress: false,
-        errorMessage: null,
-    },
-    internal: {
-        table: {},
-    },
+    flags: { isLoading: true, isEditing: false, isError: false, isSaved: false, isSaveInProgress: false },
+    internal: { table: {}, temp: {} },
     custom: {},
     errors: {},
 } as FormState;
@@ -26,9 +18,13 @@ export const form = createSlice({
         reset: () => initialState,
         // Initialization
         setFormDetail: (state, action: PayloadAction<InitialActionPayload>) => {
-            const { key, initialData } = action.payload;
-            _.set(state, 'data', { ...initialData });
+            const { initialData } = action.payload;
+            _.set(state, 'data', initialData);
             _.set(state.flags, 'isLoading', false);
+        },
+
+        setFilteredData: (state, action: PayloadAction<any>) => {
+            state.data = action.payload;
         },
 
         // Table
@@ -38,7 +34,7 @@ export const form = createSlice({
             if (!state.internal.table[key]) {
                 // Initialize the table with the given key if it doesn't exist
                 state.internal.table[key] = {
-                    selectedRecords: {},
+                    selectedRecords: [],
                     isEditable: false, // Default to true if key is being created for the first time
                 };
             } else {
@@ -52,7 +48,7 @@ export const form = createSlice({
             if (!state.internal.table[key]) {
                 // Initialize the table with the given key if it doesn't exist
                 state.internal.table[key] = {
-                    selectedRecords: {},
+                    selectedRecords: [],
                     isEditable: false, // Default to true if key is being created for the first time
                     selectedRowId: rowId,
                 };
@@ -62,14 +58,67 @@ export const form = createSlice({
             }
         },
 
+        rowAction: (state, action: PayloadAction<{ key: string; rowId: any; action: string }>) => {},
+
+        // Set value for the key
+        setValue: (state, action: PayloadAction<{ key: string; value: any }>) => {
+            const { key, value } = action.payload;
+            _.set(state, key, value);
+        },
+
         // Control
         onChange: (state, action: PayloadAction<{ key: string; value: string }>) => {
             const { key, value } = action.payload;
             _.set(state, key, value);
         },
+
+        // Internal temp state
+        setInternalTemp: (state, action: PayloadAction<{ key: string; value: any }>) => {
+            _.set(state.internal.temp, action.payload.key, action.payload.value);
+        },
+
+        // Add passed in object in a array whose path is passed in as key
+        addToArray: (state, action: PayloadAction<{ key: string; value: any }>) => {
+            const { key, value } = action.payload;
+            const currentValue = _.get(state, key) || [];
+
+            const newValue = Array.isArray(value) ? [...currentValue, ...value] : [...currentValue, value];
+            _.set(state, key, newValue);
+        },
+
+        // Remove passed in object from a array whose path is passed in as key
+        removeFromArray: (state, action: PayloadAction<{ key: string; value: any }>) => {
+            const { key, value } = action.payload;
+            const array = _.get(state, key, []);
+            _.remove(array, value);
+            _.set(state, key, array);
+        },
+
+        // set flags in the internal state for various triggers
+        setFlag: (state, action: PayloadAction<{ key: string }>) => {
+            const { key } = action.payload;
+            _.set(state.flags, key, true);
+        },
+        removeFlag: (state, action: PayloadAction<{ key: string }>) => {
+            const { key } = action.payload;
+            _.set(state.flags, key, false);
+        },
     },
 });
 
-export const { onChange, setFormDetail, reset, toggleTableEditableStatus, selectRow } = form.actions;
+export const {
+    onChange,
+    setFormDetail,
+    reset,
+    toggleTableEditableStatus,
+    selectRow,
+    setFilteredData,
+    setInternalTemp,
+    addToArray,
+    removeFromArray,
+    setFlag,
+    removeFlag,
+    setValue,
+} = form.actions;
 
 export default form.reducer;
