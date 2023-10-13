@@ -24,7 +24,7 @@ const Page = ({ params }: { params: { formId: string } }) => {
 
     useEffect(() => {
         if (filteredData) {
-            dispatch(setFilteredData({ controlMaster: filteredData }));
+            dispatch(setFilteredData({ list: { controlMaster: filteredData } }));
         }
     }, [filteredData, searchCriteria, dispatch]);
 
