@@ -29,6 +29,13 @@ const FormTreeControl = (params: any) => {
                 case 'CONTROL':
                     router.push(`/admin/form-builder/${params.formId}/sections/${item.parentId}/controls/${item.id}`);
                     break;
+                case 'COMPLEX-CONTROL':
+                    router.push(
+                        `/admin/form-builder/${params.formId}/sections/${item.parentId?.split('.')[0]}/controls/${
+                            item.parentId?.split('.')[1]
+                        }/complex-controls/${item.id}`
+                    );
+                    break;
                 case 'SECTION':
                     router.push(`/admin/form-builder/${params.formId}/sections/${item.id}`);
                     break;
@@ -57,12 +64,22 @@ const FormTreeControl = (params: any) => {
             };
         }
 
+        if (input?.controlTypeCode === 'TABLE' && input.controls) {
+            return {
+                uniqueId: _.uniqueId(),
+                id: input.id,
+                label: 'TABLE: '.concat(input.title),
+                level: 'COMPLEX-CONTROL',
+                children: input.controls.map((control: Control) => transformJson(getFullControlConfig(control), (parentId + '.' + input.id) as any)),
+            };
+        }
+
         if (input?.id && input.label) {
             return {
                 uniqueId: _.uniqueId(),
                 id: input.masterId,
                 label: input.label,
-                level: 'CONTROL',
+                level: (parentId ?? '').includes('.') ? 'COMPLEX-CONTROL' : 'CONTROL',
                 parentId: parentId,
                 children: [],
             };
